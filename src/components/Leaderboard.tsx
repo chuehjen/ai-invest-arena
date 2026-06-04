@@ -1,5 +1,6 @@
 import React from 'react';
-import { participants, Agent } from '../data/competitionData';
+import { Agent } from '../data/competitionData';
+import { useComputedParticipants, usePriceContext } from '../data/usePrices';
 
 const medalColors: Record<string, { bg: string; border: string; text: string; icon: string }> = {
   gold: { bg: 'from-amber-500/20 to-yellow-600/10', border: 'border-amber-500/40', text: 'text-amber-400', icon: 'fa-crown' },
@@ -45,6 +46,8 @@ const PodiumCard: React.FC<{ agent: Agent; position: 1 | 2 | 3 }> = ({ agent, po
 };
 
 const Leaderboard: React.FC = () => {
+  const participants = useComputedParticipants();
+  const { lastUpdated } = usePriceContext();
   const ranked = [...participants].sort((a, b) => b.totalAssets - a.totalAssets);
   const topThree = ranked.slice(0, 3);
 
@@ -64,7 +67,7 @@ const Leaderboard: React.FC = () => {
         </div>
         <div className="flex items-center gap-2 text-xs text-gray-400 bg-gray-800 rounded-lg px-3 py-2">
           <i className="fa-solid fa-clock-rotate-left"></i>
-          <span>更新于 2026-06-03 · 建仓日</span>
+          <span>{lastUpdated ? `更新于 ${lastUpdated.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })}` : '更新于 2026-06-04 · 建仓日'}</span>
         </div>
       </div>
 

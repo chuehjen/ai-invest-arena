@@ -1,5 +1,6 @@
 import React from 'react';
-import { participants, competitionInfo } from '../data/competitionData';
+import { competitionInfo } from '../data/competitionData';
+import { useComputedParticipants } from '../data/usePrices';
 
 const rules = [
   { icon: 'fa-coins', label: '初始资金', value: '$10,000 USD' },
@@ -18,6 +19,7 @@ const timeline = [
 ];
 
 const Competition: React.FC = () => {
+  const participants = useComputedParticipants();
   const progress = 0;
 
   return (

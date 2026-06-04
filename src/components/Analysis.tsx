@@ -1,7 +1,9 @@
 import React from 'react';
-import { participants, dailyReturns } from '../data/competitionData';
+import { dailyReturns } from '../data/competitionData';
+import { useComputedParticipants } from '../data/usePrices';
 
 const Analysis: React.FC = () => {
+  const participants = useComputedParticipants();
   const allSymbols = new Map<string, { count: number; agents: string[] }>();
   participants.forEach(p => {
     p.holdings.forEach(h => {

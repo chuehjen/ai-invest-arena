@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
+import { usePriceContext } from '../data/usePrices';
 
 const navItems = [
   { path: '/dashboard', icon: 'fa-chart-line', label: '总览' },
@@ -13,6 +14,11 @@ const Layout: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const location = useLocation();
   const currentNavItem = navItems.find(item => location.pathname.startsWith(item.path));
+  const { refresh, loading, error, lastUpdated } = usePriceContext();
+
+  const statusText = lastUpdated
+    ? `${lastUpdated.getHours().toString().padStart(2, '0')}:${lastUpdated.getMinutes().toString().padStart(2, '0')} 已更新`
+    : '未刷新';
 
   return (
     <div className="flex h-screen bg-gray-950 text-white overflow-hidden">
@@ -80,11 +86,24 @@ const Layout: React.FC = () => {
             <span>/</span>
             <span className="text-white font-medium">{currentNavItem?.label || '总览'}</span>
           </div>
-          <div className="ml-auto flex items-center gap-4">
-            <div className="flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-3 py-1">
-              <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
-              <span className="text-green-400 text-xs font-medium">Day 1 建仓日</span>
-            </div>
+          <div className="ml-auto flex items-center gap-3">
+            <button
+              onClick={refresh}
+              disabled={loading}
+              className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
+                loading
+                  ? 'bg-blue-500/20 text-blue-300 cursor-wait'
+                  : error
+                  ? 'bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500/20'
+                  : lastUpdated
+                  ? 'bg-green-500/10 border border-green-500/20 text-green-400 hover:bg-green-500/20'
+                  : 'bg-gray-800 border border-gray-700 text-gray-300 hover:bg-gray-700'
+              }`}
+              title={error || '点击刷新最新股价'}
+            >
+              <i className={`fa-solid fa-arrows-rotate text-xs ${loading ? 'animate-spin' : ''}`}></i>
+              <span>{loading ? '刷新中...' : error ? '刷新失败' : lastUpdated ? statusText : '刷新股价'}</span>
+            </button>
           </div>
         </header>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-import { participants } from '../data/competitionData';
+import { useComputedParticipants } from '../data/usePrices';
 
 const sectorColors: Record<string, string> = {
   '半导体': '#8b5cf6', '软件': '#3b82f6', '互联网': '#06b6d4', '电商/云': '#f59e0b',
@@ -10,6 +10,7 @@ const sectorColors: Record<string, string> = {
 };
 
 const Portfolio: React.FC = () => {
+  const participants = useComputedParticipants();
   const [activeId, setActiveId] = useState(participants[0].id);
   const agent = participants.find(p => p.id === activeId);
   if (!agent) return null;

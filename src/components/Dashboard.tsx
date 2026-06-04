@@ -3,9 +3,11 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   BarChart, Bar,
 } from 'recharts';
-import { participants, performanceHistory, competitionInfo } from '../data/competitionData';
+import { performanceHistory, competitionInfo } from '../data/competitionData';
+import { useComputedParticipants } from '../data/usePrices';
 
 const Dashboard: React.FC = () => {
+  const participants = useComputedParticipants();
   const sorted = [...participants].sort((a, b) => b.totalAssets - a.totalAssets);
   const leader = sorted[0];
   const avgReturn = participants.reduce((s, p) => s + p.returnPct, 0) / participants.length;
