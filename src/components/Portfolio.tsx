@@ -16,7 +16,7 @@ const Portfolio: React.FC = () => {
 
   const holdings = agent.holdings;
   const stockTotal = holdings.reduce((s, h) => s + h.marketValue, 0);
-  const totalAssets = Math.min(stockTotal + agent.cash, 10000);
+  const totalAssets = stockTotal + agent.cash;
   const totalPnl = holdings.reduce((s, h) => s + h.pnl, 0);
 
   const sectorData = Object.entries(
