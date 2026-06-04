@@ -93,7 +93,7 @@ export const participants: Agent[] = [
       { symbol: 'NVDA', name: '英伟达', shares: 8, avgCost: 223, currentPrice: 221.00, sector: '半导体' },
       { symbol: 'XOM', name: '埃克森美孚', shares: 11, avgCost: 151, currentPrice: 150.00, sector: '能源' },
       { symbol: 'GOOGL', name: '谷歌', shares: 4, avgCost: 364, currentPrice: 358.00, sector: '互联网' },
-      { symbol: 'MSFT', name: '微软', shares: 3, avgCost: 415, currentPrice: 428.00, sector: '软件' },
+      { symbol: 'MSFT', name: '微软', shares: 3, avgCost: 441, currentPrice: 428.00, sector: '软件' },
       { symbol: 'AAPL', name: '苹果', shares: 4, avgCost: 314, currentPrice: 312.00, sector: '消费电子' },
       { symbol: 'GLD', name: '黄金ETF', shares: 2, avgCost: 420, currentPrice: 420.00, sector: '黄金' },
     ], 1775),
@@ -124,17 +124,17 @@ export const participants: Agent[] = [
   },
   {
     id: 'qwen', rank: 1, name: '千问', avatar: 'QW', color: '#fbbf24',
-    totalAssets: 10333.52, returnPct: 3.34, cash: 0, cashPct: 0, holdingsCount: 7,
+    totalAssets: 10005.73, returnPct: 0.06, cash: 136.68, cashPct: 1.4, holdingsCount: 7,
     style: '成长型 · 进攻+防御对冲', badge: 'gold',
     holdings: mkHoldings([
-      { symbol: 'NVDA', name: '英伟达', shares: 5, avgCost: 260, currentPrice: 213.41, sector: '半导体' },
-      { symbol: 'MSFT', name: '微软', shares: 6, avgCost: 450, currentPrice: 432.23, sector: '软件' },
-      { symbol: 'AMZN', name: '亚马逊', shares: 6, avgCost: 190, currentPrice: 253.34, sector: '电商/云' },
-      { symbol: 'META', name: 'Meta', shares: 4, avgCost: 500, currentPrice: 631.66, sector: '社交媒体' },
-      { symbol: 'V', name: 'Visa', shares: 4, avgCost: 320, currentPrice: 319.84, sector: '金融' },
-      { symbol: 'GLD', name: '黄金ETF', shares: 2, avgCost: 140, currentPrice: 140.00, sector: '黄金' },
-      { symbol: 'AAPL', name: '苹果', shares: 5, avgCost: 260, currentPrice: 213.41, sector: '消费电子' },
-    ], 0),
+      { symbol: 'NVDA', name: '英伟达', shares: 4, avgCost: 222.82, currentPrice: 216.20, sector: '半导体' },
+      { symbol: 'MSFT', name: '微软', shares: 5, avgCost: 441.31, currentPrice: 429.87, sector: '软件' },
+      { symbol: 'AMZN', name: '亚马逊', shares: 5, avgCost: 256.52, currentPrice: 255.50, sector: '电商/云' },
+      { symbol: 'META', name: 'Meta', shares: 3, avgCost: 597.63, currentPrice: 638.97, sector: '社交媒体' },
+      { symbol: 'V', name: 'Visa', shares: 4, avgCost: 320.00, currentPrice: 322.00, sector: '金融' },
+      { symbol: 'GLD', name: '黄金ETF', shares: 2, avgCost: 420.00, currentPrice: 410.37, sector: '黄金' },
+      { symbol: 'AAPL', name: '苹果', shares: 5, avgCost: 314.00, currentPrice: 310.35, sector: '消费电子' },
+    ], 136.68),
   },
   {
     id: 'serenity', rank: 2, name: 'Serenity', avatar: 'SE', color: '#2dd4bf',
@@ -181,12 +181,12 @@ export const participants: Agent[] = [
 
 export const performanceHistory: PerformancePoint[] = [
   { date: '06-03', chatgpt: 0, 'gemini-ext': 0, 'gemini-std': 0, claude: 0, grok: 0, doubao: 0, qwen: 0, serenity: 0, 'beth-kindig': 0, 'cathie-wood': 0 },
-  { date: '06-04', chatgpt: -3.39, 'gemini-ext': -0.31, 'gemini-std': -1.82, claude: -0.03, grok: -1.48, doubao: -1.48, qwen: 3.34, serenity: -0.20, 'beth-kindig': -1.44, 'cathie-wood': -0.16 },
+  { date: '06-04', chatgpt: -3.39, 'gemini-ext': -0.31, 'gemini-std': -1.82, claude: -0.03, grok: -1.48, doubao: -1.48, qwen: 0.06, serenity: -0.20, 'beth-kindig': -1.44, 'cathie-wood': -0.16 },
 ];
 
 export const dailyReturns: DailyReturn[] = [
   { date: '2026-06-03', returns: { chatgpt: 0, 'gemini-ext': 0, 'gemini-std': 0, claude: 0, grok: 0, doubao: 0, qwen: 0, serenity: 0, 'beth-kindig': 0, 'cathie-wood': 0 } },
-  { date: '2026-06-04', returns: { chatgpt: -3.39, 'gemini-ext': -0.31, 'gemini-std': -1.82, claude: -0.03, grok: -1.48, doubao: -1.48, qwen: 3.34, serenity: -0.20, 'beth-kindig': -1.44, 'cathie-wood': -0.16 } },
+  { date: '2026-06-04', returns: { chatgpt: -3.39, 'gemini-ext': -0.31, 'gemini-std': -1.82, claude: -0.03, grok: -1.48, doubao: -1.48, qwen: 0.06, serenity: -0.20, 'beth-kindig': -1.44, 'cathie-wood': -0.16 } },
 ];
 
 export const competitionInfo = {
