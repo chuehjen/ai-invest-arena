@@ -8,49 +8,61 @@ interface PriceContextType {
   loading: boolean;
   error: string | null;
   lastUpdated: Date | null;
+  progress: string;          // e.g. "12/26"
   refresh: () => Promise<void>;
 }
 
 const PriceContext = createContext<PriceContextType | null>(null);
 
+const TWELVE_DATA_KEY = '6bc32203d6de416698c9b17a59459f93';
+const BATCH_SIZE = 8;        // free tier: 8 credits / min
+const BATCH_DELAY_MS = 62_000; // 62s between batches
+
 const ALL_SYMBOLS = Array.from(
   new Set(baseParticipants.flatMap(p => p.holdings.map(h => h.symbol)))
 );
 
-async function fetchStockPrices(): Promise<PriceMap> {
-  const symbols = ALL_SYMBOLS.join(',');
-  const yahooUrl = `https://query1.finance.yahoo.com/v8/finance/spark?symbols=${symbols}&range=1d&interval=1d`;
-  const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(yahooUrl)}`;
-
-  const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(15000) });
+/** Twelve Data /price batch — returns { "NVDA": { price: "215.86" }, ... } */
+async function fetchBatch(symbols: string[]): Promise<PriceMap> {
+  const url = `https://api.twelvedata.com/price?symbol=${symbols.join(',')}&apikey=${TWELVE_DATA_KEY}`;
+  const res = await fetch(url, { signal: AbortSignal.timeout(20000) });
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  if (data?.code && data.status === 'error') throw new Error(data.message || 'API error');
 
-  const json = await res.json();
-  if (!json.contents) throw new Error('Empty response from proxy');
-
-  const data = JSON.parse(json.contents);
   const prices: PriceMap = {};
-
-  for (const [symbol, info] of Object.entries(data.spark?.result ?? {})) {
-    const arr = (info as any)?.response?.[0]?.meta;
-    if (arr?.regularMarketPrice) prices[symbol] = arr.regularMarketPrice;
+  for (const [sym, info] of Object.entries(data)) {
+    const price = parseFloat((info as any)?.price);
+    if (!isNaN(price) && price > 0) prices[sym] = price;
   }
+  return prices;
+}
 
-  if (Object.keys(prices).length === 0) {
-    // Fallback: try v7 quote endpoint
-    const yahooV7 = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols}`;
-    const proxyV7 = `https://api.allorigins.win/get?url=${encodeURIComponent(yahooV7)}`;
-    const res2 = await fetch(proxyV7, { signal: AbortSignal.timeout(15000) });
-    if (res2.ok) {
-      const json2 = await res2.json();
-      const data2 = JSON.parse(json2.contents);
-      for (const q of data2?.quoteResponse?.result ?? []) {
-        if (q.symbol && q.regularMarketPrice) prices[q.symbol] = q.regularMarketPrice;
-      }
+function sleep(ms: number) { return new Promise(r => setTimeout(r, ms)); }
+
+/**
+ * Fetch all stock prices via Twelve Data, batched to respect the 8 credits/min free-tier limit.
+ * 26 symbols → 4 batches (8+8+8+2), ~3 minutes total.
+ */
+async function fetchStockPrices(
+  onProgress?: (fetched: number, total: number) => void,
+): Promise<PriceMap> {
+  const total = ALL_SYMBOLS.length;
+  const allPrices: PriceMap = {};
+
+  for (let i = 0; i < total; i += BATCH_SIZE) {
+    const batch = ALL_SYMBOLS.slice(i, i + BATCH_SIZE);
+    const prices = await fetchBatch(batch);
+    Object.assign(allPrices, prices);
+    onProgress?.(Math.min(i + BATCH_SIZE, total), total);
+
+    // Wait before next batch (skip after last batch)
+    if (i + BATCH_SIZE < total) {
+      await sleep(BATCH_DELAY_MS);
     }
   }
 
-  return prices;
+  return allPrices;
 }
 
 export const PriceProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -58,12 +70,16 @@ export const PriceProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  const [progress, setProgress] = useState('');
 
   const refresh = useCallback(async () => {
     setLoading(true);
     setError(null);
+    setProgress('');
     try {
-      const p = await fetchStockPrices();
+      const p = await fetchStockPrices((fetched, total) => {
+        setProgress(`${fetched}/${total}`);
+      });
       if (Object.keys(p).length === 0) throw new Error('未获取到任何股价数据');
       setPrices(p);
       setLastUpdated(new Date());
@@ -75,7 +91,7 @@ export const PriceProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   }, []);
 
   return (
-    <PriceContext.Provider value={{ prices, loading, error, lastUpdated, refresh }}>
+    <PriceContext.Provider value={{ prices, loading, error, lastUpdated, progress, refresh }}>
       {children}
     </PriceContext.Provider>
   );

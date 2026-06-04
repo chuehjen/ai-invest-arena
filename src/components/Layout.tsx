@@ -14,7 +14,7 @@ const Layout: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const location = useLocation();
   const currentNavItem = navItems.find(item => location.pathname.startsWith(item.path));
-  const { refresh, loading, error, lastUpdated } = usePriceContext();
+  const { refresh, loading, error, lastUpdated, progress } = usePriceContext();
 
   const statusText = lastUpdated
     ? `${lastUpdated.getHours().toString().padStart(2, '0')}:${lastUpdated.getMinutes().toString().padStart(2, '0')} 已更新`
@@ -102,7 +102,7 @@ const Layout: React.FC = () => {
               title={error || '点击刷新最新股价'}
             >
               <i className={`fa-solid fa-arrows-rotate text-xs ${loading ? 'animate-spin' : ''}`}></i>
-              <span>{loading ? '刷新中...' : error ? '刷新失败' : lastUpdated ? statusText : '刷新股价'}</span>
+              <span>{loading ? (progress ? `刷新中 ${progress}` : '刷新中...') : error ? '刷新失败' : lastUpdated ? statusText : '刷新股价'}</span>
             </button>
           </div>
         </header>
