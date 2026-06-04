@@ -127,7 +127,7 @@ const Competition: React.FC = () => {
         <h3 className="text-sm font-semibold text-gray-300 mb-4 flex items-center gap-2">
           <i className="fa-solid fa-robot text-blue-400"></i>参赛智能体
         </h3>
-        <div className="grid grid-cols-7 gap-3">
+        <div className="grid grid-cols-5 gap-3">
           {participants.map(p => (
             <div key={p.id} className="bg-gray-800 rounded-xl p-4 text-center hover:bg-gray-750 transition-colors">
               <div className="w-12 h-12 rounded-full mx-auto mb-2 flex items-center justify-center" style={{ background: `${p.color}25` }}>

@@ -28,7 +28,7 @@ const Analysis: React.FC = () => {
         </div>
         <div>
           <h1 className="text-xl font-bold text-white">AI 策略分析</h1>
-          <p className="text-sm text-gray-400">7 个智能体的持仓对比与投资洞察</p>
+          <p className="text-sm text-gray-400">{participants.length} 个智能体的持仓对比与投资洞察</p>
         </div>
         <div className="ml-auto flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1">
           <div className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></div>
@@ -74,7 +74,7 @@ const Analysis: React.FC = () => {
           <div className="mt-4 p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl">
             <p className="text-sm text-amber-300">
               <i className="fa-solid fa-circle-info mr-2"></i>
-              NVDA 是唯一被全部 {participants.length} 个智能体持有的股票，MSFT 被 6 个持有。
+              {topSymbols[0][0]} 是持有最广的股票，被 {topSymbols[0][1].count}/{participants.length} 个智能体持有；{topSymbols[1][0]} 被 {topSymbols[1][1].count} 个持有。
             </p>
           </div>
         </div>
@@ -88,6 +88,9 @@ const Analysis: React.FC = () => {
               { label: '最防御', agent: '豆包', desc: 'VOO+红利ETF+医药', icon: 'fa-shield-halved', color: 'text-green-400' },
               { label: '最独特', agent: 'Claude', desc: '唯一配黄金+能源', icon: 'fa-gem', color: 'text-purple-400' },
               { label: '最激进', agent: '千问', desc: '现金0%，满仓6只', icon: 'fa-fire', color: 'text-amber-400' },
+              { label: '光互连主题', agent: 'Serenity', desc: 'LITE+COHR光模块重仓', icon: 'fa-network-wired', color: 'text-teal-400' },
+              { label: '电力主线', agent: 'Beth Kindig', desc: 'BE+GEV押AI电力瓶颈', icon: 'fa-bolt', color: 'text-rose-400' },
+              { label: '颠覆创新', agent: '木头姐', desc: '基因+公链+机器人收敛', icon: 'fa-dna', color: 'text-indigo-400' },
             ].map(item => (
               <div key={item.label} className="flex items-start gap-3 py-1.5">
                 <i className={`fa-solid ${item.icon} ${item.color} text-sm mt-0.5 w-4 text-center`}></i>

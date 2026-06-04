@@ -137,14 +137,56 @@ export const participants: Agent[] = [
       { symbol: 'GLD', name: '黄金ETF', shares: 2, avgCost: 140, currentPrice: 140, sector: '黄金' },
     ], 0),
   },
+  {
+    id: 'serenity', rank: 8, name: 'Serenity', avatar: 'SE', color: '#2dd4bf',
+    totalAssets: 10000, returnPct: 0, cash: 1002.34, cashPct: 10.0, holdingsCount: 5,
+    style: '光互连 · AI算力瓶颈集中', badge: null,
+    holdings: mkHoldings([
+      { symbol: 'LITE', name: 'Lumentum', shares: 3, avgCost: 900.70, currentPrice: 900.70, sector: '光模块' },
+      { symbol: 'COHR', name: 'Coherent', shares: 6, avgCost: 398.00, currentPrice: 398.00, sector: '光模块' },
+      { symbol: 'MRVL', name: 'Marvell', shares: 5, avgCost: 282.03, currentPrice: 282.03, sector: '半导体' },
+      { symbol: 'NBIS', name: 'Nebius', shares: 6, avgCost: 240.90, currentPrice: 240.90, sector: '云计算' },
+      { symbol: 'MU', name: '美光', shares: 1, avgCost: 1052.01, currentPrice: 1052.01, sector: '半导体' },
+    ], 1002.34),
+  },
+  {
+    id: 'beth-kindig', rank: 9, name: 'Beth Kindig', avatar: 'BK', color: '#fb7185',
+    totalAssets: 10000, returnPct: 0, cash: 1251.67, cashPct: 12.5, holdingsCount: 7,
+    style: '成长型 · 电力主线+软件', badge: null,
+    holdings: mkHoldings([
+      { symbol: 'BE', name: 'Bloom Energy', shares: 7, avgCost: 287.32, currentPrice: 287.32, sector: '电力' },
+      { symbol: 'PLTR', name: 'Palantir', shares: 12, avgCost: 142.20, currentPrice: 142.20, sector: '软件' },
+      { symbol: 'MRVL', name: 'Marvell', shares: 4, avgCost: 301.65, currentPrice: 301.65, sector: '半导体' },
+      { symbol: 'APP', name: 'AppLovin', shares: 2, avgCost: 570.83, currentPrice: 570.83, sector: '软件' },
+      { symbol: 'MU', name: '美光', shares: 1, avgCost: 1079.57, currentPrice: 1079.57, sector: '半导体' },
+      { symbol: 'GEV', name: 'GE Vernova', shares: 1, avgCost: 959.36, currentPrice: 959.36, sector: '电力' },
+      { symbol: 'NVDA', name: '英伟达', shares: 3, avgCost: 214.50, currentPrice: 214.50, sector: '半导体' },
+    ], 1251.67),
+  },
+  {
+    id: 'cathie-wood', rank: 10, name: '木头姐', avatar: 'CW', color: '#818cf8',
+    totalAssets: 10000, returnPct: 0, cash: 1235.60, cashPct: 12.4, holdingsCount: 9,
+    style: '颠覆创新 · 五大平台收敛', badge: null,
+    holdings: mkHoldings([
+      { symbol: 'TSLA', name: '特斯拉', shares: 3, avgCost: 423.70, currentPrice: 423.70, sector: '汽车' },
+      { symbol: 'SHOP', name: 'Shopify', shares: 11, avgCost: 112.94, currentPrice: 112.94, sector: '电商/云' },
+      { symbol: 'AMD', name: 'AMD', shares: 2, avgCost: 542.52, currentPrice: 542.52, sector: '半导体' },
+      { symbol: 'TEM', name: 'Tempus AI', shares: 22, avgCost: 47.51, currentPrice: 47.51, sector: '医药' },
+      { symbol: 'PLTR', name: 'Palantir', shares: 7, avgCost: 142.20, currentPrice: 142.20, sector: '软件' },
+      { symbol: 'HOOD', name: 'Robinhood', shares: 12, avgCost: 82.85, currentPrice: 82.85, sector: '金融' },
+      { symbol: 'CRSP', name: 'CRISPR', shares: 18, avgCost: 52.08, currentPrice: 52.08, sector: '生物科技' },
+      { symbol: 'COIN', name: 'Coinbase', shares: 4, avgCost: 163.22, currentPrice: 163.22, sector: '金融' },
+      { symbol: 'CRCL', name: 'Circle', shares: 6, avgCost: 90.13, currentPrice: 90.13, sector: '金融' },
+    ], 1235.60),
+  },
 ];
 
 export const performanceHistory: PerformancePoint[] = [
-  { date: '06-03', chatgpt: 0, 'gemini-ext': 0, 'gemini-std': 0, claude: 0, grok: 0, doubao: 0, qwen: 0 },
+  { date: '06-03', chatgpt: 0, 'gemini-ext': 0, 'gemini-std': 0, claude: 0, grok: 0, doubao: 0, qwen: 0, serenity: 0, 'beth-kindig': 0, 'cathie-wood': 0 },
 ];
 
 export const dailyReturns: DailyReturn[] = [
-  { date: '2026-06-03', returns: { chatgpt: 0, 'gemini-ext': 0, 'gemini-std': 0, claude: 0, grok: 0, doubao: 0, qwen: 0 } },
+  { date: '2026-06-03', returns: { chatgpt: 0, 'gemini-ext': 0, 'gemini-std': 0, claude: 0, grok: 0, doubao: 0, qwen: 0, serenity: 0, 'beth-kindig': 0, 'cathie-wood': 0 } },
 ];
 
 export const competitionInfo = {
@@ -152,7 +194,7 @@ export const competitionInfo = {
   season: 'S1',
   startDate: '2026-06-03',
   endDate: '2026-07-03',
-  totalParticipants: 7,
+  totalParticipants: 10,
   initialCapital: 10000,
   daysRemaining: 30,
 };

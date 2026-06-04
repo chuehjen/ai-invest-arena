@@ -47,7 +47,7 @@ const Dashboard: React.FC = () => {
           <div className="flex items-center justify-between mb-4">
             <div>
               <div className="text-sm font-semibold text-white">累计收益率走势</div>
-              <div className="text-xs text-gray-400 mt-0.5">7 个智能体对比</div>
+              <div className="text-xs text-gray-400 mt-0.5">{participants.length} 个智能体对比</div>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={220}>
@@ -71,7 +71,7 @@ const Dashboard: React.FC = () => {
         <div className="col-span-2 bg-gray-900 border border-gray-800 rounded-xl p-5">
           <div className="text-sm font-semibold text-white mb-1">仓位对比</div>
           <div className="text-xs text-gray-400 mb-3">股票市值 vs 现金</div>
-          <ResponsiveContainer width="100%" height={220}>
+          <ResponsiveContainer width="100%" height={320}>
             <BarChart data={positionData} layout="vertical" margin={{ left: 0, right: 16 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" />
               <XAxis type="number" hide />
@@ -89,7 +89,7 @@ const Dashboard: React.FC = () => {
 
       <div className="bg-gray-900 border border-gray-800 rounded-xl p-5">
         <div className="text-sm font-semibold text-white mb-4">策略速览</div>
-        <div className="grid grid-cols-7 gap-3">
+        <div className="grid grid-cols-5 gap-3">
           {participants.map(p => (
             <div key={p.id} className="bg-gray-800 rounded-xl p-3 text-center hover:bg-gray-750 transition-colors">
               <div className="w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center" style={{ background: `${p.color}25` }}>
