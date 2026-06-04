@@ -4,7 +4,7 @@ import { Outlet, NavLink, useLocation } from 'react-router-dom';
 const navItems = [
   { path: '/dashboard', icon: 'fa-chart-line', label: '总览' },
   { path: '/leaderboard', icon: 'fa-trophy', label: '排行榜' },
-  { path: '/portfolio', icon: 'fa-briefcase', label: '我的持仓' },
+  { path: '/portfolio', icon: 'fa-briefcase', label: '持仓明细' },
   { path: '/competition', icon: 'fa-flag-checkered', label: '赛事信息' },
   { path: '/analysis', icon: 'fa-brain', label: 'AI分析' },
 ];
@@ -12,7 +12,6 @@ const navItems = [
 const Layout: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const location = useLocation();
-
   const currentNavItem = navItems.find(item => location.pathname.startsWith(item.path));
 
   return (
@@ -29,8 +28,8 @@ const Layout: React.FC = () => {
             </div>
             {!sidebarCollapsed && (
               <div className="min-w-0">
-                <div className="text-sm font-bold text-white truncate">AI投资赛</div>
-                <div className="text-xs text-gray-400 truncate">Season 3</div>
+                <div className="text-sm font-bold text-white truncate">AI投资竞赛</div>
+                <div className="text-xs text-gray-400 truncate">7 智能体 · $10K</div>
               </div>
             )}
           </div>
@@ -65,19 +64,12 @@ const Layout: React.FC = () => {
         </nav>
 
         <div className="p-4 border-t border-gray-800 flex-shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center flex-shrink-0">
-              <span className="text-xs font-bold text-white">ZW</span>
+          {!sidebarCollapsed && (
+            <div className="text-xs text-gray-500 text-center">
+              <i className="fa-solid fa-calendar-day mr-1"></i>
+              建仓日 2026-06-03
             </div>
-            {!sidebarCollapsed && (
-              <div className="min-w-0">
-                <div className="text-sm font-medium text-white truncate">张伟</div>
-                <div className="text-xs text-amber-400 truncate">
-                  <i className="fa-solid fa-crown mr-1"></i>排名 #1
-                </div>
-              </div>
-            )}
-          </div>
+          )}
         </div>
       </aside>
 
@@ -91,15 +83,8 @@ const Layout: React.FC = () => {
           <div className="ml-auto flex items-center gap-4">
             <div className="flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-3 py-1">
               <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></div>
-              <span className="text-green-400 text-xs font-medium">实时行情</span>
+              <span className="text-green-400 text-xs font-medium">Day 1 建仓日</span>
             </div>
-            <button className="relative text-gray-400 hover:text-white transition-colors">
-              <i className="fa-solid fa-bell text-sm"></i>
-              <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full text-xs flex items-center justify-center text-white font-bold" style={{ fontSize: '9px' }}>3</span>
-            </button>
-            <button className="text-gray-400 hover:text-white transition-colors">
-              <i className="fa-solid fa-gear text-sm"></i>
-            </button>
           </div>
         </header>
 
