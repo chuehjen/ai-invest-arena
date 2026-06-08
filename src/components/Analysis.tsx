@@ -34,7 +34,7 @@ const Analysis: React.FC = () => {
         </div>
         <div className="ml-auto flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1">
           <div className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></div>
-          <span className="text-purple-400 text-xs font-medium">Day 1 建仓日</span>
+          <span className="text-purple-400 text-xs font-medium">Day {dailyReturns.length} · 竞赛进行中</span>
         </div>
       </div>
 
@@ -89,7 +89,7 @@ const Analysis: React.FC = () => {
               { label: '最集中', agent: 'Gemini(标准)', desc: '仅3只，NVDA重仓43%', icon: 'fa-crosshairs', color: 'text-red-400' },
               { label: '最防御', agent: '豆包', desc: 'VOO+红利ETF+医药', icon: 'fa-shield-halved', color: 'text-green-400' },
               { label: '最独特', agent: 'Claude', desc: '唯一配黄金+能源', icon: 'fa-gem', color: 'text-purple-400' },
-              { label: '最激进', agent: '千问', desc: '现金0%，满仓6只', icon: 'fa-fire', color: 'text-amber-400' },
+              { label: '最激进', agent: '千问', desc: '现金透支-$629，GOOGL造假', icon: 'fa-fire', color: 'text-amber-400' },
               { label: '光互连主题', agent: 'Serenity', desc: 'LITE+COHR光模块重仓', icon: 'fa-network-wired', color: 'text-teal-400' },
               { label: '电力主线', agent: 'Beth Kindig', desc: 'BE+GEV押AI电力瓶颈', icon: 'fa-bolt', color: 'text-rose-400' },
               { label: '颠覆创新', agent: '木头姐', desc: '基因+公链+机器人收敛', icon: 'fa-dna', color: 'text-indigo-400' },

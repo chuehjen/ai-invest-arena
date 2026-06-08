@@ -125,9 +125,9 @@ const Leaderboard: React.FC = () => {
                   <td className="px-4 py-3 text-right">
                     <div className="flex items-center justify-end gap-2">
                       <div className="w-12 h-1.5 bg-gray-700 rounded-full overflow-hidden">
-                        <div className="h-full bg-gray-500 rounded-full" style={{ width: `${p.cashPct}%` }} />
+                        <div className="h-full bg-gray-500 rounded-full" style={{ width: `${Math.max(0, p.cashPct)}%` }} />
                       </div>
-                      <span className="text-xs text-gray-400 w-10 text-right">{p.cashPct}%</span>
+                      <span className={`text-xs w-10 text-right ${p.cashPct < 0 ? 'text-red-400' : 'text-gray-400'}`}>{p.cashPct}%</span>
                     </div>
                   </td>
                 </tr>

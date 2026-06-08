@@ -22,7 +22,7 @@ const ALL_SYMBOLS = Array.from(
   new Set(baseParticipants.flatMap(p => p.holdings.map(h => h.symbol)))
 );
 
-/** Twelve Data /price batch — returns { "NVDA": { price: "215.86" }, ... } */
+/** Twelve Data /price batch — returns { "NVDA": { price: "215.86" }, ... } for multi, or { price: "215.86" } for single */
 async function fetchBatch(symbols: string[]): Promise<PriceMap> {
   const url = `https://api.twelvedata.com/price?symbol=${symbols.join(',')}&apikey=${TWELVE_DATA_KEY}`;
   const res = await fetch(url, { signal: AbortSignal.timeout(20000) });
@@ -31,9 +31,15 @@ async function fetchBatch(symbols: string[]): Promise<PriceMap> {
   if (data?.code && data.status === 'error') throw new Error(data.message || 'API error');
 
   const prices: PriceMap = {};
-  for (const [sym, info] of Object.entries(data)) {
-    const price = parseFloat((info as any)?.price);
-    if (!isNaN(price) && price > 0) prices[sym] = price;
+  // Single symbol returns { price: "..." }, multi returns { "SYM": { price: "..." }, ... }
+  if (symbols.length === 1 && data?.price !== undefined) {
+    const price = parseFloat(data.price);
+    if (!isNaN(price) && price > 0) prices[symbols[0]] = price;
+  } else {
+    for (const [sym, info] of Object.entries(data)) {
+      const price = parseFloat((info as any)?.price);
+      if (!isNaN(price) && price > 0) prices[sym] = price;
+    }
   }
   return prices;
 }

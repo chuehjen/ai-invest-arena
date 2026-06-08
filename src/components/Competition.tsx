@@ -7,7 +7,7 @@ const rules = [
   { icon: 'fa-ban', label: '禁止事项', value: '杠杆、期权、期货、加密货币' },
   { icon: 'fa-chart-pie', label: '投资范围', value: '美股 NYSE / NASDAQ' },
   { icon: 'fa-clock', label: '调仓时间', value: '每日 21:00（北京时间）' },
-  { icon: 'fa-dollar-sign', label: '成交定价', value: '当日开盘价' },
+  { icon: 'fa-dollar-sign', label: '成交定价', value: '前一交易日收盘价' },
   { icon: 'fa-trophy', label: '评比标准', value: '累计收益率' },
 ];
 
@@ -20,7 +20,12 @@ const timeline = [
 
 const Competition: React.FC = () => {
   const participants = useComputedParticipants();
-  const progress = 0;
+
+  const start = new Date(competitionInfo.startDate).getTime();
+  const end = new Date(competitionInfo.endDate).getTime();
+  const now = Date.now();
+  const progress = Math.min(100, Math.max(0, Math.round(((now - start) / (end - start)) * 100)));
+  const daysRemaining = Math.max(0, Math.ceil((end - now) / 86400000));
 
   return (
     <div className="space-y-6">
@@ -47,7 +52,7 @@ const Competition: React.FC = () => {
               <div className="text-gray-400 text-sm mt-1">AI 智能体</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-green-400">{competitionInfo.daysRemaining}</div>
+              <div className="text-2xl font-bold text-green-400">{daysRemaining}</div>
               <div className="text-gray-400 text-sm mt-1">剩余天数</div>
             </div>
           </div>
@@ -138,9 +143,9 @@ const Competition: React.FC = () => {
               <div className="text-sm font-semibold text-white mb-1">{p.name}</div>
               <div className="text-xs text-gray-500">{p.style.split(' · ')[0]}</div>
               <div className="mt-2 h-1 bg-gray-700 rounded-full overflow-hidden">
-                <div className="h-full rounded-full" style={{ width: `${100 - p.cashPct}%`, backgroundColor: p.color }}></div>
+                <div className="h-full rounded-full" style={{ width: `${Math.min(100, Math.max(0, 100 - p.cashPct))}%`, backgroundColor: p.color }}></div>
               </div>
-              <div className="text-xs text-gray-600 mt-1">持仓 {100 - p.cashPct}%</div>
+              <div className="text-xs text-gray-600 mt-1">持仓 {Math.min(100, Math.max(0, Math.round(100 - p.cashPct)))}%</div>
             </div>
           ))}
         </div>

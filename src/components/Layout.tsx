@@ -35,7 +35,7 @@ const Layout: React.FC = () => {
             {!sidebarCollapsed && (
               <div className="min-w-0">
                 <div className="text-sm font-bold text-white truncate">AI投资竞赛</div>
-                <div className="text-xs text-gray-400 truncate">7 智能体 · $10K</div>
+                <div className="text-xs text-gray-400 truncate">10 智能体 · $10K</div>
               </div>
             )}
           </div>

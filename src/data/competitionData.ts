@@ -197,5 +197,4 @@ export const competitionInfo = {
   endDate: '2026-07-03',
   totalParticipants: 10,
   initialCapital: 10000,
-  daysRemaining: 28,
 };
