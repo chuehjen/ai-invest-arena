@@ -33,43 +33,8 @@ const BATCH_SIZE = 8;
 const BATCH_DELAY_MS = 62_000;
 const DATA_URL = `${process.env.PUBLIC_URL || ''}/data/latest.json`;
 
-// Supabase 双源数据：填上 url + anon_key 后前端走 Supabase；空字符串则纯走 latest.json 回落
-// keys 同时也读 ${PUBLIC_URL}/data/supabase-config.json（部署时可热替换不重新打包）
-const SUPABASE_URL = '';
-const SUPABASE_ANON_KEY = '';
-const SUPABASE_TABLE = 'ai_invest_snapshots';
-
-interface SupabaseConfig { url: string; anon_key: string; }
-
-async function loadSupabaseConfig(): Promise<SupabaseConfig | null> {
-  if (SUPABASE_URL && SUPABASE_ANON_KEY) {
-    return { url: SUPABASE_URL, anon_key: SUPABASE_ANON_KEY };
-  }
-  try {
-    const res = await fetch(`${process.env.PUBLIC_URL || ''}/data/supabase-config.json`, {
-      cache: 'no-store',
-    });
-    if (!res.ok) return null;
-    const cfg = await res.json();
-    if (cfg?.url && cfg?.anon_key) return cfg;
-  } catch { /* config 不存在静默回落 */ }
-  return null;
-}
-
-async function fetchSnapshotFromSupabase(cfg: SupabaseConfig): Promise<CompetitionSnapshot | null> {
-  // 拉最近一行：order=snapshot_date.desc&limit=1
-  const url = `${cfg.url.replace(/\/$/, '')}/rest/v1/${SUPABASE_TABLE}?select=payload&order=snapshot_date.desc&limit=1`;
-  const res = await fetch(url, {
-    headers: {
-      apikey: cfg.anon_key,
-      Authorization: `Bearer ${cfg.anon_key}`,
-    },
-  });
-  if (!res.ok) throw new Error(`Supabase HTTP ${res.status}`);
-  const rows = (await res.json()) as Array<{ payload: CompetitionSnapshot }>;
-  if (!Array.isArray(rows) || rows.length === 0) return null;
-  return rows[0].payload;
-}
+// Supabase 双源：通过 OneDay SDK 走 supabase（`@ali/oneday-frontend-sdk`），失败回落 latest.json
+import { fetchLatestSnapshot } from '../services/snapshotService';
 
 async function fetchBatch(symbols: string[]): Promise<PriceMap> {
   const url = `https://api.twelvedata.com/price?symbol=${symbols.join(',')}&apikey=${TWELVE_DATA_KEY}`;
@@ -106,16 +71,13 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const reloadData = useCallback(async () => {
     setDataError(null);
-    // 1) 尝试 Supabase
+    // 1) 尝试 OneDay SDK → supabase
     try {
-      const cfg = await loadSupabaseConfig();
-      if (cfg) {
-        const snap = await fetchSnapshotFromSupabase(cfg);
-        if (snap) {
-          setSnapshot(snap);
-          setDataSource('supabase');
-          return;
-        }
+      const row = await fetchLatestSnapshot();
+      if (row && row.payload) {
+        setSnapshot(row.payload);
+        setDataSource('supabase');
+        return;
       }
     } catch (err) {
       console.warn('Supabase 拉取失败，回落 latest.json:', err);
