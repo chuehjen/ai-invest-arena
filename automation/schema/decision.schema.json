@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Invest Arena Daily Decision",
+  "description": "10 智能体每日调仓决策的标准 JSON 输出，由各 AI 在提示词末尾的 ```json ... ``` 代码块中产出",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "agent_id",
+    "date",
+    "exec_price_basis",
+    "actions",
+    "holdings_after",
+    "cash_after",
+    "total_assets_after"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "agent_id": {
+      "type": "string",
+      "enum": ["chatgpt", "gemini-ext", "gemini-std", "claude", "grok", "doubao", "qwen", "serenity", "beth-kindig", "cathie-wood"]
+    },
+    "agent_name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "exec_price_basis": {
+      "type": "string",
+      "const": "previous_close",
+      "description": "竞赛规则：买卖均按前一交易日收盘价"
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "symbol"],
+        "properties": {
+          "type": {"type": "string", "enum": ["BUY", "SELL", "HOLD"]},
+          "symbol": {"type": "string"},
+          "shares": {"type": "number", "minimum": 0},
+          "price": {"type": "number", "minimum": 0, "description": "执行价（前一交易日收盘价）；HOLD 可省略"},
+          "rationale": {"type": "string", "maxLength": 200}
+        }
+      }
+    },
+    "holdings_after": {
+      "type": "array",
+      "description": "调仓后的全部持仓列表",
+      "items": {
+        "type": "object",
+        "required": ["symbol", "shares", "avg_cost"],
+        "properties": {
+          "symbol": {"type": "string"},
+          "shares": {"type": "number", "minimum": 0},
+          "avg_cost": {"type": "number", "minimum": 0}
+        }
+      }
+    },
+    "cash_after": {
+      "type": "number",
+      "description": "调仓后现金，必须 ≥ 0（透支视为违规）"
+    },
+    "total_assets_after": {
+      "type": "number",
+      "description": "Σ(shares × current_price) + cash，由 AI 自行算出供裁判核对"
+    },
+    "return_pct_cumulative": {
+      "type": "number",
+      "description": "累计收益率（百分比，相对 $10,000 初始资金）"
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "200 字以内投资逻辑"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "strongest_bear_case": {
+      "type": "string",
+      "description": "最强反方观点（200 字内）",
+      "maxLength": 500
+    }
+  }
+}

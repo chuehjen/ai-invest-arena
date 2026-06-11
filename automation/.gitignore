@@ -1,0 +1,5 @@
+# Auto-generated runtime artifacts
+logs/
+__pycache__/
+*.pyc
+*.validation.json
