@@ -31,7 +31,7 @@ const DataContext = createContext<DataContextType | null>(null);
 const TWELVE_DATA_KEY = '6bc32203d6de416698c9b17a59459f93';
 const BATCH_SIZE = 8;
 const BATCH_DELAY_MS = 62_000;
-const DATA_URL = `${process.env.PUBLIC_URL || ''}/data/latest.json`;
+const DATA_URL = '/data/latest.json';
 
 // Supabase 双源：通过 OneDay SDK 走 supabase（`@ali/oneday-frontend-sdk`），失败回落 latest.json
 import { fetchLatestSnapshot } from '../services/snapshotService';
