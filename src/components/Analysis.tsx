@@ -1,9 +1,14 @@
 import React from 'react';
-import { dailyReturns } from '../data/competitionData';
-import { useComputedParticipants } from '../data/usePrices';
+import { useComputedParticipants, useDataContext } from '../data/usePrices';
 
 const Analysis: React.FC = () => {
+  const { dailyReturns, dataReady, dataError } = useDataContext();
   const participants = useComputedParticipants();
+
+  if (dataError) return <div className="text-red-400 p-8">数据加载失败：{dataError}</div>;
+  if (!dataReady || participants.length === 0) {
+    return <div className="text-gray-400 p-8 text-center">加载策略分析数据...</div>;
+  }
   const allSymbols = new Map<string, { count: number; agents: string[] }>();
   participants.forEach(p => {
     p.holdings.forEach(h => {

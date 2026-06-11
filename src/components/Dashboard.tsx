@@ -3,19 +3,24 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   BarChart, Bar,
 } from 'recharts';
-import { performanceHistory, competitionInfo } from '../data/competitionData';
-import { useComputedParticipants } from '../data/usePrices';
+import { useComputedParticipants, useDataContext } from '../data/usePrices';
 
 const Dashboard: React.FC = () => {
+  const { performanceHistory, competitionInfo, dataReady, dataError } = useDataContext();
   const participants = useComputedParticipants();
+
+  if (dataError) return <div className="text-red-400 p-8">数据加载失败：{dataError}</div>;
+  if (!dataReady || participants.length === 0) {
+    return <div className="text-gray-400 p-8 text-center">加载竞赛数据...</div>;
+  }
+
   const sorted = [...participants].sort((a, b) => b.totalAssets - a.totalAssets);
   const leader = sorted[0];
   const avgReturn = participants.reduce((s, p) => s + p.returnPct, 0) / participants.length;
-  const totalPool = participants.reduce((s, p) => s + p.totalAssets, 0);
   const minCash = participants.reduce((m, p) => p.cashPct < m.cashPct ? p : m, participants[0]);
 
   const STAT_CARDS = [
-    { label: '参赛智能体', value: `${participants.length}`, sub: `初始 $${competitionInfo.initialCapital.toLocaleString()}`, icon: 'fa-robot', color: 'text-blue-400', bg: 'bg-blue-500/10' },
+    { label: '参赛智能体', value: `${participants.length}`, sub: `初始 $${(competitionInfo?.initialCapital ?? 10000).toLocaleString()}`, icon: 'fa-robot', color: 'text-blue-400', bg: 'bg-blue-500/10' },
     { label: '当前领先', value: leader.name, sub: leader.style.split(' · ')[0], icon: 'fa-crown', color: 'text-amber-400', bg: 'bg-amber-500/10' },
     { label: '平均收益', value: `${avgReturn.toFixed(2)}%`, sub: '建仓日', icon: 'fa-chart-line', color: 'text-green-400', bg: 'bg-green-500/10' },
     { label: '最激进', value: minCash.name, sub: `现金 ${minCash.cashPct}%`, icon: 'fa-fire', color: 'text-red-400', bg: 'bg-red-500/10' },

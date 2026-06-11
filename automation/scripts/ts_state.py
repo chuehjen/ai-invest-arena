@@ -1,72 +1,57 @@
 """
-ts_state.py — 解析 competitionData.ts 末态（participants 数组）
+ts_state.py — 解析最新竞赛末态（participants 数组）
 
-由于该 TS 文件由 codegen 严格控制结构，我们用正则提取每个 agent 的 holdings + cash + totalAssets。
+数据隔离方案 A 后：直接从 public/data/latest.json 读取 snapshot，提供与原 TS 解析等价的字典结构。
+保留模块名 / 接口签名以便上游脚本零改动。
 """
-import re
+import json
 from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from config import DATA_TS_PATH
+from config import DATA_LATEST_JSON
 
 
-_AGENT_RE = re.compile(
-    r"id:\s*'([^']+)'.*?"
-    r"totalAssets:\s*([\d.]+),\s*returnPct:\s*(-?[\d.]+),\s*"
-    r"cash:\s*([\d.]+),\s*cashPct:\s*([\d.]+),\s*holdingsCount:\s*(\d+),\s*"
-    r"style:\s*'([^']*)'.*?"
-    r"holdings:\s*mkHoldings\(\[(.*?)\],\s*([\d.]+)\)",
-    re.DOTALL,
-)
-
-_HOLDING_RE = re.compile(
-    r"\{\s*symbol:\s*'([^']+)'\s*,\s*name:\s*'([^']*)'\s*,\s*"
-    r"shares:\s*([\d.]+)\s*,\s*avgCost:\s*([\d.]+)\s*,\s*"
-    r"currentPrice:\s*([\d.]+)\s*,\s*sector:\s*'([^']*)'\s*\}"
-)
+def _load_latest(json_path: Path = DATA_LATEST_JSON):
+    if not json_path.exists():
+        raise FileNotFoundError(f"latest snapshot missing: {json_path}")
+    return json.loads(json_path.read_text())
 
 
-def parse_state(ts_path: Path = DATA_TS_PATH):
-    text = ts_path.read_text()
-    agents = []
-    for m in _AGENT_RE.finditer(text):
-        agent_id, total_assets, return_pct, cash, cash_pct, count, style, holdings_blob, cash2 = m.groups()
+def parse_state(json_path: Path = DATA_LATEST_JSON):
+    snap = _load_latest(json_path)
+    out = []
+    for a in snap.get("participants", []):
         holdings = []
-        for hm in _HOLDING_RE.finditer(holdings_blob):
-            sym, name, shares, avg, cur, sector = hm.groups()
+        for h in a.get("holdings", []):
             holdings.append({
-                "symbol": sym,
-                "name": name,
-                "shares": float(shares),
-                "avg_cost": float(avg),
-                "current_price": float(cur),
-                "sector": sector,
+                "symbol": h["symbol"],
+                "name": h.get("name", h["symbol"]),
+                "shares": float(h["shares"]),
+                "avg_cost": float(h["avgCost"]),
+                "current_price": float(h["currentPrice"]),
+                "sector": h.get("sector", "其他"),
             })
-        agents.append({
-            "id": agent_id,
-            "total_assets": float(total_assets),
-            "return_pct": float(return_pct),
-            "cash": float(cash),
-            "cash_pct": float(cash_pct),
-            "holdings_count": int(count),
-            "style": style,
+        out.append({
+            "id": a["id"],
+            "total_assets": float(a["totalAssets"]),
+            "return_pct": float(a["returnPct"]),
+            "cash": float(a["cash"]),
+            "cash_pct": float(a["cashPct"]),
+            "holdings_count": int(a["holdingsCount"]),
+            "style": a.get("style", ""),
             "holdings": holdings,
         })
-    return agents
+    return out
 
 
-def parse_dates(ts_path: Path = DATA_TS_PATH):
-    """提取 performanceHistory 中所有日期（用于推断当前 Day N）"""
-    text = ts_path.read_text()
-    m = re.search(r"performanceHistory:\s*PerformancePoint\[\]\s*=\s*\[(.*?)\];", text, re.DOTALL)
-    if not m:
-        return []
-    return re.findall(r"date:\s*'(\d{2}-\d{2})'", m.group(1))
+def parse_dates(json_path: Path = DATA_LATEST_JSON):
+    """从 performanceHistory 提取所有 MM-DD 日期。"""
+    snap = _load_latest(json_path)
+    return [row["date"] for row in snap.get("performanceHistory", [])]
 
 
 if __name__ == "__main__":
-    import json
     agents = parse_state()
     print(f"Parsed {len(agents)} agents")
     for a in agents:

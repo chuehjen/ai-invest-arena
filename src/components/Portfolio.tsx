@@ -11,9 +11,13 @@ const sectorColors: Record<string, string> = {
 
 const Portfolio: React.FC = () => {
   const participants = useComputedParticipants();
-  const [activeId, setActiveId] = useState(participants[0].id);
-  const agent = participants.find(p => p.id === activeId);
-  if (!agent) return null;
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  if (participants.length === 0) {
+    return <div className="text-gray-400 p-8 text-center">加载持仓数据...</div>;
+  }
+  const currentId = activeId ?? participants[0].id;
+  const agent = participants.find(p => p.id === currentId) ?? participants[0];
 
   const holdings = agent.holdings;
   const stockTotal = holdings.reduce((s, h) => s + h.marketValue, 0);
@@ -52,11 +56,11 @@ const Portfolio: React.FC = () => {
             key={p.id}
             onClick={() => setActiveId(p.id)}
             className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-              activeId === p.id ? 'text-gray-900 font-bold' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+              currentId === p.id ? 'text-gray-900 font-bold' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
             }`}
-            style={activeId === p.id ? { backgroundColor: p.color } : {}}
+            style={currentId === p.id ? { backgroundColor: p.color } : {}}
           >
-            <span className="mr-1.5" style={activeId !== p.id ? { color: p.color } : {}}>{p.avatar}</span>
+            <span className="mr-1.5" style={currentId !== p.id ? { color: p.color } : {}}>{p.avatar}</span>
             {p.name}
           </button>
         ))}

@@ -1,6 +1,5 @@
 import React from 'react';
-import { competitionInfo } from '../data/competitionData';
-import { useComputedParticipants } from '../data/usePrices';
+import { useComputedParticipants, useDataContext } from '../data/usePrices';
 
 const rules = [
   { icon: 'fa-coins', label: '初始资金', value: '$10,000 USD' },
@@ -19,7 +18,13 @@ const timeline = [
 ];
 
 const Competition: React.FC = () => {
+  const { competitionInfo, dataReady, dataError } = useDataContext();
   const participants = useComputedParticipants();
+
+  if (dataError) return <div className="text-red-400 p-8">数据加载失败：{dataError}</div>;
+  if (!dataReady || !competitionInfo) {
+    return <div className="text-gray-400 p-8 text-center">加载竞赛信息...</div>;
+  }
 
   const start = new Date(competitionInfo.startDate).getTime();
   const end = new Date(competitionInfo.endDate).getTime();

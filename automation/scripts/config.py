@@ -9,9 +9,28 @@ LOGS_DIR = ROOT / "logs"
 SCHEMA_PATH = ROOT / "schema" / "decision.schema.json"
 TEMPLATE_PATH = ROOT / "templates" / "daily_prompt.md.tpl"
 DATA_TS_PATH = ROOT.parent / "src" / "data" / "competitionData.ts"
+DATA_JSON_DIR = ROOT.parent / "public" / "data"
+DATA_LATEST_JSON = DATA_JSON_DIR / "latest.json"
+DATA_ARCHIVE_DIR = DATA_JSON_DIR / "archive"
 
 TWELVE_DATA_KEY = "6bc32203d6de416698c9b17a59459f93"
 TWELVE_DATA_BASE = "https://api.twelvedata.com"
+
+# 钉钉自定义机器人（用户群：大仁哥）
+DINGBOT_WEBHOOK = "https://oapi.dingtalk.com/robot/send?access_token=7d31113b9945e8fece153289b1de5c1ae7f539dea7996b1fff416c98795d1835"
+DINGBOT_KEYWORD = "情报采集"  # 自定义关键词，每条消息内容必须包含
+DINGBOT_GROUP_CID = "cid/1GQYVRRbwm/ZliGeQWujw=="  # 群「大仁哥」openConversationId
+
+# Supabase（OneDay sandbox）— 等用户提供 keys 后填入 ~/.qoderwork/secrets/supabase.json
+# 文件 schema:
+# {"url": "https://xxx.supabase.co", "anon_key": "eyJ...", "service_key": "eyJ..."}
+import os, json
+SUPABASE_SECRETS_PATH = Path.home() / ".qoderwork" / "secrets" / "supabase.json"
+def load_supabase_secrets():
+    if SUPABASE_SECRETS_PATH.exists():
+        return json.loads(SUPABASE_SECRETS_PATH.read_text())
+    return None
+SUPABASE_TABLE = "ai_invest_snapshots"
 
 # 当前竞赛 30 symbols（从 Day6 实测整理，sector 与 Portfolio.tsx 同步）
 SYMBOLS = [

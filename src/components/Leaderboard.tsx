@@ -48,6 +48,9 @@ const PodiumCard: React.FC<{ agent: Agent; position: 1 | 2 | 3 }> = ({ agent, po
 const Leaderboard: React.FC = () => {
   const participants = useComputedParticipants();
   const { lastUpdated } = usePriceContext();
+  if (participants.length === 0) {
+    return <div className="text-gray-400 p-8 text-center">加载排行榜数据...</div>;
+  }
   const ranked = [...participants].sort((a, b) => b.totalAssets - a.totalAssets);
   const topThree = ranked.slice(0, 3);
 
