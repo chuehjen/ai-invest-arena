@@ -6,7 +6,7 @@ import {
 type PriceMap = Record<string, number>;
 
 interface DataContextType {
-  // 静态/快照数据（从 public/data/latest.json fetch）
+  // 静态/快照数据（优先 jsdelivr CDN，回落 Supabase / bundled）
   participants: Agent[];
   performanceHistory: PerformancePoint[];
   dailyReturns: DailyReturn[];
@@ -14,7 +14,8 @@ interface DataContextType {
   snapshotDate: string;
   dataReady: boolean;
   dataError: string | null;
-  dataSource: 'supabase' | 'latest.json' | null;
+  dataSource: 'jsdelivr' | 'supabase' | 'bundled' | null;
+  dataLoading: boolean;
   reloadData: () => Promise<void>;
 
   // 实时股价
@@ -32,7 +33,11 @@ const TWELVE_DATA_KEY = '6bc32203d6de416698c9b17a59459f93';
 const BATCH_SIZE = 8;
 const BATCH_DELAY_MS = 62_000;
 
-// 静态快照通过 webpack JSON import 内联进 bundle（OneDay 部署不暴露 public/）
+// jsdelivr CDN：拉 GitHub raw 的 latest.json，OneDay 不必重新部署
+// 通过 ?v=timestamp 绕 jsdelivr 边缘缓存
+const JSDELIVR_URL = 'https://cdn.jsdelivr.net/gh/chuehjen/ai-invest-arena@main/public/data/latest.json';
+
+// 静态快照通过 webpack JSON import 内联进 bundle（jsdelivr 不可达时离线兜底）
 import bundledSnapshot from './snapshot.json';
 // Supabase 双源：通过 OneDay SDK 走 supabase（`@ali/oneday-frontend-sdk`），失败回落 bundledSnapshot
 import { fetchLatestSnapshot } from '../services/snapshotService';
@@ -62,7 +67,8 @@ function sleep(ms: number) { return new Promise(r => setTimeout(r, ms)); }
 export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [snapshot, setSnapshot] = useState<CompetitionSnapshot | null>(null);
   const [dataError, setDataError] = useState<string | null>(null);
-  const [dataSource, setDataSource] = useState<'supabase' | 'latest.json' | null>(null);
+  const [dataSource, setDataSource] = useState<'jsdelivr' | 'supabase' | 'bundled' | null>(null);
+  const [dataLoading, setDataLoading] = useState(false);
 
   const [prices, setPrices] = useState<PriceMap>({});
   const [pricesLoading, setPricesLoading] = useState(false);
@@ -72,20 +78,44 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const reloadData = useCallback(async () => {
     setDataError(null);
-    // 1) 先用 webpack 内联的 snapshot.json 兜底（OneDay 部署不暴露 public/data，每次 push 即同步最新）
+    setDataLoading(true);
     const bundled = bundledSnapshot as unknown as CompetitionSnapshot;
-    setSnapshot(bundled);
-    setDataSource('latest.json');
-    // 2) 尝试 Supabase；仅当 Supabase 的 snapshot_date >= bundled 时才覆盖
+
+    // 1) 优先：jsdelivr CDN 拉最新 latest.json（带 ?v=timestamp 绕边缘缓存）
+    try {
+      const url = `${JSDELIVR_URL}?v=${Date.now()}`;
+      const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
+      if (res.ok) {
+        const cdn = (await res.json()) as CompetitionSnapshot;
+        if (cdn?.snapshot_date && cdn?.participants?.length) {
+          setSnapshot(cdn);
+          setDataSource('jsdelivr');
+          setDataLoading(false);
+          return;
+        }
+      }
+      throw new Error(`jsdelivr HTTP ${res.status}`);
+    } catch (err) {
+      console.warn('jsdelivr 拉取失败，尝试 Supabase / bundled:', err);
+    }
+
+    // 2) 次选：Supabase（仅当 date >= bundled 才用，避免 1D 沙箱写入的 Day6 旧数据胜出）
     try {
       const row = await fetchLatestSnapshot();
       if (row && row.payload && row.snapshot_date && row.snapshot_date >= bundled.snapshot_date) {
         setSnapshot(row.payload);
         setDataSource('supabase');
+        setDataLoading(false);
+        return;
       }
     } catch (err) {
-      console.warn('Supabase 拉取失败，继续使用 bundled snapshot:', err);
+      console.warn('Supabase 拉取失败，回落 bundled snapshot:', err);
     }
+
+    // 3) 兜底：webpack 内联的 snapshot.json（永远存在，最差也是上次 push 时的快照）
+    setSnapshot(bundled);
+    setDataSource('bundled');
+    setDataLoading(false);
   }, []);
 
   useEffect(() => { reloadData(); }, [reloadData]);
@@ -127,6 +157,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     dataReady: snapshot !== null,
     dataError,
     dataSource,
+    dataLoading,
     reloadData,
     prices,
     pricesLoading,

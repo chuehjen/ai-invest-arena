@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
-import { usePriceContext } from '../data/usePrices';
+import { usePriceContext, useDataContext } from '../data/usePrices';
 
 const navItems = [
   { path: '/dashboard', icon: 'fa-chart-line', label: '总览' },
@@ -15,10 +15,20 @@ const Layout: React.FC = () => {
   const location = useLocation();
   const currentNavItem = navItems.find(item => location.pathname.startsWith(item.path));
   const { refresh, loading, error, lastUpdated, progress } = usePriceContext();
+  const { reloadData, dataLoading, dataSource, snapshotDate } = useDataContext();
 
   const statusText = lastUpdated
     ? `${lastUpdated.getHours().toString().padStart(2, '0')}:${lastUpdated.getMinutes().toString().padStart(2, '0')} 已更新`
     : '未刷新';
+
+  const sourceLabel: Record<string, string> = {
+    jsdelivr: 'CDN',
+    supabase: 'Supabase',
+    bundled: '本地',
+  };
+  const snapshotChip = dataSource && snapshotDate
+    ? `${snapshotDate} · ${sourceLabel[dataSource] || dataSource}`
+    : '加载中';
 
   return (
     <div className="flex h-screen bg-gray-950 text-white overflow-hidden">
@@ -87,6 +97,19 @@ const Layout: React.FC = () => {
             <span className="text-white font-medium">{currentNavItem?.label || '总览'}</span>
           </div>
           <div className="ml-auto flex items-center gap-3">
+            <button
+              onClick={() => reloadData()}
+              disabled={dataLoading}
+              className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium transition-all ${
+                dataLoading
+                  ? 'bg-purple-500/20 text-purple-300 cursor-wait'
+                  : 'bg-gray-800 border border-gray-700 text-gray-300 hover:bg-gray-700'
+              }`}
+              title={`数据源 ${snapshotChip}，点击重新拉取`}
+            >
+              <i className={`fa-solid fa-cloud-arrow-down text-xs ${dataLoading ? 'animate-spin' : ''}`}></i>
+              <span>{dataLoading ? '加载中...' : `重载快照 · ${snapshotChip}`}</span>
+            </button>
             <button
               onClick={refresh}
               disabled={loading}
