@@ -98,8 +98,8 @@ const Portfolio: React.FC = () => {
                     <td className="px-4 py-3 text-white font-medium">{fmt(h.currentPrice)}</td>
                     <td className="px-4 py-3 text-gray-300">{fmt(h.marketValue)}</td>
                     <td className="px-4 py-3">
-                      <div className={pnlColor(h.pnl)}>{h.pnl >= 0 ? '+' : ''}{fmt(h.pnl)}</div>
-                      <div className={`text-xs ${pnlColor(h.pnlPercent)}`}>{h.pnlPercent >= 0 ? '+' : ''}{h.pnlPercent.toFixed(2)}%</div>
+                      <div className={pnlColor(h.pnl ?? 0)}>{(h.pnl ?? 0) >= 0 ? '+' : ''}{fmt(h.pnl ?? 0)}</div>
+                      <div className={`text-xs ${pnlColor(h.pnlPercent ?? 0)}`}>{(h.pnlPercent ?? 0) >= 0 ? '+' : ''}{(h.pnlPercent ?? 0).toFixed(2)}%</div>
                     </td>
                     <td className="px-4 py-3 w-28">
                       <div className="flex items-center gap-2">
