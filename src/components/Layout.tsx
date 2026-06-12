@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { usePriceContext, useDataContext } from '../data/usePrices';
+import { useTheme } from '../data/useTheme';
 
 const navItems = [
   { path: '/dashboard', icon: 'fa-chart-line', label: '总览' },
@@ -16,6 +17,7 @@ const Layout: React.FC = () => {
   const currentNavItem = navItems.find(item => location.pathname.startsWith(item.path));
   const { refresh, loading, error, lastUpdated, progress } = usePriceContext();
   const { reloadData, dataLoading, dataSource, snapshotDate } = useDataContext();
+  const { theme, toggleTheme } = useTheme();
 
   const statusText = lastUpdated
     ? `${lastUpdated.getHours().toString().padStart(2, '0')}:${lastUpdated.getMinutes().toString().padStart(2, '0')} 已更新`
@@ -134,6 +136,16 @@ const Layout: React.FC = () => {
           <Outlet />
         </main>
       </div>
+
+      <button
+        onClick={toggleTheme}
+        className="theme-switch-btn"
+        title={theme === 'terminal' ? '切换到编辑刊风格' : '切换到深色终端风格'}
+        aria-label="切换视觉风格"
+      >
+        <span className="theme-dot" />
+        <span>切换 · {theme === 'terminal' ? '终端 / 暗色' : '编辑刊 / 浅色'}</span>
+      </button>
     </div>
   );
 };

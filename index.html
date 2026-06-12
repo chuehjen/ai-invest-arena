@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI投资比赛平台</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    // Local dev fallback: inject ONEDAY_CONFIG so SDK probeAppId() does not throw
+    // (only on localhost / 127.0.0.1, never in production).
+    (function () {
+      var h = location.hostname;
+      if (h === 'localhost' || h === '127.0.0.1' || h === '0.0.0.0') {
+        window.ONEDAY_CONFIG = window.ONEDAY_CONFIG || { url_id: 'local-dev' };
+      }
+    })();
+  </script>
 </head>
 <body>
   <div id="root"></div>

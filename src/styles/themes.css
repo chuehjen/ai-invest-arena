@@ -1,0 +1,671 @@
+/*
+ * Editorial Light Theme - "Financial Times Weekend" skin.
+ * Activated when [data-theme="editorial"] is set on <html>, <body>, or any ancestor.
+ * Strategy: attribute-selector overrides on top of existing Tailwind utility classes.
+ * No component changes required.
+ */
+
+[data-theme="editorial"] {
+  --paper:        #f3ecdb;
+  --paper-soft:   #faf5e8;
+  --paper-deep:   #ebe2cd;
+  --ink:          #1c1612;
+  --ink-soft:     #4a3f35;
+  --ink-mute:     #7a6f63;
+  --ink-faint:    #b3a791;
+  --rule:         #c8bea7;
+  --rule-soft:    #ddd2bb;
+  --gain:         #1d5e3f;
+  --loss:         #a8352a;
+  --accent:       #7a4422;
+  --highlight:    #efe5cc;
+  --serif:        "Iowan Old Style", "Charter", "Hoefler Text",
+                  Georgia, "Source Serif Pro", "Noto Serif SC",
+                  "Songti SC", ui-serif, serif;
+  --mono-num:     "SF Mono", "JetBrains Mono", "IBM Plex Mono",
+                  Menlo, Consolas, monospace;
+}
+
+/* ===== Global page background and body typography ===== */
+body[data-theme="editorial"] {
+  font-family: var(--serif);
+  background: var(--paper);
+  color: var(--ink);
+  font-feature-settings: "ss01" on, "lnum" on, "tnum" on;
+  letter-spacing: 0.005em;
+}
+
+[data-theme="editorial"] {
+  font-family: var(--serif);
+}
+
+/* ===== Container fills ===== */
+[data-theme="editorial"] .bg-gray-950 {
+  background-color: var(--paper) !important;
+}
+[data-theme="editorial"] .bg-gray-900 {
+  background-color: var(--paper-soft) !important;
+}
+[data-theme="editorial"] .bg-gray-800 {
+  background-color: var(--paper-deep) !important;
+}
+
+/* Translucent tinted surfaces (badges, stat-card icons) get a softer paper wash */
+[data-theme="editorial"] [class*="bg-blue-500/10"],
+[data-theme="editorial"] [class*="bg-blue-500/20"],
+[data-theme="editorial"] [class*="bg-blue-600/20"],
+[data-theme="editorial"] [class*="bg-purple-500/10"],
+[data-theme="editorial"] [class*="bg-purple-500/20"],
+[data-theme="editorial"] [class*="bg-amber-500/10"],
+[data-theme="editorial"] [class*="bg-green-500/10"],
+[data-theme="editorial"] [class*="bg-red-500/10"],
+[data-theme="editorial"] [class*="bg-red-500/20"],
+[data-theme="editorial"] [class*="bg-emerald-500/10"] {
+  background-color: var(--highlight) !important;
+}
+
+/* ===== Borders → hairlines ===== */
+[data-theme="editorial"] .border-gray-800,
+[data-theme="editorial"] .border-gray-700,
+[data-theme="editorial"] .border-gray-600 {
+  border-color: var(--rule) !important;
+}
+[data-theme="editorial"] [class*="border-blue-"],
+[data-theme="editorial"] [class*="border-purple-"],
+[data-theme="editorial"] [class*="border-green-"],
+[data-theme="editorial"] [class*="border-red-"],
+[data-theme="editorial"] [class*="border-amber-"],
+[data-theme="editorial"] [class*="border-emerald-"] {
+  border-color: var(--rule) !important;
+}
+
+/* Shape lock: editorial has no soft-rounded boxes - everything snaps to 2px */
+[data-theme="editorial"] .rounded-xl,
+[data-theme="editorial"] .rounded-lg,
+[data-theme="editorial"] .rounded-md,
+[data-theme="editorial"] .rounded {
+  border-radius: 2px !important;
+}
+/* Pill buttons stay pill-shaped (semantic) */
+[data-theme="editorial"] .rounded-full {
+  border-radius: 9999px !important;
+}
+
+/* Drop the dark-mode glow shadows */
+[data-theme="editorial"] [class*="shadow-blue"],
+[data-theme="editorial"] [class*="shadow-purple"],
+[data-theme="editorial"] [class*="shadow-lg"] {
+  box-shadow: none !important;
+}
+
+/* ===== Text colors ===== */
+[data-theme="editorial"] .text-white {
+  color: var(--ink) !important;
+}
+[data-theme="editorial"] .text-gray-300,
+[data-theme="editorial"] .text-gray-400 {
+  color: var(--ink-soft) !important;
+}
+[data-theme="editorial"] .text-gray-500,
+[data-theme="editorial"] .text-gray-600 {
+  color: var(--ink-mute) !important;
+}
+
+/* Semantic accent text */
+[data-theme="editorial"] .text-green-400,
+[data-theme="editorial"] .text-green-500,
+[data-theme="editorial"] .text-emerald-400,
+[data-theme="editorial"] .text-emerald-500 {
+  color: var(--gain) !important;
+}
+[data-theme="editorial"] .text-red-400,
+[data-theme="editorial"] .text-red-500,
+[data-theme="editorial"] .text-red-300,
+[data-theme="editorial"] .text-rose-400 {
+  color: var(--loss) !important;
+}
+[data-theme="editorial"] .text-amber-400,
+[data-theme="editorial"] .text-yellow-400,
+[data-theme="editorial"] .text-orange-400 {
+  color: var(--accent) !important;
+}
+[data-theme="editorial"] .text-blue-400,
+[data-theme="editorial"] .text-blue-300,
+[data-theme="editorial"] .text-purple-400,
+[data-theme="editorial"] .text-purple-300,
+[data-theme="editorial"] .text-cyan-400 {
+  color: var(--ink) !important;
+}
+
+/* ===== Logo block & active nav: invert to ink ===== */
+[data-theme="editorial"] aside .bg-gradient-to-br {
+  background: var(--ink) !important;
+  background-image: none !important;
+}
+[data-theme="editorial"] aside .bg-gradient-to-br i {
+  color: var(--paper-soft) !important;
+}
+
+/* Active nav item: solid ink block, paper text */
+[data-theme="editorial"] aside a.bg-blue-600,
+[data-theme="editorial"] aside .bg-blue-600 {
+  background-color: var(--ink) !important;
+  color: var(--paper-soft) !important;
+  box-shadow: none !important;
+}
+[data-theme="editorial"] aside a.bg-blue-600 i,
+[data-theme="editorial"] aside a.bg-blue-600 span {
+  color: var(--paper-soft) !important;
+}
+
+/* Hover state on inactive nav */
+[data-theme="editorial"] aside a:hover {
+  background-color: var(--paper-deep) !important;
+  color: var(--ink) !important;
+}
+
+/* ===== Header pill buttons ===== */
+[data-theme="editorial"] header button {
+  background-color: var(--paper-soft) !important;
+  border: 1px solid var(--rule) !important;
+  color: var(--ink) !important;
+}
+[data-theme="editorial"] header button:hover {
+  background-color: var(--paper-deep) !important;
+}
+
+/* ===== Display typography uplift ===== */
+[data-theme="editorial"] .text-2xl,
+[data-theme="editorial"] .text-3xl,
+[data-theme="editorial"] .text-4xl,
+[data-theme="editorial"] .text-xl {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+[data-theme="editorial"] .font-bold,
+[data-theme="editorial"] .font-semibold {
+  font-weight: 600;
+}
+
+/* Mono for digits in stat values */
+[data-theme="editorial"] table td,
+[data-theme="editorial"] table th {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Tables: hairline rhythm ===== */
+[data-theme="editorial"] table {
+  border-collapse: collapse;
+}
+[data-theme="editorial"] th,
+[data-theme="editorial"] td {
+  border-color: var(--rule-soft) !important;
+}
+[data-theme="editorial"] tr:hover td {
+  background-color: var(--paper-deep) !important;
+}
+
+/* ===== Recharts: paper-friendly grid + axis ===== */
+[data-theme="editorial"] .recharts-cartesian-grid line {
+  stroke: var(--rule-soft) !important;
+}
+[data-theme="editorial"] .recharts-cartesian-axis-line,
+[data-theme="editorial"] .recharts-cartesian-axis-tick-line {
+  stroke: var(--ink-faint) !important;
+}
+[data-theme="editorial"] .recharts-text,
+[data-theme="editorial"] .recharts-cartesian-axis-tick text {
+  fill: var(--ink-mute) !important;
+  font-family: var(--serif) !important;
+  font-size: 11px !important;
+}
+[data-theme="editorial"] .recharts-default-tooltip {
+  background-color: var(--paper-soft) !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 2px !important;
+  font-family: var(--serif) !important;
+  color: var(--ink) !important;
+}
+[data-theme="editorial"] .recharts-tooltip-label {
+  color: var(--ink-soft) !important;
+}
+[data-theme="editorial"] .recharts-legend-item-text {
+  color: var(--ink) !important;
+  font-family: var(--serif) !important;
+}
+
+/* ===== Scrollbar paper finish ===== */
+[data-theme="editorial"] .scrollbar-thin::-webkit-scrollbar-track {
+  background: var(--paper-deep);
+}
+[data-theme="editorial"] .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--ink-faint);
+}
+[data-theme="editorial"] .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-mute);
+}
+
+/* ===== Theme switch button (works in both themes) ===== */
+.theme-switch-btn {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.18s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(6px);
+}
+.theme-switch-btn:hover {
+  transform: translateY(-1px);
+}
+.theme-switch-btn:active {
+  transform: translateY(0);
+}
+
+/* Terminal theme: glass dark pill */
+[data-theme="terminal"] .theme-switch-btn,
+:root .theme-switch-btn {
+  background: rgba(31, 41, 55, 0.85);
+  border: 1px solid rgba(75, 85, 99, 0.6);
+  color: #e5e7eb;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+[data-theme="terminal"] .theme-switch-btn:hover {
+  background: rgba(55, 65, 81, 0.95);
+  border-color: rgba(148, 163, 184, 0.7);
+}
+
+/* Editorial theme: ink pill on paper */
+[data-theme="editorial"] .theme-switch-btn {
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  color: var(--paper-soft);
+  font-family: var(--serif);
+  letter-spacing: 0.06em;
+  box-shadow: 0 8px 22px rgba(28, 22, 18, 0.18);
+}
+[data-theme="editorial"] .theme-switch-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Tiny indicator dot inside switch button */
+.theme-switch-btn .theme-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+[data-theme="terminal"] .theme-switch-btn .theme-dot {
+  background: #60a5fa;
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
+}
+[data-theme="editorial"] .theme-switch-btn .theme-dot {
+  background: var(--paper-soft);
+}
+
+/* ===== Editorial-only flourishes ===== */
+[data-theme="editorial"] aside {
+  border-right: 1px solid var(--rule) !important;
+}
+[data-theme="editorial"] aside > div:first-child {
+  border-bottom: 1px solid var(--rule) !important;
+}
+[data-theme="editorial"] header {
+  border-bottom: 1px solid var(--rule) !important;
+  background: var(--paper) !important;
+}
+[data-theme="editorial"] main {
+  background: var(--paper) !important;
+}
+
+/* Card lift in editorial: hairline frame, no glow */
+[data-theme="editorial"] .bg-gray-900.rounded-xl,
+[data-theme="editorial"] .bg-gray-900.rounded-lg {
+  background: var(--paper-soft) !important;
+  border: 1px solid var(--rule) !important;
+}
+
+/* Hover border glow off in editorial */
+[data-theme="editorial"] .hover\:border-gray-700:hover,
+[data-theme="editorial"] .hover\:border-gray-600:hover {
+  border-color: var(--ink) !important;
+}
+
+/* Focus rings inherit ink instead of blue */
+[data-theme="editorial"] *:focus-visible {
+  outline: 2px solid var(--ink) !important;
+  outline-offset: 2px;
+}
+
+/* ===== KPI icon block: hairline frame instead of color wash ===== */
+[data-theme="editorial"] .grid > div .w-10.h-10.rounded-lg,
+[data-theme="editorial"] .grid > div .w-12.h-12.rounded-lg {
+  background-color: var(--paper) !important;
+  border: 1px solid var(--rule) !important;
+}
+[data-theme="editorial"] .grid > div .w-10.h-10.rounded-lg i,
+[data-theme="editorial"] .grid > div .w-12.h-12.rounded-lg i {
+  color: var(--ink) !important;
+}
+
+/* The big stat value loses fluorescent text colors */
+[data-theme="editorial"] .text-xl.font-bold.text-blue-400,
+[data-theme="editorial"] .text-xl.font-bold.text-amber-400,
+[data-theme="editorial"] .text-xl.font-bold.text-green-400,
+[data-theme="editorial"] .text-xl.font-bold.text-red-400 {
+  color: var(--ink) !important;
+  font-family: var(--serif) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em;
+}
+
+/* ===== Recharts Bar fill: target by hard-coded fill attr ===== */
+/* Dashboard.tsx uses fill="#3b82f6" for stocks and fill="#374151" for cash */
+[data-theme="editorial"] path.recharts-rectangle[fill="#3b82f6"] {
+  fill: var(--ink) !important;
+}
+[data-theme="editorial"] path.recharts-rectangle[fill="#374151"] {
+  fill: var(--rule) !important;
+}
+[data-theme="editorial"] path.recharts-rectangle[fill="#6b7280"] {
+  fill: var(--ink-soft) !important;
+}
+/* Cell-coloured Bars (Portfolio.tsx sectorColors) keep their hue
+   but get a subtle ink hairline so they read on paper */
+[data-theme="editorial"] .recharts-bar .recharts-rectangle[fill]:not([fill="#1c1612"]):not([fill="#c8bea7"]):not([fill="#3b82f6"]):not([fill="#374151"]) {
+  stroke: rgba(28, 22, 18, 0.25);
+  stroke-width: 0.5;
+}
+
+/* ===== Progress bars (bg-blue-500 inside narrow rails) ===== */
+[data-theme="editorial"] .h-1\.5 > .bg-blue-500,
+[data-theme="editorial"] .h-2 > .bg-blue-500,
+[data-theme="editorial"] .h-3 > .bg-blue-500,
+[data-theme="editorial"] .bg-blue-500.rounded-full {
+  background-color: var(--ink) !important;
+}
+[data-theme="editorial"] .bg-gray-500.rounded-full {
+  background-color: var(--ink-soft) !important;
+}
+
+/* ===== Competition.tsx hero panel: kill the blue→purple gradient ===== */
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900,
+[data-theme="editorial"] .bg-gradient-to-br[class*="from-blue-9"],
+[data-theme="editorial"] .bg-gradient-to-br[class*="to-purple-9"],
+[data-theme="editorial"] .bg-gradient-to-br[class*="via-purple"] {
+  background: var(--ink) !important;
+  background-image: none !important;
+  border-color: var(--ink) !important;
+}
+/* Soft glow blobs in hero (blur-3xl circles) — hide on paper */
+[data-theme="editorial"] .blur-3xl,
+[data-theme="editorial"] .blur-2xl {
+  display: none !important;
+}
+/* Hero "current week" badge — paper chip on ink */
+[data-theme="editorial"] .bg-gradient-to-br .bg-blue-500\/30 {
+  background-color: var(--paper-soft) !important;
+  border-color: var(--paper-soft) !important;
+  color: var(--ink) !important;
+}
+[data-theme="editorial"] .bg-gradient-to-br .text-blue-300,
+[data-theme="editorial"] .bg-gradient-to-br .text-blue-100,
+[data-theme="editorial"] .bg-gradient-to-br .text-white {
+  color: var(--paper-soft) !important;
+}
+
+/* Inline progress fill inside hero (`from-blue-500 to-purple-500`) */
+[data-theme="editorial"] .bg-gradient-to-r.from-blue-500,
+[data-theme="editorial"] .bg-gradient-to-r[class*="from-blue-5"] {
+  background: var(--paper-soft) !important;
+  background-image: none !important;
+}
+
+/* Timeline dots in Competition: active stays ink, others hairline */
+[data-theme="editorial"] .bg-blue-500\/20.border-blue-500 {
+  background-color: var(--paper-deep) !important;
+  border-color: var(--ink) !important;
+  color: var(--ink) !important;
+}
+[data-theme="editorial"] .bg-blue-500\/20.text-blue-400 {
+  background-color: var(--highlight) !important;
+  color: var(--ink) !important;
+}
+
+/* ===== Agent avatar tiles: hairline frame so they read on paper ===== */
+[data-theme="editorial"] .grid .rounded-full.w-10.h-10,
+[data-theme="editorial"] .grid .rounded-full.w-12.h-12,
+[data-theme="editorial"] .w-10.h-10.rounded-full[style*="background"],
+[data-theme="editorial"] .w-12.h-12.rounded-full[style*="background"] {
+  border: 1px solid var(--rule);
+  box-shadow: inset 0 0 0 2px var(--paper-soft);
+}
+
+/* ===== Display typography uplift: H1/H2 in serif Caps ===== */
+[data-theme="editorial"] .text-2xl,
+[data-theme="editorial"] .text-3xl {
+  font-family: var(--serif) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.1;
+}
+
+/* Section labels: small caps, tracked, ink-soft */
+[data-theme="editorial"] .text-sm.font-semibold {
+  font-family: var(--serif) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em;
+}
+
+/* Eyebrow text (the small label above each card) */
+[data-theme="editorial"] .text-xs {
+  letter-spacing: 0.04em;
+}
+
+/* ===== Sparkline / Line chart: per-agent colour preserved, just thinner ===== */
+[data-theme="editorial"] .recharts-line .recharts-curve {
+  stroke-width: 1.5 !important;
+}
+[data-theme="editorial"] .recharts-line-dot {
+  stroke-width: 1 !important;
+  r: 2.5 !important;
+}
+
+/* Tooltip: paper card, ink text */
+[data-theme="editorial"] .recharts-default-tooltip {
+  background-color: var(--paper-soft) !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 2px !important;
+  box-shadow: 0 4px 16px rgba(28, 22, 18, 0.08);
+}
+[data-theme="editorial"] .recharts-tooltip-item {
+  color: var(--ink) !important;
+}
+
+/* Legend swatch: keep colour, but text is ink */
+[data-theme="editorial"] .recharts-legend-item-text {
+  color: var(--ink) !important;
+}
+
+/* ===== Active nav item ink-block keeps a left chapter rule ===== */
+[data-theme="editorial"] aside a.bg-blue-600 {
+  position: relative;
+}
+[data-theme="editorial"] aside a.bg-blue-600::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--ink);
+}
+
+/* ===== Sidebar logo block: paper chip with ink monogram ===== */
+[data-theme="editorial"] aside .bg-gradient-to-br.from-blue-500 {
+  background: var(--paper) !important;
+  background-image: none !important;
+  border: 1px solid var(--rule) !important;
+}
+[data-theme="editorial"] aside .bg-gradient-to-br.from-blue-500 i {
+  color: var(--ink) !important;
+}
+
+/* ===== Tooltip arrow & misc small surfaces ===== */
+[data-theme="editorial"] [class*="bg-purple-500"],
+[data-theme="editorial"] [class*="bg-pink-500"],
+[data-theme="editorial"] [class*="bg-indigo-500"] {
+  background-color: var(--ink) !important;
+}
+
+/* Animated pulse dot on Analysis page header */
+[data-theme="editorial"] .bg-purple-400.animate-pulse {
+  background-color: var(--ink) !important;
+  opacity: 0.7;
+}
+
+/* ===== Numeric values: tabular nums everywhere they show up ===== */
+[data-theme="editorial"] .text-2xl,
+[data-theme="editorial"] .text-3xl,
+[data-theme="editorial"] .text-xl,
+[data-theme="editorial"] [class*="font-bold"] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Ruled rhythm under page heading (the "/" breadcrumb area) ===== */
+[data-theme="editorial"] header .text-white.font-medium {
+  font-family: var(--serif);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+/* ===== Leaderboard podium cards: kill medal gradients ===== */
+[data-theme="editorial"] [class*="from-amber-5"][class*="to-yellow"],
+[data-theme="editorial"] [class*="from-gray-4"][class*="to-slate"],
+[data-theme="editorial"] [class*="from-orange-7"][class*="to-amber-8"],
+[data-theme="editorial"] .bg-gradient-to-b[class*="from-amber"],
+[data-theme="editorial"] .bg-gradient-to-b[class*="from-gray"],
+[data-theme="editorial"] .bg-gradient-to-b[class*="from-orange"] {
+  background: var(--paper-soft) !important;
+  background-image: none !important;
+  border-color: var(--rule) !important;
+}
+/* The #1 winner gets a slightly different shade so it still pops */
+[data-theme="editorial"] [class*="from-amber-5"][class*="to-yellow"] {
+  background: var(--paper) !important;
+  border-color: var(--ink) !important;
+}
+
+/* Medal badge (top of podium card): paper chip on ink */
+[data-theme="editorial"] .absolute.-top-3.bg-gray-900 {
+  background-color: var(--ink) !important;
+  border-color: var(--ink) !important;
+}
+[data-theme="editorial"] .absolute.-top-3.bg-gray-900 i {
+  color: var(--paper-soft) !important;
+}
+
+/* Avatar circle inline-style background → paper-deep with hairline */
+[data-theme="editorial"] .w-16.h-16.rounded-full[style],
+[data-theme="editorial"] .w-12.h-12.rounded-full[style],
+[data-theme="editorial"] .w-10.h-10.rounded-full[style] {
+  background: var(--paper-deep) !important;
+  border: 1px solid var(--rule);
+  box-shadow: none !important;
+}
+/* Avatar text: ink, regardless of inline color */
+[data-theme="editorial"] .w-16.h-16.rounded-full > span,
+[data-theme="editorial"] .w-12.h-12.rounded-full > span,
+[data-theme="editorial"] .w-10.h-10.rounded-full > span {
+  color: var(--ink) !important;
+  font-family: var(--serif) !important;
+  font-weight: 700 !important;
+}
+
+/* Medal text on podium ("#1 / #2 / #3") */
+[data-theme="editorial"] .text-amber-400.font-semibold,
+[data-theme="editorial"] .text-gray-300.font-semibold,
+[data-theme="editorial"] .text-orange-400.font-semibold {
+  color: var(--ink-soft) !important;
+  letter-spacing: 0.08em;
+}
+
+/* The crown / medal / award icons in the rank column */
+[data-theme="editorial"] .text-amber-400,
+[data-theme="editorial"] .text-orange-400 {
+  color: var(--accent) !important;
+}
+
+/* H1 page heading uplift */
+[data-theme="editorial"] h1.text-2xl,
+[data-theme="editorial"] h1.text-3xl {
+  font-family: var(--serif) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--ink) !important;
+}
+
+/* "Last updated" chip on Leaderboard header */
+[data-theme="editorial"] .bg-gray-800.rounded-lg {
+  background-color: var(--paper-soft) !important;
+  border: 1px solid var(--rule);
+  border-radius: 9999px !important;
+}
+
+/* ===== Competition.tsx hero (ink panel): all text → paper ===== */
+/* This block must come AFTER all the generic text-color overrides
+   so it wins inside the ink hero. */
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900,
+[data-theme="editorial"] .bg-gradient-to-br[class*="from-blue-9"] {
+  color: var(--paper-soft) !important;
+}
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 *,
+[data-theme="editorial"] .bg-gradient-to-br[class*="from-blue-9"] *,
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 .text-xl,
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 .text-2xl,
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 .text-3xl,
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 .text-4xl,
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 [class*="font-bold"],
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 [class*="text-blue"],
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 [class*="text-amber"],
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 [class*="text-white"],
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 [class*="text-gray"] {
+  color: var(--paper-soft) !important;
+  fill: var(--paper-soft) !important;
+}
+/* Icons inside the ink hero stay paper too */
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 i {
+  color: var(--paper-soft) !important;
+}
+
+/* "当前周" chip on hero — paper chip with ink text (overrides paper-soft cascade) */
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 .bg-blue-500\/30,
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 .bg-blue-500\/30 * {
+  background-color: var(--paper-soft) !important;
+  border-color: var(--paper-soft) !important;
+  color: var(--ink) !important;
+}
+
+/* ===== Progress bars: differentiate hero vs card ===== */
+/* Default (inside paper card): ink fill */
+[data-theme="editorial"] .bg-gradient-to-r.from-blue-500,
+[data-theme="editorial"] .bg-gradient-to-r[class*="from-blue-5"] {
+  background: var(--ink) !important;
+  background-image: none !important;
+}
+/* But inside the ink hero, progress fill should be paper so it reads on dark */
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 .bg-gradient-to-r.from-blue-500,
+[data-theme="editorial"] .bg-gradient-to-br.from-blue-900 .bg-gradient-to-r[class*="from-blue-5"] {
+  background: var(--paper-soft) !important;
+  background-image: none !important;
+}
