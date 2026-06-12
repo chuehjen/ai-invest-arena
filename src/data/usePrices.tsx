@@ -31,9 +31,10 @@ const DataContext = createContext<DataContextType | null>(null);
 const TWELVE_DATA_KEY = '6bc32203d6de416698c9b17a59459f93';
 const BATCH_SIZE = 8;
 const BATCH_DELAY_MS = 62_000;
-const DATA_URL = '/data/latest.json';
 
-// Supabase 双源：通过 OneDay SDK 走 supabase（`@ali/oneday-frontend-sdk`），失败回落 latest.json
+// 静态快照通过 webpack JSON import 内联进 bundle（OneDay 部署不暴露 public/）
+import bundledSnapshot from './snapshot.json';
+// Supabase 双源：通过 OneDay SDK 走 supabase（`@ali/oneday-frontend-sdk`），失败回落 bundledSnapshot
 import { fetchLatestSnapshot } from '../services/snapshotService';
 
 async function fetchBatch(symbols: string[]): Promise<PriceMap> {
@@ -71,26 +72,19 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const reloadData = useCallback(async () => {
     setDataError(null);
-    // 1) 尝试 OneDay SDK → supabase
+    // 1) 先用 webpack 内联的 snapshot.json 兜底（OneDay 部署不暴露 public/data，每次 push 即同步最新）
+    const bundled = bundledSnapshot as unknown as CompetitionSnapshot;
+    setSnapshot(bundled);
+    setDataSource('latest.json');
+    // 2) 尝试 Supabase；仅当 Supabase 的 snapshot_date >= bundled 时才覆盖
     try {
       const row = await fetchLatestSnapshot();
-      if (row && row.payload) {
+      if (row && row.payload && row.snapshot_date && row.snapshot_date >= bundled.snapshot_date) {
         setSnapshot(row.payload);
         setDataSource('supabase');
-        return;
       }
     } catch (err) {
-      console.warn('Supabase 拉取失败，回落 latest.json:', err);
-    }
-    // 2) 回落 latest.json
-    try {
-      const res = await fetch(`${DATA_URL}?t=${Date.now()}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = (await res.json()) as CompetitionSnapshot;
-      setSnapshot(data);
-      setDataSource('latest.json');
-    } catch (err) {
-      setDataError((err as Error).message || 'Failed to load competition data');
+      console.warn('Supabase 拉取失败，继续使用 bundled snapshot:', err);
     }
   }, []);
 
