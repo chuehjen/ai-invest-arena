@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "cathie-wood",
+  "agent_name": "木头姐",
+  "date": "2026-06-11",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "SELL", "symbol": "TEM", "shares": 17, "price": 49.48, "rationale": "TEM被动放大至20.6%超12%软上限，逢小幅反弹trim恢复风险预算；多组学+AI诊疗五年逻辑不变"},
+    {"type": "BUY", "symbol": "CRCL", "shares": 6, "price": 78.93, "rationale": "公链稳定币结算层core position加倍，2026 Q2 USDC机构托管落地是Wright's Law规模拐点"},
+    {"type": "BUY", "symbol": "CRSP", "shares": 3, "price": 49.44, "rationale": "Genomics被错杀板块，Casgevy Q2出货catalyst临近；价格仍低于成本5%是合规加仓点"},
+    {"type": "HOLD", "symbol": "SHOP", "shares": 11, "price": 108.20, "rationale": "AI commerce长尾，权重12.4%已在软帽附近不再加"},
+    {"type": "HOLD", "symbol": "TSLA", "shares": 3, "price": 381.59, "rationale": "Robotaxi十年估值核心，回调-3.8%但权重仍接近12%上限"},
+    {"type": "HOLD", "symbol": "PLTR", "shares": 8, "price": 130.21, "rationale": "AI软件平台层；本日不动等下次catalyst"},
+    {"type": "HOLD", "symbol": "HOOD", "shares": 12, "price": 86.36, "rationale": "Public Blockchain金融基础设施"},
+    {"type": "HOLD", "symbol": "COIN", "shares": 6, "price": 153.97, "rationale": "公链龙头交易所，与CRCL/HOOD构成区块链股权三件套"}
+  ],
+  "holdings_after": [
+    {"symbol": "TEM", "shares": 23, "avg_cost": 47.80},
+    {"symbol": "SHOP", "shares": 11, "avg_cost": 112.94},
+    {"symbol": "TSLA", "shares": 3, "avg_cost": 423.70},
+    {"symbol": "PLTR", "shares": 8, "avg_cost": 140.93},
+    {"symbol": "CRSP", "shares": 23, "avg_cost": 51.59},
+    {"symbol": "HOOD", "shares": 12, "avg_cost": 82.85},
+    {"symbol": "COIN", "shares": 6, "avg_cost": 160.13},
+    {"symbol": "CRCL", "shares": 12, "avg_cost": 84.53}
+  ],
+  "cash_after": 1050.80,
+  "total_assets_after": 9609.91,
+  "return_pct_cumulative": -3.90,
+  "summary": "ARK的纪律：让赢家骑住但绝不让任何一只票超过单股软帽。TEM被动放大到20.6%——即使逻辑不变也要trim回12%以保留组合的颠覆面贡献多样性。资金redeploy到两个被错杀的颠覆面：(1) CRCL倍仓押稳定币结算层规模化的Wright's Law时刻；(2) CRSP小幅加仓押Casgevy出货第二季加速。组合保留Robotics(TSLA)/Genomics(TEM+CRSP)/AI软件(PLTR+SHOP)/Blockchain(HOOD+COIN+CRCL)四大平台。现金10.9%在5-15%带宽中部，等下一次显著drawdown或个股催化再调度。",
+  "confidence": "medium",
+  "strongest_bear_case": "TEM和CRSP同属生物科技/AI诊疗主题，trim TEM加CRSP本质是同主题内部rotation而非真正分散——若FDA对CRISPR类疗法收紧合规或医保支付承压，两只一起down。CRCL倍仓后成为单一稳定币品牌大押注，若Tether/USDS竞品继续吞噬USDC市占，Wright's Law斜率断点延后。整体五大平台中blockchain比重已达30%（HOOD+COIN+CRCL），高度依赖政策环境delivery，需观察SEC/CFTC联合监管框架进度。"
+}

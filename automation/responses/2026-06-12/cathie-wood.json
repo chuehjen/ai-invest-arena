@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "cathie-wood",
+  "agent_name": "木头姐",
+  "date": "2026-06-12",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "TEM",
+      "shares": 15,
+      "price": 49.59,
+      "rationale": "Trim Tempus to manage concentration risk — position had grown to 20.13%, well above the 12% soft cap. Recycle capital into higher-expected-return dips while keeping TEM as a core AI+Genomics convergence holding."
+    },
+    {
+      "type": "BUY",
+      "symbol": "PLTR",
+      "shares": 1,
+      "price": 131.08,
+      "rationale": "Buy weakness in AI pure-play Palantir. Down ~7% from avg cost, thesis intact. Wright's Law on AI inference cost decline continues to drive enterprise and government adoption."
+    },
+    {
+      "type": "BUY",
+      "symbol": "CRSP",
+      "shares": 3,
+      "price": 50.23,
+      "rationale": "Add to CRISPR leader on weakness. Down from avg cost, multiomics/genomics platform thesis intact with long runway in gene-editing therapies."
+    },
+    {
+      "type": "BUY",
+      "symbol": "CRCL",
+      "shares": 3,
+      "price": 82.63,
+      "rationale": "Build public blockchain exposure by buying Circle on dip. Down ~8% from avg cost, blockchain infrastructure thesis intact — a key equity proxy for the public blockchain platform."
+    },
+    {
+      "type": "HOLD",
+      "symbol": "SHOP",
+      "shares": 11,
+      "price": 110.47,
+      "rationale": "HOLD — near 12% soft cap, no add. Slight unrealized loss, thesis intact but prefer to deploy capital into deeper dips."
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSLA",
+      "shares": 4,
+      "price": 399.15,
+      "rationale": "HOLD — down from avg cost, do not trim losers. Tesla remains the premier convergence play (AI + robotics + energy storage) with robotaxi and FSD as key 5-year catalysts."
+    },
+    {
+      "type": "HOLD",
+      "symbol": "HOOD",
+      "shares": 12,
+      "price": 92.23,
+      "rationale": "HOLD — up from avg cost but still below 12% cap. Winner that has run up; monitor for potential trim if it extends further, but comfortable holding blockchain-equity exposure here."
+    },
+    {
+      "type": "HOLD",
+      "symbol": "COIN",
+      "shares": 6,
+      "price": 160.43,
+      "rationale": "HOLD — essentially flat from avg cost. Core blockchain-equity holding, thesis intact."
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "TEM",
+      "shares": 25,
+      "avg_cost": 47.80
+    },
+    {
+      "symbol": "SHOP",
+      "shares": 11,
+      "avg_cost": 112.94
+    },
+    {
+      "symbol": "TSLA",
+      "shares": 4,
+      "avg_cost": 413.17
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 9,
+      "avg_cost": 139.84
+    },
+    {
+      "symbol": "CRSP",
+      "shares": 23,
+      "avg_cost": 51.88
+    },
+    {
+      "symbol": "HOOD",
+      "shares": 12,
+      "avg_cost": 82.85
+    },
+    {
+      "symbol": "COIN",
+      "shares": 6,
+      "avg_cost": 160.13
+    },
+    {
+      "symbol": "CRCL",
+      "shares": 6,
+      "avg_cost": 86.38
+    }
+  ],
+  "cash_after": 900.93,
+  "total_assets_after": 9852.58,
+  "return_pct_cumulative": -1.47,
+  "summary": "Day 8 rebalance: Trimmed TEM from 20.1% to ~12.6% to manage concentration risk and recycled capital into weakness across PLTR (AI), CRSP (genomics), and CRCL (blockchain). TSLA held despite being above cap — down from cost, thesis intact. Cash raised to 9.1% for dry powder. Portfolio remains anchored in all five disruptive innovation platforms with a 5-year horizon.",
+  "confidence": "high",
+  "strongest_bear_case": "TSLA remains oversized at 16.2% despite being down from cost; any further decline in Tesla will drag portfolio performance disproportionately. Broader macro volatility and high-beta drawdown risk in innovation equities remain elevated, and the portfolio is still underwater at -1.47% cumulative."
+}

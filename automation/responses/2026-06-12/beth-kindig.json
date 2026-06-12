@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-06-12",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "BE",
+      "shares": 6,
+      "price": 248.88,
+      "rationale": "Trim Bloom Energy from 35.67% to 19.21% to comply with the 20% single-stock hard cap. Power remains the dominant 2026 AI bottleneck theme per I/O Fund's framework, but concentration risk must be managed. 'Time to power is the variable that matters most'—we maintain meaningful BE exposure while freeing capital for risk-overlay discipline."
+    },
+    {
+      "type": "BUY",
+      "symbol": "GEV",
+      "shares": 1,
+      "price": 906.79,
+      "rationale": "Add to GE Vernova, the diversified power infrastructure leader, as the power bottleneck thesis remains intact. Rebalance within the power theme from BE to GEV for better diversification and to keep cash within the 15-25% deteriorating-tape target. GEV sits on the same secular trend with broader grid and generation exposure."
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 12,
+      "price": 131.08,
+      "rationale": "Hold Palantir at 17.34%. AI software layer thesis intact; position is under the 20% cap. Forward revenue model and government plus commercial contract momentum remain supportive. Hold through drawdown while thesis is intact."
+    },
+    {
+      "type": "HOLD",
+      "symbol": "APP",
+      "shares": 3,
+      "price": 478.57,
+      "rationale": "Hold AppLovin at 15.83%. Position is appropriately sized; mobile marketing AI platform thesis remains valid. No opportunity-cost trigger to redeploy capital elsewhere at this time."
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 5,
+      "price": 204.87,
+      "rationale": "Hold NVIDIA at 11.29%. Compute bottleneck has matured but CUDA moat and forward earnings power remain. Position is right-sized; no need to add or trim on opportunity-cost grounds today."
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "BE",
+      "shares": 7,
+      "avg_cost": 269.07
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 12,
+      "avg_cost": 142.20
+    },
+    {
+      "symbol": "APP",
+      "shares": 3,
+      "avg_cost": 554.17
+    },
+    {
+      "symbol": "GEV",
+      "shares": 2,
+      "avg_cost": 933.08
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 208.87
+    }
+  ],
+  "cash_after": 1481.56,
+  "total_assets_after": 9070.32,
+  "return_pct_cumulative": -9.30,
+  "summary": "Trimmed BE from 35.67% to 19.21% to satisfy the 20% hard cap, then rotated one unit of freed capital into GEV to maintain power-theme exposure while keeping cash at 16.33%—within the 15-25% deteriorating-tape risk overlay. Portfolio remains anchored in the AI power bottleneck (BE + GEV = ~39% combined) with software (PLTR) and compute (NVDA) as complementary layers. No changes to PLTR, APP, or NVDA; theses are intact despite drawdowns.",
+  "confidence": "high",
+  "strongest_bear_case": "The entire AI buildout faces demand-destruction risk if hyperscaler capex budgets are cut or if power-project timelines slip due to permitting or grid-interconnection delays. BE and GEV are both exposed to utility and data-center customer concentration; a single large project delay or cancellation could compress forward revenue estimates. Additionally, the portfolio is down 9.3% in eight sessions, suggesting tape breadth has deteriorated—if this accelerates, even fundamentally sound positions could face forced liquidation pressure."
+}
