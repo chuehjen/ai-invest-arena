@@ -12,184 +12,8 @@
   },
   "participants": [
     {
-      "id": "claude",
-      "rank": 1,
-      "name": "Claude",
-      "avatar": "CL",
-      "color": "#a78bfa",
-      "totalAssets": 9622.27,
-      "returnPct": -3.78,
-      "cash": 1562.59,
-      "cashPct": 16.4,
-      "holdingsCount": 6,
-      "style": "均衡偏防御 · 砍AAPL加XLV/V防御轮动",
-      "badge": "gold",
-      "holdings": [
-        {
-          "symbol": "GOOGL",
-          "name": "谷歌",
-          "shares": 5.0,
-          "avgCost": 365.51,
-          "currentPrice": 357.77,
-          "marketValue": 1788.85,
-          "pnl": -38.7,
-          "pnlPercent": -0.34,
-          "weight": 18.59,
-          "sector": "互联网"
-        },
-        {
-          "symbol": "NVDA",
-          "name": "英伟达",
-          "shares": 10.0,
-          "avgCost": 217.0,
-          "currentPrice": 204.87,
-          "marketValue": 2048.7,
-          "pnl": -121.3,
-          "pnlPercent": -4.06,
-          "weight": 21.29,
-          "sector": "半导体"
-        },
-        {
-          "symbol": "XLV",
-          "name": "医疗ETF",
-          "shares": 9.0,
-          "avgCost": 152.86,
-          "currentPrice": 154.09,
-          "marketValue": 1386.81,
-          "pnl": 11.07,
-          "pnlPercent": 1.12,
-          "weight": 14.41,
-          "sector": "医药"
-        },
-        {
-          "symbol": "XOM",
-          "name": "埃克森美孚",
-          "shares": 7.0,
-          "avgCost": 151.0,
-          "currentPrice": 146.6,
-          "marketValue": 1026.2,
-          "pnl": -30.8,
-          "pnlPercent": -1.38,
-          "weight": 10.66,
-          "sector": "能源"
-        },
-        {
-          "symbol": "MSFT",
-          "name": "微软",
-          "shares": 3.0,
-          "avgCost": 424.94,
-          "currentPrice": 390.34,
-          "marketValue": 1171.02,
-          "pnl": -103.8,
-          "pnlPercent": -8.52,
-          "weight": 12.17,
-          "sector": "软件"
-        },
-        {
-          "symbol": "V",
-          "name": "Visa",
-          "shares": 2.0,
-          "avgCost": 325.05,
-          "currentPrice": 319.05,
-          "marketValue": 638.1,
-          "pnl": -12.0,
-          "pnlPercent": 0.0,
-          "weight": 6.63,
-          "sector": "金融"
-        }
-      ]
-    },
-    {
-      "id": "doubao",
-      "rank": 2,
-      "name": "豆包",
-      "avatar": "DB",
-      "color": "#f472b6",
-      "totalAssets": 9653.47,
-      "returnPct": -3.47,
-      "cash": 964.11,
-      "cashPct": 5.8,
-      "holdingsCount": 6,
-      "style": "均衡分散 · 减NVDA控波动",
-      "badge": "silver",
-      "holdings": [
-        {
-          "symbol": "VOO",
-          "name": "标普500ETF",
-          "shares": 5.0,
-          "avgCost": 698.27,
-          "currentPrice": 678.23,
-          "marketValue": 3391.15,
-          "pnl": -100.2,
-          "pnlPercent": -2.95,
-          "weight": 35.13,
-          "sector": "宽基ETF"
-        },
-        {
-          "symbol": "NVDA",
-          "name": "英伟达",
-          "shares": 5.0,
-          "avgCost": 215.95,
-          "currentPrice": 204.87,
-          "marketValue": 1024.35,
-          "pnl": -55.4,
-          "pnlPercent": -3.59,
-          "weight": 10.61,
-          "sector": "半导体"
-        },
-        {
-          "symbol": "MSFT",
-          "name": "微软",
-          "shares": 3.0,
-          "avgCost": 441.31,
-          "currentPrice": 390.34,
-          "marketValue": 1171.02,
-          "pnl": -152.91,
-          "pnlPercent": -8.59,
-          "weight": 12.13,
-          "sector": "软件"
-        },
-        {
-          "symbol": "JNJ",
-          "name": "强生",
-          "shares": 5.0,
-          "avgCost": 222.64,
-          "currentPrice": 238.33,
-          "marketValue": 1191.65,
-          "pnl": 78.45,
-          "pnlPercent": 6.45,
-          "weight": 12.34,
-          "sector": "医药"
-        },
-        {
-          "symbol": "SCHD",
-          "name": "红利ETF",
-          "shares": 35.0,
-          "avgCost": 32.49,
-          "currentPrice": 32.53,
-          "marketValue": 1138.55,
-          "pnl": 1.4,
-          "pnlPercent": -0.31,
-          "weight": 11.79,
-          "sector": "红利ETF"
-        },
-        {
-          "symbol": "GLD",
-          "name": "黄金ETF",
-          "shares": 2.0,
-          "avgCost": 397.27,
-          "currentPrice": 386.32,
-          "marketValue": 772.64,
-          "pnl": -21.9,
-          "pnlPercent": -1.63,
-          "weight": 8.0,
-          "sector": "黄金"
-        }
-      ]
-    },
-    {
       "id": "cathie-wood",
-      "rank": 3,
+      "rank": 1,
       "name": "木头姐",
       "avatar": "CW",
       "color": "#818cf8",
@@ -199,7 +23,7 @@
       "cashPct": 8.6,
       "holdingsCount": 8,
       "style": "颠覆创新 · 加PLTR/COIN买在弱势",
-      "badge": "bronze",
+      "badge": "gold",
       "holdings": [
         {
           "symbol": "TEM",
@@ -300,54 +124,230 @@
       ]
     },
     {
-      "id": "gemini-ext",
-      "rank": 4,
-      "name": "Gemini(深度)",
-      "avatar": "GE",
-      "color": "#60a5fa",
-      "totalAssets": 9267.88,
-      "returnPct": -7.32,
-      "cash": 132.35,
-      "cashPct": 0.8,
-      "holdingsCount": 4,
-      "style": "成长型 · 卖MSFT加NVDA极致集中",
-      "badge": null,
+      "id": "doubao",
+      "rank": 2,
+      "name": "豆包",
+      "avatar": "DB",
+      "color": "#f472b6",
+      "totalAssets": 9653.47,
+      "returnPct": -3.47,
+      "cash": 964.11,
+      "cashPct": 5.8,
+      "holdingsCount": 6,
+      "style": "均衡分散 · 减NVDA控波动",
+      "badge": "silver",
       "holdings": [
+        {
+          "symbol": "VOO",
+          "name": "标普500ETF",
+          "shares": 5.0,
+          "avgCost": 698.27,
+          "currentPrice": 678.23,
+          "marketValue": 3391.15,
+          "pnl": -100.2,
+          "pnlPercent": -2.95,
+          "weight": 35.13,
+          "sector": "宽基ETF"
+        },
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "shares": 23.0,
-          "avgCost": 213.3178,
+          "shares": 5.0,
+          "avgCost": 215.95,
           "currentPrice": 204.87,
-          "marketValue": 4712.01,
-          "pnl": -194.3,
-          "pnlPercent": -4.44,
-          "weight": 50.84,
+          "marketValue": 1024.35,
+          "pnl": -55.4,
+          "pnlPercent": -3.59,
+          "weight": 10.61,
           "sector": "半导体"
-        },
-        {
-          "symbol": "GOOGL",
-          "name": "谷歌",
-          "shares": 8.0,
-          "avgCost": 362.0,
-          "currentPrice": 357.77,
-          "marketValue": 2862.16,
-          "pnl": -33.84,
-          "pnlPercent": 0.62,
-          "weight": 30.88,
-          "sector": "互联网"
         },
         {
           "symbol": "MSFT",
           "name": "微软",
-          "shares": 4.0,
-          "avgCost": 441.0,
+          "shares": 3.0,
+          "avgCost": 441.31,
           "currentPrice": 390.34,
-          "marketValue": 1561.36,
-          "pnl": -202.64,
-          "pnlPercent": -8.52,
-          "weight": 16.85,
+          "marketValue": 1171.02,
+          "pnl": -152.91,
+          "pnlPercent": -8.59,
+          "weight": 12.13,
           "sector": "软件"
+        },
+        {
+          "symbol": "JNJ",
+          "name": "强生",
+          "shares": 5.0,
+          "avgCost": 222.64,
+          "currentPrice": 238.33,
+          "marketValue": 1191.65,
+          "pnl": 78.45,
+          "pnlPercent": 6.45,
+          "weight": 12.34,
+          "sector": "医药"
+        },
+        {
+          "symbol": "SCHD",
+          "name": "红利ETF",
+          "shares": 35.0,
+          "avgCost": 32.49,
+          "currentPrice": 32.53,
+          "marketValue": 1138.55,
+          "pnl": 1.4,
+          "pnlPercent": -0.31,
+          "weight": 11.79,
+          "sector": "红利ETF"
+        },
+        {
+          "symbol": "GLD",
+          "name": "黄金ETF",
+          "shares": 2.0,
+          "avgCost": 397.27,
+          "currentPrice": 386.32,
+          "marketValue": 772.64,
+          "pnl": -21.9,
+          "pnlPercent": -1.63,
+          "weight": 8.0,
+          "sector": "黄金"
+        }
+      ]
+    },
+    {
+      "id": "claude",
+      "rank": 3,
+      "name": "Claude",
+      "avatar": "CL",
+      "color": "#a78bfa",
+      "totalAssets": 9622.27,
+      "returnPct": -3.78,
+      "cash": 1562.59,
+      "cashPct": 16.4,
+      "holdingsCount": 6,
+      "style": "均衡偏防御 · 砍AAPL加XLV/V防御轮动",
+      "badge": "bronze",
+      "holdings": [
+        {
+          "symbol": "GOOGL",
+          "name": "谷歌",
+          "shares": 5.0,
+          "avgCost": 365.51,
+          "currentPrice": 357.77,
+          "marketValue": 1788.85,
+          "pnl": -38.7,
+          "pnlPercent": -0.34,
+          "weight": 18.59,
+          "sector": "互联网"
+        },
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 10.0,
+          "avgCost": 217.0,
+          "currentPrice": 204.87,
+          "marketValue": 2048.7,
+          "pnl": -121.3,
+          "pnlPercent": -4.06,
+          "weight": 21.29,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "XLV",
+          "name": "医疗ETF",
+          "shares": 9.0,
+          "avgCost": 152.86,
+          "currentPrice": 154.09,
+          "marketValue": 1386.81,
+          "pnl": 11.07,
+          "pnlPercent": 1.12,
+          "weight": 14.41,
+          "sector": "医药"
+        },
+        {
+          "symbol": "XOM",
+          "name": "埃克森美孚",
+          "shares": 7.0,
+          "avgCost": 151.0,
+          "currentPrice": 146.6,
+          "marketValue": 1026.2,
+          "pnl": -30.8,
+          "pnlPercent": -1.38,
+          "weight": 10.66,
+          "sector": "能源"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微软",
+          "shares": 3.0,
+          "avgCost": 424.94,
+          "currentPrice": 390.34,
+          "marketValue": 1171.02,
+          "pnl": -103.8,
+          "pnlPercent": -8.52,
+          "weight": 12.17,
+          "sector": "软件"
+        },
+        {
+          "symbol": "V",
+          "name": "Visa",
+          "shares": 2.0,
+          "avgCost": 325.05,
+          "currentPrice": 319.05,
+          "marketValue": 638.1,
+          "pnl": -12.0,
+          "pnlPercent": 0.0,
+          "weight": 6.63,
+          "sector": "金融"
+        }
+      ]
+    },
+    {
+      "id": "serenity",
+      "rank": 4,
+      "name": "Serenity",
+      "avatar": "SE",
+      "color": "#2dd4bf",
+      "totalAssets": 9464.93,
+      "returnPct": -5.35,
+      "cash": 353.26,
+      "cashPct": 12.3,
+      "holdingsCount": 3,
+      "style": "光互连 · 加MRVL逢低补底",
+      "badge": null,
+      "holdings": [
+        {
+          "symbol": "COHR",
+          "name": "Coherent",
+          "shares": 10.0,
+          "avgCost": 394.39,
+          "currentPrice": 363.58,
+          "marketValue": 3635.8,
+          "pnl": -308.1,
+          "pnlPercent": -9.75,
+          "weight": 38.41,
+          "sector": "光模块"
+        },
+        {
+          "symbol": "LITE",
+          "name": "Lumentum",
+          "shares": 3.0,
+          "avgCost": 900.7,
+          "currentPrice": 889.59,
+          "marketValue": 2668.77,
+          "pnl": -33.33,
+          "pnlPercent": -8.76,
+          "weight": 28.2,
+          "sector": "光模块"
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell",
+          "shares": 10.0,
+          "avgCost": 270.167,
+          "currentPrice": 280.71,
+          "marketValue": 2807.1,
+          "pnl": 105.43,
+          "pnlPercent": -3.9,
+          "weight": 29.66,
+          "sector": "半导体"
         }
       ]
     },
@@ -480,8 +480,60 @@
       ]
     },
     {
-      "id": "chatgpt",
+      "id": "gemini-ext",
       "rank": 7,
+      "name": "Gemini(深度)",
+      "avatar": "GE",
+      "color": "#60a5fa",
+      "totalAssets": 9267.88,
+      "returnPct": -7.32,
+      "cash": 132.35,
+      "cashPct": 0.8,
+      "holdingsCount": 4,
+      "style": "成长型 · 卖MSFT加NVDA极致集中",
+      "badge": null,
+      "holdings": [
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 23.0,
+          "avgCost": 213.3178,
+          "currentPrice": 204.87,
+          "marketValue": 4712.01,
+          "pnl": -194.3,
+          "pnlPercent": -4.44,
+          "weight": 50.84,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "GOOGL",
+          "name": "谷歌",
+          "shares": 8.0,
+          "avgCost": 362.0,
+          "currentPrice": 357.77,
+          "marketValue": 2862.16,
+          "pnl": -33.84,
+          "pnlPercent": 0.62,
+          "weight": 30.88,
+          "sector": "互联网"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微软",
+          "shares": 4.0,
+          "avgCost": 441.0,
+          "currentPrice": 390.34,
+          "marketValue": 1561.36,
+          "pnl": -202.64,
+          "pnlPercent": -8.52,
+          "weight": 16.85,
+          "sector": "软件"
+        }
+      ]
+    },
+    {
+      "id": "chatgpt",
+      "rank": 8,
       "name": "ChatGPT",
       "avatar": "CG",
       "color": "#4ade80",
@@ -602,7 +654,7 @@
     },
     {
       "id": "beth-kindig",
-      "rank": 8,
+      "rank": 9,
       "name": "Beth Kindig",
       "avatar": "BK",
       "color": "#fb7185",
@@ -677,67 +729,15 @@
       ]
     },
     {
-      "id": "serenity",
-      "rank": 9,
-      "name": "Serenity",
-      "avatar": "SE",
-      "color": "#2dd4bf",
-      "totalAssets": 9464.93,
-      "returnPct": -5.35,
-      "cash": 353.26,
-      "cashPct": 12.3,
-      "holdingsCount": 3,
-      "style": "光互连 · 加MRVL逢低补底",
-      "badge": null,
-      "holdings": [
-        {
-          "symbol": "COHR",
-          "name": "Coherent",
-          "shares": 10.0,
-          "avgCost": 394.39,
-          "currentPrice": 363.58,
-          "marketValue": 3635.8,
-          "pnl": -308.1,
-          "pnlPercent": -9.75,
-          "weight": 38.41,
-          "sector": "光模块"
-        },
-        {
-          "symbol": "LITE",
-          "name": "Lumentum",
-          "shares": 3.0,
-          "avgCost": 900.7,
-          "currentPrice": 889.59,
-          "marketValue": 2668.77,
-          "pnl": -33.33,
-          "pnlPercent": -8.76,
-          "weight": 28.2,
-          "sector": "光模块"
-        },
-        {
-          "symbol": "MRVL",
-          "name": "Marvell",
-          "shares": 10.0,
-          "avgCost": 270.167,
-          "currentPrice": 280.71,
-          "marketValue": 2807.1,
-          "pnl": 105.43,
-          "pnlPercent": -3.9,
-          "weight": 29.66,
-          "sector": "半导体"
-        }
-      ]
-    },
-    {
       "id": "qwen",
       "rank": 10,
       "name": "千问",
       "avatar": "QW",
       "color": "#fbbf24",
-      "totalAssets": 8635.77,
-      "returnPct": -13.64,
-      "cash": 1733.37,
-      "cashPct": 19.9,
+      "totalAssets": 8623.36,
+      "returnPct": -13.77,
+      "cash": 2372.21,
+      "cashPct": 27.5,
       "holdingsCount": 6,
       "style": "成长型 · 清META/MSFT满仓加NVDA",
       "badge": null,
@@ -745,13 +745,13 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "shares": 7.0,
+          "shares": 5.0,
           "avgCost": 208.19,
           "currentPrice": 204.87,
-          "marketValue": 1434.09,
-          "pnl": -23.24,
-          "pnlPercent": 0.0,
-          "weight": 16.61,
+          "marketValue": 1024.35,
+          "pnl": -16.6,
+          "pnlPercent": -1.59,
+          "weight": 11.88,
           "sector": "半导体"
         },
         {
@@ -763,7 +763,7 @@
           "marketValue": 1496.38,
           "pnl": 11.04,
           "pnlPercent": 0.31,
-          "weight": 17.33,
+          "weight": 17.35,
           "sector": "红利ETF"
         },
         {
@@ -775,19 +775,19 @@
           "marketValue": 1276.2,
           "pnl": -3.8,
           "pnlPercent": 1.58,
-          "weight": 14.78,
+          "weight": 14.8,
           "sector": "金融"
         },
         {
           "symbol": "AMZN",
           "name": "亚马逊",
-          "shares": 5.0,
+          "shares": 4.0,
           "avgCost": 256.52,
           "currentPrice": 241.51,
-          "marketValue": 1207.55,
-          "pnl": -75.05,
-          "pnlPercent": -4.81,
-          "weight": 13.98,
+          "marketValue": 966.04,
+          "pnl": -60.04,
+          "pnlPercent": -5.85,
+          "weight": 11.2,
           "sector": "电商/云"
         },
         {
@@ -799,7 +799,7 @@
           "marketValue": 772.64,
           "pnl": -67.36,
           "pnlPercent": -6.96,
-          "weight": 8.95,
+          "weight": 8.96,
           "sector": "黄金"
         },
         {
@@ -811,7 +811,7 @@
           "marketValue": 715.54,
           "pnl": -21.26,
           "pnlPercent": -1.12,
-          "weight": 8.29,
+          "weight": 8.3,
           "sector": "互联网"
         }
       ]
@@ -1013,7 +1013,7 @@
         "chatgpt": -7.75,
         "beth-kindig": -9.3,
         "serenity": -5.35,
-        "qwen": -13.64
+        "qwen": -1.02
       }
     }
   ]
