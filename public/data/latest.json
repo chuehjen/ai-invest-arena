@@ -18,7 +18,7 @@
       "avatar": "CW",
       "color": "#818cf8",
       "totalAssets": 9852.58,
-      "returnPct": -1.47,
+      "returnPct": -2.87,
       "cash": 244.34,
       "cashPct": 2.5,
       "holdingsCount": 8,
@@ -30,7 +30,7 @@
           "name": "Tempus AI",
           "shares": 40.0,
           "avgCost": 47.8,
-          "currentPrice": 49.59,
+          "currentPrice": 47.82,
           "marketValue": 1983.6,
           "pnl": 71.6,
           "pnlPercent": 3.74,
@@ -42,7 +42,7 @@
           "name": "Shopify",
           "shares": 11.0,
           "avgCost": 112.94,
-          "currentPrice": 110.47,
+          "currentPrice": 108.24,
           "marketValue": 1215.17,
           "pnl": -27.17,
           "pnlPercent": -2.19,
@@ -54,7 +54,7 @@
           "name": "特斯拉",
           "shares": 4.0,
           "avgCost": 413.1725,
-          "currentPrice": 399.15,
+          "currentPrice": 406.43,
           "marketValue": 1596.6,
           "pnl": -56.09,
           "pnlPercent": -3.39,
@@ -66,7 +66,7 @@
           "name": "Palantir",
           "shares": 9.0,
           "avgCost": 139.84,
-          "currentPrice": 131.08,
+          "currentPrice": 127.99,
           "marketValue": 1179.72,
           "pnl": -78.84,
           "pnlPercent": -6.26,
@@ -78,7 +78,7 @@
           "name": "CRISPR",
           "shares": 20.0,
           "avgCost": 52.13,
-          "currentPrice": 50.23,
+          "currentPrice": 49.8,
           "marketValue": 1004.6,
           "pnl": -38.0,
           "pnlPercent": -3.64,
@@ -90,7 +90,7 @@
           "name": "Robinhood",
           "shares": 10.0,
           "avgCost": 82.85,
-          "currentPrice": 92.23,
+          "currentPrice": 93.19,
           "marketValue": 922.3,
           "pnl": 93.8,
           "pnlPercent": 11.32,
@@ -102,7 +102,7 @@
           "name": "Coinbase",
           "shares": 6.0,
           "avgCost": 160.13,
-          "currentPrice": 160.43,
+          "currentPrice": 159.78,
           "marketValue": 962.58,
           "pnl": 1.8,
           "pnlPercent": 0.19,
@@ -114,7 +114,7 @@
           "name": "Circle",
           "shares": 9.0,
           "avgCost": 85.13,
-          "currentPrice": 82.63,
+          "currentPrice": 77.84,
           "marketValue": 743.67,
           "pnl": -22.5,
           "pnlPercent": -2.94,
@@ -122,7 +122,7 @@
           "sector": "金融"
         }
       ],
-      "totalValue": 9852.58
+      "totalValue": 9712.55
     },
     {
       "id": "doubao",
@@ -131,7 +131,7 @@
       "avatar": "DB",
       "color": "#f472b6",
       "totalAssets": 9653.47,
-      "returnPct": -3.03,
+      "returnPct": -3.02,
       "cash": 964.11,
       "cashPct": 10.0,
       "holdingsCount": 6,
@@ -155,7 +155,7 @@
           "name": "英伟达",
           "shares": 5.0,
           "avgCost": 215.95,
-          "currentPrice": 204.87,
+          "currentPrice": 205.19,
           "marketValue": 1024.35,
           "pnl": -55.4,
           "pnlPercent": -5.13,
@@ -211,7 +211,7 @@
           "sector": "黄金"
         }
       ],
-      "totalValue": 9696.56
+      "totalValue": 9698.16
     },
     {
       "id": "claude",
@@ -220,7 +220,7 @@
       "avatar": "CL",
       "color": "#a78bfa",
       "totalAssets": 9622.27,
-      "returnPct": -3.6,
+      "returnPct": -3.57,
       "cash": 1562.59,
       "cashPct": 16.2,
       "holdingsCount": 6,
@@ -244,7 +244,7 @@
           "name": "英伟达",
           "shares": 10.0,
           "avgCost": 217.0,
-          "currentPrice": 204.87,
+          "currentPrice": 205.19,
           "marketValue": 2048.7,
           "pnl": -121.3,
           "pnlPercent": -5.59,
@@ -300,7 +300,7 @@
           "sector": "金融"
         }
       ],
-      "totalValue": 9640.05
+      "totalValue": 9643.25
     },
     {
       "id": "serenity",
@@ -309,7 +309,7 @@
       "avatar": "SE",
       "color": "#2dd4bf",
       "totalAssets": 9464.93,
-      "returnPct": -5.35,
+      "returnPct": -2.35,
       "cash": 353.26,
       "cashPct": 3.7,
       "holdingsCount": 3,
@@ -321,7 +321,7 @@
           "name": "Coherent",
           "shares": 10.0,
           "avgCost": 394.39,
-          "currentPrice": 363.58,
+          "currentPrice": 385.03,
           "marketValue": 3635.8,
           "pnl": -308.1,
           "pnlPercent": -7.81,
@@ -333,7 +333,7 @@
           "name": "Lumentum",
           "shares": 3.0,
           "avgCost": 900.7,
-          "currentPrice": 889.59,
+          "currentPrice": 921.56,
           "marketValue": 2668.77,
           "pnl": -33.33,
           "pnlPercent": -1.23,
@@ -345,7 +345,7 @@
           "name": "Marvell",
           "shares": 10.0,
           "avgCost": 270.167,
-          "currentPrice": 280.71,
+          "currentPrice": 279.7,
           "marketValue": 2807.1,
           "pnl": 105.43,
           "pnlPercent": 3.9,
@@ -353,7 +353,7 @@
           "sector": "半导体"
         }
       ],
-      "totalValue": 9464.93
+      "totalValue": 9765.24
     },
     {
       "id": "grok",
@@ -362,7 +362,7 @@
       "avatar": "GK",
       "color": "#fb923c",
       "totalAssets": 9355.08,
-      "returnPct": -6.46,
+      "returnPct": -6.41,
       "cash": 48.84,
       "cashPct": 0.5,
       "holdingsCount": 5,
@@ -374,7 +374,7 @@
           "name": "英伟达",
           "shares": 15.0,
           "avgCost": 220.84,
-          "currentPrice": 204.87,
+          "currentPrice": 205.19,
           "marketValue": 3073.05,
           "pnl": -239.55,
           "pnlPercent": -7.23,
@@ -430,7 +430,7 @@
           "sector": "互联网"
         }
       ],
-      "totalValue": 9354.48
+      "totalValue": 9359.28
     },
     {
       "id": "gemini-std",
@@ -439,7 +439,7 @@
       "avatar": "GS",
       "color": "#38bdf8",
       "totalAssets": 9286.16,
-      "returnPct": -7.0,
+      "returnPct": -6.91,
       "cash": 227.42,
       "cashPct": 2.4,
       "holdingsCount": 3,
@@ -451,7 +451,7 @@
           "name": "英伟达",
           "shares": 28.0,
           "avgCost": 216.86,
-          "currentPrice": 204.87,
+          "currentPrice": 205.19,
           "marketValue": 5736.36,
           "pnl": -335.72,
           "pnlPercent": -5.53,
@@ -483,7 +483,7 @@
           "sector": "软件"
         }
       ],
-      "totalValue": 9300.02
+      "totalValue": 9308.98
     },
     {
       "id": "gemini-ext",
@@ -492,7 +492,7 @@
       "avatar": "GE",
       "color": "#60a5fa",
       "totalAssets": 9267.88,
-      "returnPct": -7.15,
+      "returnPct": -7.08,
       "cash": 132.35,
       "cashPct": 1.4,
       "holdingsCount": 3,
@@ -504,7 +504,7 @@
           "name": "英伟达",
           "shares": 23.0,
           "avgCost": 213.3178,
-          "currentPrice": 204.87,
+          "currentPrice": 205.19,
           "marketValue": 4712.01,
           "pnl": -194.3,
           "pnlPercent": -3.96,
@@ -536,7 +536,7 @@
           "sector": "软件"
         }
       ],
-      "totalValue": 9284.76
+      "totalValue": 9292.12
     },
     {
       "id": "chatgpt",
@@ -545,7 +545,7 @@
       "avatar": "CG",
       "color": "#4ade80",
       "totalAssets": 9225.2,
-      "returnPct": -7.62,
+      "returnPct": -7.58,
       "cash": 124.03,
       "cashPct": 1.3,
       "holdingsCount": 9,
@@ -557,7 +557,7 @@
           "name": "英伟达",
           "shares": 12.0,
           "avgCost": 220.46,
-          "currentPrice": 204.87,
+          "currentPrice": 205.19,
           "marketValue": 2458.44,
           "pnl": -187.08,
           "pnlPercent": -7.07,
@@ -659,7 +659,7 @@
           "pnlPercent": 0.57
         }
       ],
-      "totalValue": 9238.31
+      "totalValue": 9242.15
     },
     {
       "id": "beth-kindig",
@@ -668,7 +668,7 @@
       "avatar": "BK",
       "color": "#fb7185",
       "totalAssets": 9070.32,
-      "returnPct": -9.3,
+      "returnPct": -8.0,
       "cash": 2052.4,
       "cashPct": 22.6,
       "holdingsCount": 5,
@@ -680,7 +680,7 @@
           "name": "Bloom Energy",
           "shares": 7.0,
           "avgCost": 269.0685,
-          "currentPrice": 248.88,
+          "currentPrice": 260.22,
           "marketValue": 1742.16,
           "pnl": -141.32,
           "pnlPercent": -7.5,
@@ -692,7 +692,7 @@
           "name": "Palantir",
           "shares": 13.0,
           "avgCost": 141.34,
-          "currentPrice": 131.08,
+          "currentPrice": 127.99,
           "marketValue": 1704.04,
           "pnl": -133.38,
           "pnlPercent": -7.26,
@@ -704,7 +704,7 @@
           "name": "AppLovin",
           "shares": 3.0,
           "avgCost": 554.17,
-          "currentPrice": 478.57,
+          "currentPrice": 496.77,
           "marketValue": 1435.71,
           "pnl": -226.8,
           "pnlPercent": -13.64,
@@ -716,7 +716,7 @@
           "name": "GE Vernova",
           "shares": 1.0,
           "avgCost": 959.36,
-          "currentPrice": 906.79,
+          "currentPrice": 940.66,
           "marketValue": 906.79,
           "pnl": -52.57,
           "pnlPercent": -5.48,
@@ -728,7 +728,7 @@
           "name": "英伟达",
           "shares": 6.0,
           "avgCost": 208.2,
-          "currentPrice": 204.87,
+          "currentPrice": 205.19,
           "marketValue": 1229.22,
           "pnl": -19.98,
           "pnlPercent": -1.6,
@@ -736,7 +736,7 @@
           "sector": "半导体"
         }
       ],
-      "totalValue": 9070.32
+      "totalValue": 9199.92
     },
     {
       "id": "qwen",
@@ -745,7 +745,7 @@
       "avatar": "QW",
       "color": "#fbbf24",
       "totalAssets": 8623.36,
-      "returnPct": -13.58,
+      "returnPct": -13.56,
       "cash": 2372.21,
       "cashPct": 27.5,
       "holdingsCount": 6,
@@ -757,7 +757,7 @@
           "name": "英伟达",
           "shares": 5.0,
           "avgCost": 208.19,
-          "currentPrice": 204.87,
+          "currentPrice": 205.19,
           "marketValue": 1024.35,
           "pnl": -16.6,
           "pnlPercent": -1.59,
@@ -825,7 +825,7 @@
           "sector": "互联网"
         }
       ],
-      "totalValue": 8642.48
+      "totalValue": 8644.08
     }
   ],
   "performanceHistory": [
@@ -922,16 +922,16 @@
     },
     {
       "date": "06-12",
-      "cathie-wood": -1.47,
-      "doubao": -3.03,
-      "claude": -3.6,
-      "serenity": -5.35,
-      "grok": -6.46,
-      "gemini-std": -7.0,
-      "gemini-ext": -7.15,
-      "chatgpt": -7.62,
-      "beth-kindig": -9.3,
-      "qwen": -13.58
+      "cathie-wood": -2.87,
+      "doubao": -3.02,
+      "claude": -3.57,
+      "serenity": -2.35,
+      "grok": -6.41,
+      "gemini-std": -6.91,
+      "gemini-ext": -7.08,
+      "chatgpt": -7.58,
+      "beth-kindig": -8.0,
+      "qwen": -13.56
     }
   ],
   "dailyReturns": [
@@ -1043,16 +1043,16 @@
     {
       "date": "2026-06-12",
       "returns": {
-        "cathie-wood": 0.0,
-        "doubao": 0.44,
-        "claude": 0.18,
-        "serenity": 0.0,
-        "grok": -0.01,
-        "gemini-std": 0.14,
-        "gemini-ext": 0.17,
-        "chatgpt": 0.13,
-        "beth-kindig": 0.0,
-        "qwen": 0.19
+        "cathie-wood": -1.4,
+        "doubao": 0.45,
+        "claude": 0.21,
+        "serenity": 3.0,
+        "grok": 0.04,
+        "gemini-std": 0.23,
+        "gemini-ext": 0.24,
+        "chatgpt": 0.17,
+        "beth-kindig": 1.3,
+        "qwen": 0.21
       }
     }
   ]
