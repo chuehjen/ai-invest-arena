@@ -94,6 +94,9 @@ def main():
     out_dir = PROMPTS_DIR / today
     out_dir.mkdir(parents=True, exist_ok=True)
     tpl = TEMPLATE_PATH.read_text()
+    minimal_tpl_path = TEMPLATE_PATH.parent / "daily_prompt_minimal.md.tpl"
+    minimal_tpl = minimal_tpl_path.read_text() if minimal_tpl_path.exists() else tpl
+    MINIMAL_AGENTS = {"qwen", "doubao"}
 
     candidates_md = fmt_candidates(prev_prices, CANDIDATE_POOL)
     sector_md = fmt_sector_moves(prev_prices, prev_prev_prices)
@@ -127,7 +130,7 @@ def main():
             "POSITION_LIMIT": meta["position_limit"],
             "CASH_BAND": meta["cash_band"],
         }
-        prompt = fill_template(tpl, mapping)
+        prompt = fill_template(minimal_tpl if agent_id in MINIMAL_AGENTS else tpl, mapping)
         out_path = out_dir / f"{agent_id}.md"
         out_path.write_text(prompt)
         written += 1
