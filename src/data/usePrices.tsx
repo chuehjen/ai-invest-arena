@@ -33,9 +33,8 @@ const TWELVE_DATA_KEY = '6bc32203d6de416698c9b17a59459f93';
 const BATCH_SIZE = 8;
 const BATCH_DELAY_MS = 62_000;
 
-// jsdelivr CDN：拉 GitHub raw 的 latest.json，OneDay 不必重新部署
-// 通过 ?v=timestamp 绕 jsdelivr 边缘缓存
-const JSDELIVR_URL = 'https://cdn.jsdelivr.net/gh/chuehjen/ai-invest-arena@main/public/data/latest.json';
+// GitHub raw：5 分钟缓存 + CORS *，比 jsdelivr（7天缓存 purge 不灵）可靠
+const CDN_URL = 'https://raw.githubusercontent.com/chuehjen/ai-invest-arena/main/public/data/latest.json';
 
 // 静态快照通过 webpack JSON import 内联进 bundle（jsdelivr 不可达时离线兜底）
 import bundledSnapshot from './snapshot.json';
@@ -81,9 +80,9 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setDataLoading(true);
     const bundled = bundledSnapshot as unknown as CompetitionSnapshot;
 
-    // 1) 优先：jsdelivr CDN 拉最新 latest.json（带 ?v=timestamp 绕边缘缓存）
+    // 1) 优先：GitHub raw 拉最新 latest.json（max-age=300，5分钟刷新）
     try {
-      const url = `${JSDELIVR_URL}?v=${Date.now()}`;
+      const url = `${CDN_URL}?v=${Date.now()}`;
       const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
       if (res.ok) {
         const cdn = (await res.json()) as CompetitionSnapshot;
