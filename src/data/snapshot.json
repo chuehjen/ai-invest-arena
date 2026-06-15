@@ -898,6 +898,19 @@
       "chatgpt": -7.58,
       "beth-kindig": -8.0,
       "qwen": -13.56
+    },
+    {
+      "date": "06-15",
+      "serenity": -2.35,
+      "cathie-wood": -2.87,
+      "doubao": -3.02,
+      "claude": -3.57,
+      "grok": -6.41,
+      "gemini-std": -6.91,
+      "gemini-ext": -7.08,
+      "chatgpt": -7.62,
+      "beth-kindig": -8.0,
+      "qwen": -13.56
     }
   ],
   "dailyReturns": [
@@ -1019,6 +1032,21 @@
         "chatgpt": 0.17,
         "beth-kindig": 1.3,
         "qwen": 0.21
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "returns": {
+        "serenity": 0.0,
+        "cathie-wood": 0.0,
+        "doubao": 0.0,
+        "claude": 0.0,
+        "grok": 0.0,
+        "gemini-std": 0.0,
+        "gemini-ext": 0.0,
+        "chatgpt": -0.04,
+        "beth-kindig": 0.0,
+        "qwen": 0.0
       }
     }
   ]
