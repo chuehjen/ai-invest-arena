@@ -72,10 +72,10 @@
       "color": "#818cf8",
       "totalAssets": 9712.55,
       "returnPct": -2.87,
-      "cash": 81.55,
-      "cashPct": 0.84,
+      "cash": 572.93,
+      "cashPct": 5.9,
       "holdingsCount": 8,
-      "style": "颠覆创新·止盈 HOOD 加 PLTR",
+      "style": "颠覆创新·止盈 TSLA 加 CRCL",
       "badge": "silver",
       "holdings": [
         {
@@ -105,25 +105,25 @@
         {
           "symbol": "TSLA",
           "name": "特斯拉",
-          "shares": 4.0,
+          "shares": 3.0,
           "avgCost": 413.1725,
           "currentPrice": 406.43,
-          "marketValue": 1625.72,
-          "pnl": -26.97,
+          "marketValue": 1219.29,
+          "pnl": -20.23,
           "pnlPercent": -1.63,
-          "weight": 16.74,
+          "weight": 12.55,
           "sector": "汽车"
         },
         {
           "symbol": "PLTR",
           "name": "Palantir",
-          "shares": 11.0,
-          "avgCost": 137.6855,
+          "shares": 9.0,
+          "avgCost": 139.84,
           "currentPrice": 127.99,
-          "marketValue": 1407.89,
+          "marketValue": 1151.91,
           "pnl": -106.65,
-          "pnlPercent": -7.04,
-          "weight": 14.5,
+          "pnlPercent": -8.47,
+          "weight": 11.86,
           "sector": "软件"
         },
         {
@@ -141,13 +141,13 @@
         {
           "symbol": "HOOD",
           "name": "Robinhood",
-          "shares": 9.0,
+          "shares": 10.0,
           "avgCost": 82.85,
           "currentPrice": 93.19,
-          "marketValue": 838.71,
-          "pnl": 93.06,
+          "marketValue": 931.9,
+          "pnl": 103.4,
           "pnlPercent": 12.48,
-          "weight": 8.64,
+          "weight": 9.59,
           "sector": "金融"
         },
         {
@@ -165,13 +165,13 @@
         {
           "symbol": "CRCL",
           "name": "Circle",
-          "shares": 9.0,
-          "avgCost": 85.13,
+          "shares": 10.0,
+          "avgCost": 84.401,
           "currentPrice": 77.84,
-          "marketValue": 700.56,
+          "marketValue": 778.4,
           "pnl": -65.61,
-          "pnlPercent": -8.56,
-          "weight": 7.21,
+          "pnlPercent": -7.77,
+          "weight": 8.01,
           "sector": "金融"
         }
       ],
@@ -635,10 +635,10 @@
       "color": "#fb7185",
       "totalAssets": 9199.92,
       "returnPct": -8.0,
-      "cash": 1058.86,
-      "cashPct": 11.51,
+      "cash": 1847.21,
+      "cashPct": 20.08,
       "holdingsCount": 5,
-      "style": "电力主线·APP 跌深加仓",
+      "style": "电力主线·加 NVDA AI compute",
       "badge": null,
       "holdings": [
         {
@@ -668,13 +668,13 @@
         {
           "symbol": "APP",
           "name": "AppLovin",
-          "shares": 5.0,
-          "avgCost": 531.21,
+          "shares": 3.0,
+          "avgCost": 554.17,
           "currentPrice": 496.77,
-          "marketValue": 2483.85,
+          "marketValue": 1490.31,
           "pnl": -172.2,
-          "pnlPercent": -6.48,
-          "weight": 27.0,
+          "pnlPercent": -10.36,
+          "weight": 16.2,
           "sector": "软件"
         },
         {
@@ -692,13 +692,13 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "shares": 6.0,
-          "avgCost": 208.2,
+          "shares": 7.0,
+          "avgCost": 207.77,
           "currentPrice": 205.19,
-          "marketValue": 1231.14,
+          "marketValue": 1436.33,
           "pnl": -18.06,
-          "pnlPercent": -1.45,
-          "weight": 13.38,
+          "pnlPercent": -1.24,
+          "weight": 15.61,
           "sector": "半导体"
         }
       ],
