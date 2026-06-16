@@ -1,19 +1,38 @@
-# 依赖文件
-node_modules/
-
-# 构建输出
-dist/
-build/
-
-# 环境变量文件
+# ===== 环境变量 =====
 .env
 .env.local
+.env.production
 
-# 日志文件
-*.log
+# ===== Node / 构建 =====
+node_modules/
+dist/
+build/
+.cache/
 
-# 编辑器配置
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+
+# ===== 编辑器 / IDE =====
 .vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
 
-# cursor 相关
+# ===== 日志 =====
+*.log
+automation/logs/*.log
+
+# ===== AI 工具 =====
 .cursorrules
+.qoderwork/
+
+# ===== 临时 / 备份 =====
+*.bak
+*.tmp
+*~

@@ -1,0 +1,75 @@
+# 每日 20:30 CST (12:30 UTC) 自动：
+#   1. 用 Twelve Data 拉前一交易日收盘价
+#   2. 生成 5 份提示词（3 大师 + 豆包 + 千问）
+#   3. 推送豆包 + 千问 2 份到钉钉群「大仁哥」
+#
+# 美股节假日自动跳过（fetch_prices.py 内部调用 holidays.py 校验）。
+name: Daily Prices + Prompts
+
+on:
+  schedule:
+    # UTC 12:30 = CST 20:30（CST = UTC+8）
+    - cron: '30 12 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Override date YYYY-MM-DD（默认用今天）'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Configure env
+        env:
+          TWELVE_DATA_KEY: ${{ secrets.TWELVE_DATA_KEY }}
+          DINGBOT_WEBHOOK: ${{ secrets.DINGBOT_WEBHOOK }}
+        run: |
+          cat > .env <<EOF
+          TWELVE_DATA_KEY=${TWELVE_DATA_KEY}
+          DINGBOT_WEBHOOK=${DINGBOT_WEBHOOK}
+          EOF
+
+      - name: Fetch prices + generate prompts
+        run: |
+          cd automation/scripts
+          if [ -n "${{ inputs.date }}" ]; then
+            python daily_run.py prompts --date "${{ inputs.date }}"
+          else
+            python daily_run.py prompts
+          fi
+
+      - name: Upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prompts-${{ github.run_id }}
+          path: |
+            automation/prices/*.json
+            automation/prompts/**/*.md
+          retention-days: 7
+
+      - name: Notify failure via DingTalk
+        if: failure() && env.DINGBOT_WEBHOOK
+        env:
+          DINGBOT_WEBHOOK: ${{ secrets.DINGBOT_WEBHOOK }}
+        run: |
+          curl -s -X POST "$DINGBOT_WEBHOOK" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "msgtype": "text",
+              "text": {"content": "[情报采集] ❌ AI 投资竞赛 Daily workflow 失败，请查看 GitHub Actions 日志：https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}
+            }'

@@ -3,11 +3,12 @@
 daily_run.py — 一键 orchestrator
 
 完整流程:
-  1. fetch_prices.py        拉前一交易日收盘价
-  2. generate_prompts.py    生成今日 10 份提示词
-  3. push 豆包+千问 2 份到钉钉群「大仁哥」（其他 5 家外部 AI 用户自行复制）
-  4. [群里 @我 贴 5 份 JSON → fetch_group_decisions.py] 落 responses/
-  5. validate_response.py + codegen_data.py + supabase upload + 极简通知
+  1. fetch_prices.py        拉前一交易日收盘价（Twelve Data）
+  2. generate_prompts.py    生成 5 份提示词（3 大师 + 豆包 + 千问，其他人工贴）
+  3. push 豆包 + 千问 2 份到钉钉群「大仁哥」（每家 1 条 markdown，共 2 条）
+  4. [quant-guru-desk skill 读取 serenity/beth/cathie 3 份 → 三大师调仓 JSON]
+  5. [群里 @我 贴 5 份外部 AI 决策 JSON → fetch_group_decisions.py 落 responses/]
+  6. validate_response.py + codegen_data.py + supabase upload + 极简通知
 
 用法:
   python daily_run.py prompts                # 步骤 1+2+3
@@ -38,7 +39,11 @@ def prev_trading_day(d_str):
 
 
 def push_prompts_to_dingbot(today: str):
-    """把豆包 + 千问两份提示词推到钉钉群（每份一条 markdown）。"""
+    """把豆包 + 千问两份提示词推到钉钉群（每家 1 条 markdown，共 2 条）。
+
+    注：钉钉 markdown 单条上限约 5000 字符；minimal 模板通常 2-3 KB，单条发即可。
+    超长时自动截断并提示用户查本地文件。
+    """
     from config import PROMPTS_DIR
     from dingbot import send_markdown
 
@@ -49,13 +54,12 @@ def push_prompts_to_dingbot(today: str):
             print(f"⚠️  {path} 不存在，跳过")
             continue
         body = path.read_text()
-        # 钉钉 markdown 单条限制约 5000 字符；超长截断并提示
         if len(body) > 4500:
-            body = body[:4400] + "\n\n... _(已截断，详见本地文件)_"
+            body = body[:4400] + "\n\n... _(已截断，详见本地 automation/prompts/{}/{agent_id}.md)_".format(today)
         title = f"Day {today} · {agent_name} 调仓提示词"
         try:
             send_markdown(title=title, text=body)
-            print(f"✓ 已推 {agent_name} 提示词到钉钉")
+            print(f"✓ 已推 {agent_name} 提示词到钉钉（1 条消息）")
         except Exception as e:
             print(f"❌ 推 {agent_name} 失败: {e}")
 

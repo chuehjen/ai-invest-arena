@@ -1,4 +1,4 @@
-import { oneday } from '../onedaycloud/client';
+import { supabase } from './supabaseClient';
 import type { CompetitionSnapshot } from '../data/competitionData';
 
 export interface SnapshotRow {
@@ -11,7 +11,11 @@ export interface SnapshotRow {
 const TABLE = 'ai_invest_snapshots';
 
 export async function fetchLatestSnapshot(): Promise<SnapshotRow | null> {
-  const { data, error } = await oneday.supabase
+  if (!supabase) {
+    console.warn('[snapshotService] supabase 未配置，跳过 fetch');
+    return null;
+  }
+  const { data, error } = await supabase
     .from(TABLE)
     .select('*')
     .order('snapshot_date', { ascending: false })
@@ -26,7 +30,8 @@ export async function fetchLatestSnapshot(): Promise<SnapshotRow | null> {
 }
 
 export async function fetchSnapshotByDate(date: string): Promise<SnapshotRow | null> {
-  const { data, error } = await oneday.supabase
+  if (!supabase) return null;
+  const { data, error } = await supabase
     .from(TABLE)
     .select('*')
     .eq('snapshot_date', date)
@@ -40,7 +45,8 @@ export async function fetchSnapshotByDate(date: string): Promise<SnapshotRow | n
 }
 
 export async function fetchAllSnapshots(): Promise<Array<{ snapshot_date: string; day_n: number; created_at?: string }>> {
-  const { data, error } = await oneday.supabase
+  if (!supabase) return [];
+  const { data, error } = await supabase
     .from(TABLE)
     .select('snapshot_date, day_n, created_at')
     .order('snapshot_date', { ascending: true });
@@ -51,3 +57,4 @@ export async function fetchAllSnapshots(): Promise<Array<{ snapshot_date: string
   }
   return (data as Array<{ snapshot_date: string; day_n: number; created_at?: string }>) || [];
 }
+

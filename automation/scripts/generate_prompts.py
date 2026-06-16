@@ -96,7 +96,14 @@ def main():
     tpl = TEMPLATE_PATH.read_text()
     minimal_tpl_path = TEMPLATE_PATH.parent / "daily_prompt_minimal.md.tpl"
     minimal_tpl = minimal_tpl_path.read_text() if minimal_tpl_path.exists() else tpl
+
+    # 生成范围（白名单）：
+    #   GURU_AGENTS    → 3 位大师完整版 md，供 quant-guru-desk skill 读取
+    #   MINIMAL_AGENTS → 豆包 + 千问精简版 md，供钉钉推送
+    # 不再为 chatgpt/claude/gemini/grok 生成（人工贴各家网页）
+    GURU_AGENTS = {"serenity", "beth-kindig", "cathie-wood"}
     MINIMAL_AGENTS = {"qwen", "doubao"}
+    TARGET_AGENTS = GURU_AGENTS | MINIMAL_AGENTS
 
     candidates_md = fmt_candidates(prev_prices, CANDIDATE_POOL)
     sector_md = fmt_sector_moves(prev_prices, prev_prev_prices)
@@ -104,6 +111,8 @@ def main():
     written = 0
     for meta in AGENTS:
         agent_id = meta["id"]
+        if agent_id not in TARGET_AGENTS:
+            continue
         s = state.get(agent_id)
         if not s:
             print(f"⚠ {agent_id} not found in TS state, skipping")
@@ -134,7 +143,9 @@ def main():
         out_path = out_dir / f"{agent_id}.md"
         out_path.write_text(prompt)
         written += 1
-    print(f"✅ Wrote {written}/{len(AGENTS)} prompts → {out_dir}")
+    print(f"✅ Wrote {written}/{len(TARGET_AGENTS)} prompts → {out_dir}")
+    print(f"   大师（完整版）: {sorted(GURU_AGENTS)}")
+    print(f"   钉钉（精简版）: {sorted(MINIMAL_AGENTS)}")
 
 
 def _today_str():

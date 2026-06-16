@@ -1,5 +1,27 @@
-"""共享配置：API key / 路径 / 30 symbols / agent 元信息"""
+"""共享配置：API key / 路径 / 30 symbols / agent 元信息
+
+所有敏感凭证（Twelve Data / 钉钉 / Supabase）优先读环境变量，
+未配置时 fallback 到默认值（仅供本地开发，生产环境必须覆盖）。
+
+.env 文件位置：仓库根目录（与 automation/ 同级）。
+"""
+import json
+import os
 from pathlib import Path
+
+# 自动加载仓库根目录的 .env（不抛错，允许不存在）
+def _load_dotenv():
+    env_path = Path(__file__).resolve().parent.parent.parent / ".env"
+    if not env_path.exists():
+        return
+    for line in env_path.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, v = line.split("=", 1)
+        os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+_load_dotenv()
 
 ROOT = Path(__file__).resolve().parent.parent
 PRICES_DIR = ROOT / "prices"
@@ -13,23 +35,24 @@ DATA_JSON_DIR = ROOT.parent / "public" / "data"
 DATA_LATEST_JSON = DATA_JSON_DIR / "latest.json"
 DATA_ARCHIVE_DIR = DATA_JSON_DIR / "archive"
 
-TWELVE_DATA_KEY = "6bc32203d6de416698c9b17a59459f93"
+# Twelve Data API key（https://twelvedata.com 注册）
+TWELVE_DATA_KEY = os.getenv("TWELVE_DATA_KEY", "6bc32203d6de416698c9b17a59459f93")
 TWELVE_DATA_BASE = "https://api.twelvedata.com"
 
 # 钉钉自定义机器人（用户群：大仁哥）
-DINGBOT_WEBHOOK = "https://oapi.dingtalk.com/robot/send?access_token=7d31113b9945e8fece153289b1de5c1ae7f539dea7996b1fff416c98795d1835"
+# 生产环境请通过环境变量 DINGBOT_WEBHOOK 覆盖（避免 webhook token 泄露到 git）
+DINGBOT_WEBHOOK = os.getenv(
+    "DINGBOT_WEBHOOK",
+    "https://oapi.dingtalk.com/robot/send?access_token=7d31113b9945e8fece153289b1de5c1ae7f539dea7996b1fff416c98795d1835",
+)
 DINGBOT_KEYWORD = "情报采集"  # 自定义关键词，每条消息内容必须包含
 DINGBOT_GROUP_CID = "cid/1GQYVRRbwm/ZliGeQWujw=="  # 群「大仁哥」openConversationId
 
-# Supabase（OneDay sandbox）— 等用户提供 keys 后填入 ~/.qoderwork/secrets/supabase.json
-# 文件 schema:
-# {"url": "https://xxx.supabase.co", "anon_key": "eyJ...", "service_key": "eyJ..."}
-import os, json
-SUPABASE_SECRETS_PATH = Path.home() / ".qoderwork" / "secrets" / "supabase.json"
-def load_supabase_secrets():
-    if SUPABASE_SECRETS_PATH.exists():
-        return json.loads(SUPABASE_SECRETS_PATH.read_text())
-    return None
+# Supabase（独立项目，不再依赖 OneDay sandbox）
+# 必须配置：SUPABASE_URL / SUPABASE_ANON_KEY（前端）/ SUPABASE_SERVICE_KEY（后端写入）
+SUPABASE_URL = os.getenv("SUPABASE_URL", "")
+SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "")
+SUPABASE_SERVICE_KEY = os.getenv("SUPABASE_SERVICE_KEY", "")
 SUPABASE_TABLE = "ai_invest_snapshots"
 
 # 当前竞赛 30 symbols（从 Day6 实测整理，sector 与 Portfolio.tsx 同步）
