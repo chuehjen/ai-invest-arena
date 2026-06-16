@@ -42,6 +42,17 @@ jobs:
         env:
           NODE_ENV: development
 
+      - name: Debug node_modules
+        run: |
+          echo "=== node_modules/.bin/webpack ==="
+          ls -la node_modules/.bin/webpack 2>&1 || echo "NOT FOUND"
+          echo "=== npm ls webpack ==="
+          npm ls webpack 2>&1 | head -10
+          echo "=== node -e require webpack ==="
+          node -e "console.log(require.resolve('webpack'))" 2>&1 || echo "RESOLVE FAILED"
+          echo "=== NODE_ENV ==="
+          echo "$NODE_ENV"
+
       - name: Build
         env:
           NODE_ENV: production
