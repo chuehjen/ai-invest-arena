@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "webpack serve",
-    "build": "webpack --mode production",
+    "build": "npx webpack --mode production",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
