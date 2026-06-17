@@ -21,7 +21,21 @@ from config import (
 from ts_state import parse_dates, parse_state
 
 
-def fmt_holdings_table(holdings):
+def _close(p):
+    """兼容旧格式 (number) 和新 OHLC 格式 (dict) → 返回 close price"""
+    if isinstance(p, dict):
+        return p.get("close", 0)
+    return p
+
+
+def _ohlc(p):
+    """兼容旧格式 → 返回 {open, high, low, close} dict"""
+    if isinstance(p, dict):
+        return p
+    return {"open": p, "high": p, "low": p, "close": p}
+
+
+def fmt_holdings_table(holdings, prices=None):
     if not holdings:
         return "_(空仓)_"
     lines = ["| Symbol | Shares | AvgCost | LastClose | MV | Weight |", "|---|---|---|---|---|---|"]
@@ -34,11 +48,12 @@ def fmt_holdings_table(holdings):
 
 
 def fmt_candidates(prices, pool):
-    rows = ["| Symbol | Sector | Close |", "|---|---|---|"]
+    rows = ["| Symbol | Sector | Open | High | Low | Close |", "|---|---|---|---|---|---|"]
     for sym in pool:
         if sym not in prices:
             continue
-        rows.append(f"| {sym} | {SECTOR_MAP.get(sym, '-')} | ${prices[sym]:.2f} |")
+        o = _ohlc(prices[sym])
+        rows.append(f"| {sym} | {SECTOR_MAP.get(sym, '-')} | ${o['open']:.2f} | ${o['high']:.2f} | ${o['low']:.2f} | ${o['close']:.2f} |")
     return "\n".join(rows)
 
 
@@ -50,8 +65,11 @@ def fmt_sector_moves(prices_today, prices_prev):
     for sym, p in prices_today.items():
         prev = prices_prev.get(sym)
         if prev:
-            pct = (p - prev) / prev * 100
-            moves.append((sym, pct))
+            cur_close = _close(p)
+            prev_close = _close(prev)
+            if prev_close > 0:
+                pct = (cur_close - prev_close) / prev_close * 100
+                moves.append((sym, pct))
     moves.sort(key=lambda x: abs(x[1]), reverse=True)
     top = moves[:6]
     parts = [f"{s} {('+' if pct>=0 else '')}{pct:.1f}%" for s, pct in top]
@@ -120,7 +138,7 @@ def main():
         # holdings table 用最新 close 作 currentPrice 重算 MV
         for h in s["holdings"]:
             if h["symbol"] in prev_prices:
-                h["current_price"] = prev_prices[h["symbol"]]
+                h["current_price"] = _close(prev_prices[h["symbol"]])
 
         mapping = {
             "AGENT_ID": agent_id,
