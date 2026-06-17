@@ -31,8 +31,8 @@
     },
     "exec_price_basis": {
       "type": "string",
-      "const": "previous_close",
-      "description": "竞赛规则：买卖均按前一交易日收盘价"
+      "enum": ["previous_close", "previous_ohlc"],
+      "description": "买入按前一交易日收盘价，卖出可按前一交易日 OHLC 任一价格"
     },
     "actions": {
       "type": "array",
@@ -43,7 +43,7 @@
           "type": {"type": "string", "enum": ["BUY", "SELL", "HOLD"]},
           "symbol": {"type": "string"},
           "shares": {"type": "number", "minimum": 0},
-          "price": {"type": "number", "minimum": 0, "description": "执行价（前一交易日收盘价）；HOLD 可省略"},
+          "price": {"type": "number", "minimum": 0, "description": "买入=前一交易日收盘价；卖出=前一交易日 O/H/L/C 任一；HOLD 可省略"},
           "rationale": {"type": "string", "maxLength": 200}
         }
       }
