@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-fetch_prices.py — Twelve Data 拉取 30 symbols 收盘价
+fetch_prices.py — Twelve Data 拉取 30 symbols OHLC 价格
 
 用法:
   python fetch_prices.py                # 拉取最新一天
-  python fetch_prices.py --date 2026-06-10  # 指定日期收盘价（time_series）
+  python fetch_prices.py --date 2026-06-10  # 指定日期 OHLC（time_series）
   python fetch_prices.py --batch-size 8 --delay 62  # 调整批次
 
 输出: automation/prices/{date}.json
@@ -12,7 +12,7 @@ fetch_prices.py — Twelve Data 拉取 30 symbols 收盘价
   "date": "2026-06-10",
   "fetched_at": "2026-06-11T09:30:00+08:00",
   "source": "twelvedata.time_series",
-  "prices": {"NVDA": 208.19, ...},
+  "prices": {"NVDA": {"open": 206.5, "high": 210.3, "low": 205.1, "close": 208.19}, ...},
   "missing": []
 }
 """
@@ -58,8 +58,10 @@ def fetch_time_series_batch(symbols, date, retries=3):
     raise RuntimeError(f"Twelve Data fetch failed after {retries} retries: {last_err}")
 
 
-def parse_close(payload, symbol):
-    """time_series batch 返回 {SYM: {values:[{close:"..."}]}}; 单 symbol 返回直接对象"""
+def parse_ohlc(payload, symbol):
+    """time_series batch 返回 {SYM: {values:[{open,high,low,close}]}}; 单 symbol 返回直接对象
+    返回 dict: {"open": float, "high": float, "low": float, "close": float} 或 None
+    """
     if isinstance(payload, dict) and "values" in payload:
         block = payload
     else:
@@ -70,7 +72,13 @@ def parse_close(payload, symbol):
     if not values:
         return None
     try:
-        return float(values[0]["close"])
+        bar = values[0]
+        return {
+            "open": float(bar["open"]),
+            "high": float(bar["high"]),
+            "low": float(bar["low"]),
+            "close": float(bar["close"]),
+        }
     except (KeyError, ValueError, TypeError):
         return None
 
@@ -96,12 +104,12 @@ def main():
         print(f"  [{i}/{len(batches)}] {','.join(batch)}")
         payload = fetch_time_series_batch(batch, target_date)
         for sym in batch:
-            close = parse_close(payload, sym)
-            if close is None:
+            ohlc = parse_ohlc(payload, sym)
+            if ohlc is None:
                 missing.append(sym)
                 print(f"    ⚠ {sym} no data")
             else:
-                prices[sym] = close
+                prices[sym] = ohlc
         if i < len(batches):
             print(f"    ⏳ wait {args.delay}s for next batch")
             time.sleep(args.delay)
