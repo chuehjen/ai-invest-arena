@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { usePriceContext, useDataContext } from '../data/usePrices';
 import { useTheme } from '../data/useTheme';
@@ -10,6 +10,190 @@ const navItems = [
   { path: '/competition', icon: 'fa-flag-checkered', label: '赛事信息' },
   { path: '/analysis', icon: 'fa-brain', label: 'AI分析' },
 ];
+
+const FAB_STORAGE_KEY = 'ai-arena-fab-pos';
+
+const DraggableThemeButton: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, toggleTheme }) => {
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const dragState = useRef<{
+    dragging: boolean;
+    moved: boolean;
+    startX: number;
+    startY: number;
+    origLeft: number;
+    origTop: number;
+  }>({ dragging: false, moved: false, startX: 0, startY: 0, origLeft: 0, origTop: 0 });
+
+  // Restore saved position on mount
+  useEffect(() => {
+    const el = btnRef.current;
+    if (!el) return;
+    try {
+      const saved = localStorage.getItem(FAB_STORAGE_KEY);
+      if (saved) {
+        const { x, y, anchor } = JSON.parse(saved);
+        if (anchor === 'right') {
+          el.style.left = 'auto';
+          el.style.right = `${x}px`;
+        } else {
+          el.style.left = `${x}px`;
+          el.style.right = 'auto';
+        }
+        el.style.top = `${y}px`;
+        el.style.bottom = 'auto';
+        return;
+      }
+    } catch (_) { /* ignore */ }
+    // Default: bottom-left
+    el.style.left = '20px';
+    el.style.bottom = '20px';
+  }, []);
+
+  const snapToEdge = useCallback(() => {
+    const el = btnRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const cx = rect.left + rect.width / 2;
+    const margin = 20;
+
+    // Determine nearest horizontal edge
+    const nearBottom = rect.top + rect.height / 2 > vh / 2;
+    const newTop = nearBottom ? vh - rect.height - margin : margin;
+
+    // Determine nearest vertical edge
+    const nearRight = cx > vw / 2;
+    const newX = nearRight ? vw - rect.width - margin : margin;
+
+    // Animate to snapped position
+    el.style.transition = 'left 0.3s cubic-bezier(0.4,0,0.2,1), right 0.3s cubic-bezier(0.4,0,0.2,1), top 0.3s cubic-bezier(0.4,0,0.2,1)';
+    el.style.bottom = 'auto';
+    el.style.top = `${newTop}px`;
+    if (nearRight) {
+      el.style.left = 'auto';
+      el.style.right = `${margin}px`;
+    } else {
+      el.style.right = 'auto';
+      el.style.left = `${margin}px`;
+    }
+
+    // Persist
+    try {
+      localStorage.setItem(FAB_STORAGE_KEY, JSON.stringify({
+        x: margin,
+        y: newTop,
+        anchor: nearRight ? 'right' : 'left',
+      }));
+    } catch (_) { /* ignore */ }
+
+    // Clear transition after animation so hover effects work normally
+    setTimeout(() => {
+      if (el) el.style.transition = '';
+    }, 350);
+  }, []);
+
+  const onPointerDown = useCallback((clientX: number, clientY: number) => {
+    const el = btnRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    dragState.current = {
+      dragging: true,
+      moved: false,
+      startX: clientX,
+      startY: clientY,
+      origLeft: rect.left,
+      origTop: rect.top,
+    };
+    // Freeze position: switch to absolute coords
+    el.style.transition = 'none';
+    el.style.bottom = 'auto';
+    el.style.right = 'auto';
+    el.style.left = `${rect.left}px`;
+    el.style.top = `${rect.top}px`;
+  }, []);
+
+  const onPointerMove = useCallback((clientX: number, clientY: number) => {
+    const ds = dragState.current;
+    if (!ds.dragging) return;
+    const el = btnRef.current;
+    if (!el) return;
+
+    const dx = clientX - ds.startX;
+    const dy = clientY - ds.startY;
+
+    if (!ds.moved && Math.abs(dx) < 5 && Math.abs(dy) < 5) return;
+    ds.moved = true;
+    el.classList.add('fab-dragging');
+
+    // Clamp to viewport
+    const rect = el.getBoundingClientRect();
+    const newX = Math.max(0, Math.min(window.innerWidth - rect.width, ds.origLeft + dx));
+    const newY = Math.max(0, Math.min(window.innerHeight - rect.height, ds.origTop + dy));
+    el.style.left = `${newX}px`;
+    el.style.top = `${newY}px`;
+  }, []);
+
+  const onPointerUp = useCallback(() => {
+    const ds = dragState.current;
+    ds.dragging = false;
+    const el = btnRef.current;
+    if (el) el.classList.remove('fab-dragging');
+
+    if (!ds.moved) {
+      // It was a click, not a drag
+      toggleTheme();
+      return;
+    }
+    snapToEdge();
+  }, [toggleTheme, snapToEdge]);
+
+  // Mouse events
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    onPointerDown(e.clientX, e.clientY);
+
+    const onMove = (ev: MouseEvent) => onPointerMove(ev.clientX, ev.clientY);
+    const onUp = () => {
+      onPointerUp();
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  }, [onPointerDown, onPointerMove, onPointerUp]);
+
+  // Touch events
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    const t = e.touches[0];
+    onPointerDown(t.clientX, t.clientY);
+  }, [onPointerDown]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    const t = e.touches[0];
+    onPointerMove(t.clientX, t.clientY);
+  }, [onPointerMove]);
+
+  const handleTouchEnd = useCallback(() => {
+    onPointerUp();
+  }, [onPointerUp]);
+
+  return (
+    <button
+      ref={btnRef}
+      className="theme-switch-btn"
+      onMouseDown={handleMouseDown}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      title={theme === 'terminal' ? '切换到极简风格' : '切换到深色终端风格'}
+      aria-label="切换视觉风格（可拖动）"
+    >
+      <span className="theme-dot" />
+      <span>切换 · {theme === 'terminal' ? '终端 / 暗色' : '极简 / 浅色'}</span>
+    </button>
+  );
+};
 
 const Layout: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -137,15 +321,7 @@ const Layout: React.FC = () => {
         </main>
       </div>
 
-      <button
-        onClick={toggleTheme}
-        className="theme-switch-btn"
-        title={theme === 'terminal' ? '切换到极简风格' : '切换到深色终端风格'}
-        aria-label="切换视觉风格"
-      >
-        <span className="theme-dot" />
-        <span>切换 · {theme === 'terminal' ? '终端 / 暗色' : '极简 / 浅色'}</span>
-      </button>
+      <DraggableThemeButton theme={theme} toggleTheme={toggleTheme} />
     </div>
   );
 };
