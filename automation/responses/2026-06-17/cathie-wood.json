@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "cathie-wood",
+  "agent_name": "木头姐",
+  "date": "2026-06-17",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "TEM",
+      "shares": 40,
+      "price": 50.56,
+      "rationale": "Tempus AI跌幅属短期波动，精准医疗平台逻辑未变"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSLA",
+      "shares": 4,
+      "price": 404.66,
+      "rationale": "自动驾驶+机器人长期叙事完整"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "SHOP",
+      "shares": 11,
+      "price": 113.23,
+      "rationale": "电商SaaS平台持续增长"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 8,
+      "price": 133.25,
+      "rationale": "政府+商业AI双轮驱动"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "HOOD",
+      "shares": 12,
+      "price": 96.71,
+      "rationale": "金融科技民主化趋势不变"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRSP",
+      "shares": 20,
+      "price": 52.02,
+      "rationale": "基因编辑长期价值不受短期市场影响"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "COIN",
+      "shares": 6,
+      "price": 169.27,
+      "rationale": "加密基础设施长期看涨"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRCL",
+      "shares": 3,
+      "price": 79.72,
+      "rationale": "稳定币赛道长期持有"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "TEM",
+      "shares": 40,
+      "avg_cost": 47.8
+    },
+    {
+      "symbol": "TSLA",
+      "shares": 4,
+      "avg_cost": 413.17
+    },
+    {
+      "symbol": "SHOP",
+      "shares": 11,
+      "avg_cost": 112.94
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 8,
+      "avg_cost": 140.93
+    },
+    {
+      "symbol": "HOOD",
+      "shares": 12,
+      "avg_cost": 82.85
+    },
+    {
+      "symbol": "CRSP",
+      "shares": 20,
+      "avg_cost": 52.13
+    },
+    {
+      "symbol": "COIN",
+      "shares": 6,
+      "avg_cost": 160.13
+    },
+    {
+      "symbol": "CRCL",
+      "shares": 3,
+      "avg_cost": 90.13
+    }
+  ],
+  "cash_after": 900.93,
+  "total_assets_after": 10422.49,
+  "return_pct_cumulative": 4.22,
+  "summary": "市场普跌日不改变颠覆性创新五大平台配置。TEM单日-11%属高波动创新股常态，现金$900不足以在多赛道有效加仓，维持全仓不动。",
+  "confidence": "high",
+  "strongest_bear_case": "TEM单日跌幅过大可能暗示基本面变化而非市场噪音；HOOD+COIN+CRCL三金融敞口在加息周期末端仍承压"
+}
