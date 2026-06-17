@@ -43,7 +43,15 @@ def load_official_prices(date_str):
     p = PRICES_DIR / f"{date_str}.json"
     if not p.exists():
         return {}
-    return json.loads(p.read_text())["prices"]
+    raw = json.loads(p.read_text())["prices"]
+    # 兼容旧格式 (number) 和新 OHLC 格式 (dict)
+    normalized = {}
+    for sym, val in raw.items():
+        if isinstance(val, dict):
+            normalized[sym] = val
+        else:
+            normalized[sym] = {"open": val, "high": val, "low": val, "close": val}
+    return normalized
 
 
 def validate_one(resp_path: Path, prev_state_map: dict) -> dict:
@@ -76,34 +84,51 @@ def validate_one(resp_path: Path, prev_state_map: dict) -> dict:
     mv_sum = 0.0
     for h in holdings_after:
         sym = h["symbol"]
-        cur = prices.get(sym)
-        if cur is None:
+        ohlc = prices.get(sym)
+        if ohlc is None:
             warnings.append(f"no official price for {sym}, skipping MV check")
             continue
-        mv_sum += h["shares"] * cur
+        mv_sum += h["shares"] * ohlc["close"]
     declared_total = resp["total_assets_after"]
     calc_total = mv_sum + resp["cash_after"]
     if abs(calc_total - declared_total) > 1.0:
         issues.append(f"total mismatch: declared=${declared_total:.2f} calc=${calc_total:.2f} diff=${calc_total-declared_total:+.2f}")
 
-    # 4. action price 偏差
+    # 4. action price 偏差 — BUY 只看 close，SELL 可匹配 O/H/L/C 任一
     for a in resp["actions"]:
         if a["type"] == "HOLD":
             continue
         sym = a["symbol"]
-        official = prices.get(sym)
-        if official is None:
+        ohlc = prices.get(sym)
+        if ohlc is None:
             warnings.append(f"action {a['type']} {sym} no official price, skipping")
             continue
         ai_price = a.get("price")
         if ai_price is None:
             issues.append(f"action {a['type']} {sym} missing price")
             continue
-        dev = abs(ai_price - official) / official * 100
-        if dev > 5.0:
-            issues.append(f"action {sym} price=${ai_price:.2f} official=${official:.2f} deviation={dev:.1f}% > 5%")
-        elif dev > 2.0:
-            warnings.append(f"action {sym} price deviation {dev:.1f}% (within tolerance)")
+        if a["type"] == "BUY":
+            # 买入：必须匹配收盘价
+            dev = abs(ai_price - ohlc["close"]) / ohlc["close"] * 100
+            if dev > 5.0:
+                issues.append(f"BUY {sym} price=${ai_price:.2f} close=${ohlc['close']:.2f} deviation={dev:.1f}% > 5%")
+            elif dev > 2.0:
+                warnings.append(f"BUY {sym} price deviation {dev:.1f}% (within tolerance)")
+        elif a["type"] == "SELL":
+            # 卖出：可匹配 O/H/L/C 任一，取最小偏差
+            min_dev = min(
+                abs(ai_price - ohlc[k]) / ohlc[k] * 100
+                for k in ("open", "high", "low", "close")
+                if ohlc[k] > 0
+            )
+            if min_dev > 5.0:
+                issues.append(
+                    f"SELL {sym} price=${ai_price:.2f} O/H/L/C="
+                    f"${ohlc['open']:.2f}/${ohlc['high']:.2f}/${ohlc['low']:.2f}/${ohlc['close']:.2f}"
+                    f" min_deviation={min_dev:.1f}% > 5%"
+                )
+            elif min_dev > 2.0:
+                warnings.append(f"SELL {sym} price deviation {min_dev:.1f}% (within tolerance)")
 
     # 5. actions 应用到 prev holdings 应等于 holdings_after
     prev = prev_state_map.get(agent_id)
