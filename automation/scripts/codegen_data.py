@@ -44,6 +44,13 @@ BADGE_MAP = {0: "gold", 1: "silver", 2: "bronze"}
 INIT_CAPITAL = 10000.0
 
 
+def _close(p):
+    """兼容旧格式 (number) 和新 OHLC 格式 (dict) → 返回 close price"""
+    if isinstance(p, dict):
+        return p.get("close", 0)
+    return p
+
+
 def _round(v, n=2):
     return round(float(v) + 1e-9, n)
 
@@ -51,7 +58,8 @@ def _round(v, n=2):
 def build_holding(h_after, prev_agent, prices):
     """组装一条 holding（含派生字段 marketValue/pnl/pnlPercent/weight 占位）"""
     sym = h_after["symbol"]
-    cur = prices.get(sym)
+    raw = prices.get(sym)
+    cur = _close(raw) if raw is not None else None
     if cur is None and prev_agent:
         for ph in prev_agent["holdings"]:
             if ph["symbol"] == sym:
@@ -103,7 +111,8 @@ def build_agent_record(meta, response, prev_agent, prices):
 def build_from_prev(meta, prev_agent, prices):
     holdings = []
     for h in prev_agent["holdings"]:
-        cur = prices.get(h["symbol"], h["current_price"])
+        raw = prices.get(h["symbol"])
+        cur = _close(raw) if raw is not None else h["current_price"]
         shares = h["shares"]
         avg = h["avg_cost"]
         mv = shares * cur
