@@ -89,7 +89,7 @@ def build_holding(h_after, prev_agent, prices):
 def build_agent_record(meta, response, prev_agent, prices):
     holdings = [build_holding(h, prev_agent, prices) for h in response["holdings_after"]]
     cash = response["cash_after"]
-    total = response["total_assets_after"]
+    total = sum(h["marketValue"] for h in holdings) + cash  # 用实际市值重算，不信任 response 的 total
     # 重算 weight
     for h in holdings:
         h["weight"] = _round(h["marketValue"] / max(total, 1) * 100, 1)
