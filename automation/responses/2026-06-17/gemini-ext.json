@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-06-17",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 23,
+      "price": 213.32,
+      "rationale": "AI算力核心继续锁仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 8,
+      "price": 362.0,
+      "rationale": "平台AI+搜索双重逻辑不变"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 441.0,
+      "rationale": "企业AI底座持有"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 23,
+      "avg_cost": 213.32
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 8,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 132.35,
+  "total_assets_after": 9464.1,
+  "return_pct_cumulative": -5.36,
+  "summary": "市场震荡期维持三票集中持仓不动，AI基本面未变",
+  "confidence": "medium",
+  "strongest_bear_case": "三只票全部科技集中，系统性风险无对冲"
+}
