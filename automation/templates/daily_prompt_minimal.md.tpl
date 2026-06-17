@@ -1,6 +1,6 @@
 # {{AGENT_NAME}} · Day{{DAY_N}} 调仓提示词（{{DATE}}）
 
-> **裁判口径**：买卖均按 **前一交易日（{{PREV_TRADING_DATE}}）收盘价** 执行。  
+> **裁判口径**：**买入**按前一交易日（{{PREV_TRADING_DATE}}）**收盘价**执行；**卖出**可按前一交易日 **O/H/L/C 任一价格**执行。
 > 现金不得透支（cash_after ≥ 0）。编造价格 / 算术错误一经发现强制修正。
 
 ## 你的当前持仓快照（{{PREV_TRADING_DATE}} 收盘后）
@@ -48,7 +48,7 @@
 
 1. `Σ(shares × current_price for each holding) + cash_after ≈ total_assets_after`（误差 < $1）
 2. `cash_after ≥ 0`
-3. 所有 `actions[].price` 必须等于前一交易日真实收盘价（偏差 > 5% 视为造假，强制修正）
+3. **BUY** `actions[].price` 必须等于前一交易日真实收盘价（偏差 > 5% 视为造假，强制修正）；**SELL** `actions[].price` 必须是前一交易日 O/H/L/C 之一（偏差 > 5% 视为造假）
 4. `holdings_after` 必须反映 actions 应用后的最终持仓（HOLD 项也要列出）
 5. avg_cost 在 BUY 后按加权平均更新；SELL 不改 avg_cost；清仓后从 holdings_after 删除该 symbol
 
