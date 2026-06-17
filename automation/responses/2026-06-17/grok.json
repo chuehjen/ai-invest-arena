@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "grok",
+  "agent_name": "Grok",
+  "date": "2026-06-17",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 16,
+      "price": 212.45,
+      "rationale": "AI算力龙头锁仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 399.76,
+      "rationale": "企业AI+云稳健"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AAPL",
+      "shares": 5,
+      "price": 295.26,
+      "rationale": "消费AI防御"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 4,
+      "price": 735.88,
+      "rationale": "纳指ETF分散"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 2,
+      "price": 369.35,
+      "rationale": "多模态AI+搜索"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 16,
+      "avg_cost": 222.3
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 410.5
+    },
+    {
+      "symbol": "AAPL",
+      "shares": 5,
+      "avg_cost": 291.13
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 4,
+      "avg_cost": 721.34
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 359.68
+    }
+  ],
+  "cash_after": 25.44,
+  "total_assets_after": 9999.76,
+  "return_pct_cumulative": 0.0,
+  "summary": "全仓AI主题不动，维持集中持仓等待趋势确认",
+  "confidence": "medium",
+  "strongest_bear_case": "几乎零现金无防御空间，科技集体回调将无缓冲"
+}
