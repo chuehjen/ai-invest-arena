@@ -510,6 +510,22 @@ body[data-theme="minimal"] {
   box-shadow: 0 0 6px rgba(37, 99, 235, 0.3);
 }
 
+/* Suppress hover expansion during drag */
+.theme-switch-btn.fab-dragging {
+  width: auto !important;
+  padding: 0 16px !important;
+  cursor: grabbing !important;
+  transform: scale(1.05) !important;
+  transition: none !important;
+}
+.theme-switch-btn.fab-dragging > span:last-child {
+  opacity: 0 !important;
+  max-width: 0 !important;
+}
+.theme-switch-btn {
+  cursor: grab;
+}
+
 /* ===== Focus rings ===== */
 [data-theme="minimal"] *:focus-visible {
   outline: 2px solid var(--accent) !important;
