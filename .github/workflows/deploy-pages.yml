@@ -37,9 +37,11 @@ jobs:
           node-version: '20'
 
       - name: Install deps
-        run: npm install --production=false
-        env:
-          NODE_ENV: development
+        run: npm ci
+        timeout-minutes: 5
+
+      - name: Verify webpack installed
+        run: npx webpack --version
 
       - name: Build
         env:
