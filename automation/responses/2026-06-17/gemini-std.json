@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-06-17",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 28,
+      "price": 216.86,
+      "rationale": "重仓NVDA不变，AI硬件核心"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 3,
+      "price": 746.0,
+      "rationale": "纳指宽基底仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 441.0,
+      "rationale": "软件端持仓观察"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9286.16,
+  "return_pct_cumulative": -7.14,
+  "summary": "极简三票策略不动，等待市场方向明确",
+  "confidence": "low",
+  "strongest_bear_case": "NVDA占比过高，若跌破200将承受巨大回撤"
+}
