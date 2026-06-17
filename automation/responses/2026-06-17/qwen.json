@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-06-17",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "BUY",
+      "symbol": "NVDA",
+      "shares": 4,
+      "price": 212.45,
+      "rationale": "加仓AI核心，看好Blackwell需求周期"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 9,
+      "avg_cost": 210.08
+    },
+    {
+      "symbol": "SCHD",
+      "shares": 46,
+      "avg_cost": 32.29
+    },
+    {
+      "symbol": "V",
+      "shares": 4,
+      "avg_cost": 320.0
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 256.52
+    },
+    {
+      "symbol": "GLD",
+      "shares": 2,
+      "avg_cost": 420.0
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 368.4
+    }
+  ],
+  "cash_after": 1760.96,
+  "total_assets_after": 8586.83,
+  "return_pct_cumulative": -14.13,
+  "summary": "加仓NVDA 4股至9股，进攻+防御对冲策略不变",
+  "confidence": "medium",
+  "strongest_bear_case": "累计亏损已超14%，加仓NVDA若继续下跌将加速资金消耗"
+}
