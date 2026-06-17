@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-06-17",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "NVDA",
+      "shares": 2,
+      "price": 212.42,
+      "rationale": "减仓高位集中风险"
+    },
+    {
+      "type": "BUY",
+      "symbol": "V",
+      "shares": 1,
+      "price": 323.73,
+      "rationale": "增配支付龙头分散科技集中"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 14,
+      "avg_cost": 214.18
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 5,
+      "avg_cost": 363.19
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 5,
+      "avg_cost": 254.77
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 436.71
+    },
+    {
+      "symbol": "META",
+      "shares": 2,
+      "avg_cost": 606.09
+    },
+    {
+      "symbol": "JPM",
+      "shares": 2,
+      "avg_cost": 304.32
+    },
+    {
+      "symbol": "V",
+      "shares": 1,
+      "avg_cost": 323.73
+    }
+  ],
+  "cash_after": 117.41,
+  "total_assets_after": 9515.07,
+  "return_pct_cumulative": -4.85,
+  "summary": "减持NVDA 2股锁定部分收益，增配V分散科技集中度，维持6+1核心持仓结构",
+  "confidence": "medium",
+  "strongest_bear_case": "科技股若集体回调，NVDA+GOOGL+MSFT+META四重敞口仍过大"
+}
