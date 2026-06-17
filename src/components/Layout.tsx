@@ -140,11 +140,11 @@ const Layout: React.FC = () => {
       <button
         onClick={toggleTheme}
         className="theme-switch-btn"
-        title={theme === 'terminal' ? '切换到编辑刊风格' : '切换到深色终端风格'}
+        title={theme === 'terminal' ? '切换到极简风格' : '切换到深色终端风格'}
         aria-label="切换视觉风格"
       >
         <span className="theme-dot" />
-        <span>切换 · {theme === 'terminal' ? '终端 / 暗色' : '编辑刊 / 浅色'}</span>
+        <span>切换 · {theme === 'terminal' ? '终端 / 暗色' : '极简 / 浅色'}</span>
       </button>
     </div>
   );
