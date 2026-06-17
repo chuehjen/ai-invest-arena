@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-06-17",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 13,
+      "price": 280.88,
+      "rationale": "电力基础设施需求周期未变，短期回调不改远期营收模型"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 12,
+      "price": 133.25,
+      "rationale": "政府AI合同+商业扩展双驱动"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "APP",
+      "shares": 3,
+      "price": 515.2,
+      "rationale": "广告AI变现效率持续提升，逆市上涨验证模型"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 5,
+      "price": 207.41,
+      "rationale": "算力基础设施核心持仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GEV",
+      "shares": 1,
+      "price": 982.35,
+      "rationale": "电力设备+数据中心双增长极"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "BE",
+      "shares": 13,
+      "avg_cost": 269.08
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 12,
+      "avg_cost": 142.2
+    },
+    {
+      "symbol": "APP",
+      "shares": 3,
+      "avg_cost": 554.17
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 208.87
+    },
+    {
+      "symbol": "GEV",
+      "shares": 1,
+      "avg_cost": 959.36
+    }
+  ],
+  "cash_after": 1516.16,
+  "total_assets_after": 10310.0,
+  "return_pct_cumulative": 3.1,
+  "summary": "电力+软件+算力三角配置不动。APP逆市上涨4.8%验证前瞻营收模型；BE回调-6%属正常波动，数据中心电力需求长期确定性高。现金$1,516保持灵活。",
+  "confidence": "high",
+  "strongest_bear_case": "BE单日跌6%且PLTR跌5%可能暗示AI基建投资节奏放缓；APP估值已透支远期增长"
+}
