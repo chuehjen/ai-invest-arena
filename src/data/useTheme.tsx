@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 
-export type ThemeName = 'terminal' | 'editorial';
+export type ThemeName = 'terminal' | 'minimal';
 
 interface ThemeContextValue {
   theme: ThemeName;
@@ -16,7 +16,9 @@ const readInitial = (): ThemeName => {
   if (typeof window === 'undefined') return 'terminal';
   try {
     const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === 'editorial' || stored === 'terminal') return stored;
+    if (stored === 'minimal' || stored === 'terminal') return stored;
+    // Migrate old 'editorial' → 'minimal'
+    if (stored === 'editorial') return 'minimal';
   } catch (_) {
     // ignore storage errors (private mode etc.)
   }
@@ -40,7 +42,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   const setTheme = useCallback((t: ThemeName) => setThemeState(t), []);
   const toggleTheme = useCallback(
-    () => setThemeState(prev => (prev === 'terminal' ? 'editorial' : 'terminal')),
+    () => setThemeState(prev => (prev === 'terminal' ? 'minimal' : 'terminal')),
     [],
   );
 
