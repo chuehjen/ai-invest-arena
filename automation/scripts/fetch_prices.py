@@ -35,14 +35,14 @@ def chunked(lst, size):
         yield lst[i:i + size]
 
 
-def fetch_time_series_batch(symbols, date, retries=3):
-    """time_series 端点带日期，可拉指定日收盘价。批 ≤ 8 受 free tier 8 credits/min 限制。"""
+def fetch_time_series_batch(symbols, date=None, retries=3):
+    """time_series 端点拉最近 5 个交易日（outputsize=5），本地按日期筛选。
+    注：start_date/end_date 参数已失效（Twelve Data 返回 400），故不使用。
+    批 ≤ 8 受 free tier 8 credits/min 限制。"""
     qs = urlencode({
         "symbol": ",".join(symbols),
         "interval": "1day",
-        "start_date": date,
-        "end_date": date,
-        "outputsize": 1,
+        "outputsize": 5,
         "apikey": TWELVE_DATA_KEY,
     })
     url = f"{TWELVE_DATA_BASE}/time_series?{qs}"
@@ -58,8 +58,9 @@ def fetch_time_series_batch(symbols, date, retries=3):
     raise RuntimeError(f"Twelve Data fetch failed after {retries} retries: {last_err}")
 
 
-def parse_ohlc(payload, symbol):
-    """time_series batch 返回 {SYM: {values:[{open,high,low,close}]}}; 单 symbol 返回直接对象
+def parse_ohlc(payload, symbol, target_date=None):
+    """time_series batch 返回 {SYM: {values:[{datetime,open,high,low,close},...]}}; 单 symbol 返回直接对象
+    如果 target_date 非空，在 values 中按 datetime 匹配；否则取最新一条。
     返回 dict: {"open": float, "high": float, "low": float, "close": float} 或 None
     """
     if isinstance(payload, dict) and "values" in payload:
@@ -72,7 +73,12 @@ def parse_ohlc(payload, symbol):
     if not values:
         return None
     try:
-        bar = values[0]
+        if target_date:
+            bar = next((v for v in values if v["datetime"] == target_date), None)
+            if bar is None:
+                return None
+        else:
+            bar = values[0]
         return {
             "open": float(bar["open"]),
             "high": float(bar["high"]),
@@ -106,7 +112,7 @@ def main():
         print(f"  [{i}/{len(batches)}] {','.join(batch)}")
         payload = fetch_time_series_batch(batch, target_date)
         for sym in batch:
-            ohlc = parse_ohlc(payload, sym)
+            ohlc = parse_ohlc(payload, sym, target_date)
             if ohlc is None:
                 missing.append(sym)
                 print(f"    ⚠ {sym} no data")
