@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "cathie-wood",
+  "agent_name": "木头姐",
+  "date": "2026-06-19",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "SELL", "symbol": "TEM", "shares": 20, "price": 50.84, "rationale": "Trim 21.5% to 9.8%, recycle to AI+Energy"},
+    {"type": "SELL", "symbol": "TSLA", "shares": 2, "price": 400.49, "rationale": "Trim 16.9% to 7.7%, fund NVDA entry"},
+    {"type": "SELL", "symbol": "HOOD", "shares": 3, "price": 108.15, "rationale": "Trim +30.5% winner to 9.4% cap"},
+    {"type": "BUY", "symbol": "NVDA", "shares": 5, "price": 210.69, "rationale": "AI Wright's Law leader, GPU cost curve"},
+    {"type": "BUY", "symbol": "BE", "shares": 2, "price": 328.91, "rationale": "Pure-play energy storage disruption"},
+    {"type": "BUY", "symbol": "CRCL", "shares": 2, "price": 80.23, "rationale": "Add weakness, stablecoin infra thesis intact"},
+    {"type": "HOLD", "symbol": "SHOP", "shares": 11, "price": 108.85, "rationale": "AI commerce platform, thesis intact"},
+    {"type": "HOLD", "symbol": "PLTR", "shares": 8, "price": 128.47, "rationale": "AI data infra, buy-the-dip candidate"},
+    {"type": "HOLD", "symbol": "CRSP", "shares": 20, "price": 54.09, "rationale": "CRISPR genomics leader, hold conviction"},
+    {"type": "HOLD", "symbol": "COIN", "shares": 6, "price": 163.26, "rationale": "Blockchain equity platform, hold"}
+  ],
+  "holdings_after": [
+    {"symbol": "SHOP", "shares": 11, "avg_cost": 112.94},
+    {"symbol": "CRSP", "shares": 20, "avg_cost": 52.13},
+    {"symbol": "NVDA", "shares": 5, "avg_cost": 210.69},
+    {"symbol": "TEM", "shares": 20, "avg_cost": 47.80},
+    {"symbol": "PLTR", "shares": 8, "avg_cost": 140.93},
+    {"symbol": "COIN", "shares": 6, "avg_cost": 160.13},
+    {"symbol": "HOOD", "shares": 9, "avg_cost": 82.85},
+    {"symbol": "TSLA", "shares": 2, "avg_cost": 413.17},
+    {"symbol": "BE", "shares": 2, "avg_cost": 328.91},
+    {"symbol": "CRCL", "shares": 5, "avg_cost": 86.17}
+  ],
+  "cash_after": 1171.43,
+  "total_assets_after": 10361.45,
+  "return_pct_cumulative": 3.61,
+  "summary": "Trimmed 3 over-cap winners (TEM 21%→10%, HOOD 14%→9%, TSLA 17%→8%). Deployed into NVDA (AI Wright's Law GPU cost curve), BE (pure-play energy storage S-curve), added CRCL weakness (stablecoin infra intact). Platform coverage: AI 41% / Robotics 8% / Energy 6% / Blockchain 24% / Genomics 14%. 10 holdings all under 12% cap, cash 11.3%.",
+  "confidence": "medium-high",
+  "strongest_bear_case": "Portfolio is 100% disruptive innovation with extreme beta (~1.5-2.0). Rate shock or risk-off rotation could trigger 15-25% drawdown. TEM/TSLA/PLTR carry elevated short interest. CRCL underwater thesis requires stablecoin regulation catalyst. No value or defensive ballast."
+}
