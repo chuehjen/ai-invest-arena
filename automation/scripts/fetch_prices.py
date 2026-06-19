@@ -89,6 +89,8 @@ def main():
     ap.add_argument("--batch-size", type=int, default=8)
     ap.add_argument("--delay", type=int, default=62, help="批次间秒数（free tier 8 credits/min）")
     ap.add_argument("--symbols", nargs="*", default=None)
+    ap.add_argument("--missing-threshold", type=float, default=0.3,
+                    help="允许缺失比例 (0~1)，超过则 exit 1（默认 0.3 = 30%%）")
     args = ap.parse_args()
 
     target_date = args.date or _latest_trading_date()
@@ -125,8 +127,15 @@ def main():
     out_path.write_text(json.dumps(out, indent=2, ensure_ascii=False))
     print(f"✅ {len(prices)}/{len(symbols)} prices → {out_path}")
     if missing:
-        print(f"⚠ Missing: {missing}")
-        sys.exit(1)
+        ratio = len(missing) / len(symbols)
+        print(f"⚠ Missing {len(missing)}/{len(symbols)} ({ratio:.0%}): {missing}")
+        if len(prices) == 0:
+            print("❌ 全部股票无数据，疑似 API 故障，强制失败")
+            sys.exit(1)
+        if ratio > args.missing_threshold:
+            print(f"❌ 缺失率 {ratio:.0%} 超过阈值 {args.missing_threshold:.0%}，exit 1")
+            sys.exit(1)
+        print(f"⚠ 缺失率 {ratio:.0%} ≤ 阈值 {args.missing_threshold:.0%}，允许继续")
 
 
 def _latest_trading_date():
