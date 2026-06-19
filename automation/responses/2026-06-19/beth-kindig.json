@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-06-19",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "SELL", "symbol": "BE", "shares": 7, "price": 328.91, "rationale": "Trim concentration 41% to 18%, risk mgmt"},
+    {"type": "BUY", "symbol": "NVDA", "shares": 5, "price": 210.69, "rationale": "Add compute leader, CUDA moat, fwd growth"},
+    {"type": "BUY", "symbol": "MRVL", "shares": 3, "price": 310.58, "rationale": "Optical/networking bottleneck, custom ASIC"},
+    {"type": "HOLD", "symbol": "PLTR", "shares": 12, "price": 128.47, "rationale": "Software leader, thesis intact, hold thru vol"},
+    {"type": "HOLD", "symbol": "APP", "shares": 3, "price": 469.71, "rationale": "AI ad-tech growth intact despite drawdown"},
+    {"type": "HOLD", "symbol": "GEV", "shares": 1, "price": 1109.73, "rationale": "Power bottleneck leader, hold core position"}
+  ],
+  "holdings_after": [
+    {"symbol": "BE", "shares": 6, "avg_cost": 269.08},
+    {"symbol": "PLTR", "shares": 12, "avg_cost": 142.20},
+    {"symbol": "APP", "shares": 3, "avg_cost": 554.17},
+    {"symbol": "NVDA", "shares": 10, "avg_cost": 209.78},
+    {"symbol": "GEV", "shares": 1, "avg_cost": 959.36},
+    {"symbol": "MRVL", "shares": 3, "avg_cost": 310.58}
+  ],
+  "cash_after": 1833.34,
+  "total_assets_after": 10905.94,
+  "return_pct_cumulative": 9.06,
+  "summary": "Trimmed BE from 41% to 18% (concentration risk), redeployed into NVDA (compute leader, 19%) and initiated MRVL (optical/networking bottleneck, 8.5%). Cash at 16.8%, all positions under 20% cap. Portfolio aligned with AI bottleneck migration: power 28%, compute 19%, networking 9%, software 27%.",
+  "confidence": "high",
+  "strongest_bear_case": "BE power contracts could slip if data center build-outs slow; NVDA faces margin pressure from custom ASIC competition (AMZN/GOOGL in-house silicon); PLTR government revenue lumpy; APP cyclical; MRVL hyperscaler customer concentration risk."
+}
