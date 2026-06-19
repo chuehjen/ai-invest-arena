@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-06-19",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "HOLD", "symbol": "NVDA", "shares": 9, "price": 210.69, "rationale": "AI算力核心持仓"},
+    {"type": "HOLD", "symbol": "SCHD", "shares": 46, "price": 31.86, "rationale": "高股息防御底仓"},
+    {"type": "HOLD", "symbol": "V", "shares": 4, "price": 327.24, "rationale": "金融支付龙头"},
+    {"type": "HOLD", "symbol": "AMZN", "shares": 3, "price": 244.39, "rationale": "云+电商双引擎"},
+    {"type": "HOLD", "symbol": "GLD", "shares": 2, "price": 387.12, "rationale": "黄金避险对冲"},
+    {"type": "HOLD", "symbol": "GOOGL", "shares": 2, "price": 368.03, "rationale": "搜索+AI平台"}
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 9, "avg_cost": 210.08},
+    {"symbol": "SCHD", "shares": 46, "avg_cost": 32.29},
+    {"symbol": "V", "shares": 4, "avg_cost": 320.00},
+    {"symbol": "AMZN", "shares": 3, "avg_cost": 256.52},
+    {"symbol": "GLD", "shares": 2, "avg_cost": 420.00},
+    {"symbol": "GOOGL", "shares": 2, "avg_cost": 368.40}
+  ],
+  "cash_after": 1760.96,
+  "total_assets_after": 8675.16,
+  "return_pct_cumulative": -13.25,
+  "summary": "维持现有配置不动，NVDA+宽基+金融+黄金均衡组合。现金17.6%较高，等待更明确的市场方向信号。",
+  "confidence": "low",
+  "strongest_bear_case": "累计亏损12.6%为全场最差，持仓分散但缺乏主线，现金闲置拖累收益。应果断加仓AI主线或止损弱势标的。"
+}
