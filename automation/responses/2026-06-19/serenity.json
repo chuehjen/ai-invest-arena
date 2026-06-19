@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "serenity",
+  "agent_name": "Serenity",
+  "date": "2026-06-19",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "SELL", "symbol": "COHR", "shares": 3, "price": 394.00, "rationale": "Over 30% cap, reduce optical concentration"},
+    {"type": "SELL", "symbol": "MRVL", "shares": 1, "price": 305.47, "rationale": "Trim to sub-30%, fund TSM fab chokepoint"},
+    {"type": "BUY", "symbol": "TSM", "shares": 2, "price": 462.12, "rationale": "Ultimate fab chokepoint for all AI silicon"},
+    {"type": "HOLD", "symbol": "LITE", "shares": 3, "price": 850.00, "rationale": "Optical laser chokepoint intact, thesis unchanged"}
+  ],
+  "holdings_after": [
+    {"symbol": "COHR", "shares": 7, "avg_cost": 394.39},
+    {"symbol": "LITE", "shares": 3, "avg_cost": 900.70},
+    {"symbol": "MRVL", "shares": 9, "avg_cost": 270.17},
+    {"symbol": "TSM", "shares": 2, "avg_cost": 462.12}
+  ],
+  "cash_after": 916.49,
+  "total_assets_after": 9912.94,
+  "return_pct_cumulative": -0.87,
+  "summary": "De-risk optical layer: COHR 40.8%→27.5%, MRVL 32.5%→28.2%, both under 30% soft cap. Add TSM as foundational fab chokepoint—every AI chip, DSP, and laser die flows through TSMC. Correlated optical exposure drops from 67% to 53%. Cash raised to 9.2% within band.",
+  "confidence": "medium",
+  "strongest_bear_case": "AI hyperscaler capex cycle pauses, optical transceiver inventory builds, InP laser supply catches up to demand crushing COHR/LITE margins, while TSM trades at peak-cycle multiples vulnerable to a cyclical downturn."
+}
