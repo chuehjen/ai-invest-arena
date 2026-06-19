@@ -38,6 +38,81 @@ def prev_trading_day(d_str):
     return d.isoformat()
 
 
+def to_dingtalk_md(text: str) -> str:
+    """把标准 Markdown 转成钉钉机器人兼容格式。
+
+    钉钉不支持：表格、围栏代码块、水平线。
+    转换策略：
+      - 表格 → 每行一个 bullet
+      - ```json ... ``` → 缩进纯文本
+      - --- → 删除
+      - > 引用 → 保留（钉钉部分支持）
+    """
+    import re
+    lines = text.split("\n")
+    out = []
+    in_code_block = False
+    in_table = False
+    table_headers = []
+
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+
+        # Fenced code blocks: ``` ... ```
+        if line.strip().startswith("```"):
+            if in_code_block:
+                in_code_block = False
+                i += 1
+                continue
+            else:
+                in_code_block = True
+                i += 1
+                continue
+        if in_code_block:
+            # Indent code block content as plain text
+            out.append(f"    {line}")
+            i += 1
+            continue
+
+        # Horizontal rules
+        if re.match(r"^\s*---+\s*$", line):
+            i += 1
+            continue
+
+        # Table detection (| ... |)
+        stripped = line.strip()
+        if stripped.startswith("|") and stripped.endswith("|"):
+            cells = [c.strip() for c in stripped.split("|")[1:-1]]
+            # Separator row (|---|---|)
+            if all(re.match(r"^[-:]+$", c) for c in cells):
+                i += 1
+                continue
+            if not in_table:
+                in_table = True
+                table_headers = cells
+                i += 1
+                continue
+            else:
+                # Data row → bullet
+                parts = []
+                for hdr, val in zip(table_headers, cells):
+                    if val and val != hdr:
+                        parts.append(f"{hdr}: **{val}**")
+                out.append(f"- {' · '.join(parts)}")
+                i += 1
+                continue
+        else:
+            if in_table:
+                in_table = False
+                out.append("")  # blank line after table
+
+        out.append(line)
+        i += 1
+
+    return "\n".join(out)
+
+
 def push_prompts_to_dingbot(today: str):
     """把豆包 + 千问两份提示词推到钉钉群（每家 1 条 markdown，共 2 条）。
 
@@ -54,6 +129,7 @@ def push_prompts_to_dingbot(today: str):
             print(f"⚠️  {path} 不存在，跳过")
             continue
         body = path.read_text()
+        body = to_dingtalk_md(body)  # 转钉钉兼容格式
         if len(body) > 4500:
             body = body[:4400] + "\n\n... _(已截断，详见本地 automation/prompts/{}/{agent_id}.md)_".format(today)
         title = f"Day {today} · {agent_name} 调仓提示词"
