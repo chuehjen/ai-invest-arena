@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-06-19",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "SELL", "symbol": "JPM", "shares": 1, "price": 325.22, "rationale": "降低防守仓，释放现金"},
+    {"type": "BUY", "symbol": "NVDA", "shares": 1, "price": 210.69, "rationale": "芯片反弹，强化AI核心"},
+    {"type": "HOLD", "symbol": "GOOGL", "shares": 5, "price": 368.03, "rationale": "平台AI继续持有"},
+    {"type": "HOLD", "symbol": "AMZN", "shares": 5, "price": 244.39, "rationale": "AWS弹性仍在"},
+    {"type": "HOLD", "symbol": "MSFT", "shares": 3, "price": 379.40, "rationale": "企业AI底仓"},
+    {"type": "HOLD", "symbol": "META", "shares": 2, "price": 577.22, "rationale": "已减仓，继续观察"},
+    {"type": "HOLD", "symbol": "JPM", "shares": 1, "price": 325.22, "rationale": "保留少量金融防守"},
+    {"type": "HOLD", "symbol": "V", "shares": 1, "price": 327.24, "rationale": "支付龙头持有"}
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 15, "avg_cost": 215.49},
+    {"symbol": "GOOGL", "shares": 5, "avg_cost": 363.19},
+    {"symbol": "AMZN", "shares": 5, "avg_cost": 254.77},
+    {"symbol": "MSFT", "shares": 3, "avg_cost": 436.71},
+    {"symbol": "META", "shares": 2, "avg_cost": 606.09},
+    {"symbol": "JPM", "shares": 1, "avg_cost": 304.32},
+    {"symbol": "V", "shares": 1, "avg_cost": 323.73}
+  ],
+  "cash_after": 231.94,
+  "total_assets_after": 9399.49,
+  "return_pct_cumulative": -6.01,
+  "summary": "顺着芯片修复加NVDA，卖JPM释放现金。保留AI成长主线+少量金融防守，避免完全all-in。",
+  "confidence": "medium",
+  "strongest_bear_case": "美联储鹰派与利率不确定性仍在，科技股持续承压，NVDA集中度过高风险大。"
+}
