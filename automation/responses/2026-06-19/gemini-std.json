@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-06-19",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "HOLD", "symbol": "NVDA", "shares": 28, "price": 210.69, "rationale": "联储靴子落地，AI算力龙头锁仓"},
+    {"type": "HOLD", "symbol": "QQQ", "shares": 3, "price": 739.69, "rationale": "纳指科技宽基Beta修复"},
+    {"type": "HOLD", "symbol": "MSFT", "shares": 3, "price": 379.40, "rationale": "软件端情绪修复，维持底仓"}
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 28, "avg_cost": 216.86},
+    {"symbol": "QQQ", "shares": 3, "avg_cost": 746.00},
+    {"symbol": "MSFT", "shares": 3, "avg_cost": 441.00}
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9484.01,
+  "return_pct_cumulative": -5.16,
+  "summary": "联储决议靴子落地，市场整体多头修复。现金仅2.4%不具备开新仓条件，全员HOLD吃满算力反弹。",
+  "confidence": "medium",
+  "strongest_bear_case": "现金过低无法应对进一步回调，集中科技风格在鹰派环境下承压最大。"
+}
