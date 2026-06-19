@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-06-19",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "SELL", "symbol": "GOOGL", "shares": 1, "price": 368.03, "rationale": "英国CMA监管利空，结构性换仓"},
+    {"type": "BUY", "symbol": "NVDA", "shares": 2, "price": 210.69, "rationale": "核心算力垄断，超跌反弹机会"},
+    {"type": "HOLD", "symbol": "MSFT", "shares": 4, "price": 379.40, "rationale": "Azure基本面稳固"}
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 25, "avg_cost": 212.63},
+    {"symbol": "GOOGL", "shares": 7, "avg_cost": 362.00},
+    {"symbol": "MSFT", "shares": 4, "avg_cost": 441.00}
+  ],
+  "cash_after": 147.75,
+  "total_assets_after": 9508.81,
+  "return_pct_cumulative": -4.91,
+  "summary": "卖出受监管利空GOOGL 1股，换仓买入2股NVDA集中算力优势。NVDA均价摊低至$212.63。",
+  "confidence": "medium",
+  "strongest_bear_case": "GOOGL搜索垄断护城河深厚，减仓可能错失反弹；NVDA集中度已超55%风险极高。"
+}
