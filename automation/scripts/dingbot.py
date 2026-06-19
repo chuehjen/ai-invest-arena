@@ -35,10 +35,10 @@ def _post(payload: dict) -> dict:
 
 
 def _inject_keyword(text: str) -> str:
-    """若正文不含关键词，自动前缀注入。"""
+    """若正文不含关键词，自动注入到首行（独立一行，不破坏 markdown 标题）。"""
     if DINGBOT_KEYWORD in text:
         return text
-    return f"[{DINGBOT_KEYWORD}] {text}"
+    return f"**[{DINGBOT_KEYWORD}]**\n\n{text}"
 
 
 def send_text(content: str, at_mobiles: Optional[list] = None, at_all: bool = False) -> dict:
