@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-06-22",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "GOOGL",
+      "shares": 1,
+      "price": 354.26,
+      "rationale": "集中算力"
+    },
+    {
+      "type": "BUY",
+      "symbol": "NVDA",
+      "shares": 2,
+      "price": 212.78,
+      "rationale": "芯片龙头"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 378.93,
+      "rationale": ""
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 27,
+      "avg_cost": 212.64
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 6,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 9462.77,
+  "return_pct_cumulative": -5.37,
+  "summary": "卖GOOGL换仓NVDA集中算力",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA集中度超56%风险极高"
+}
