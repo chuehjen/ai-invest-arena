@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "snapshot_date": "2026-06-19",
-  "day_n": 13,
+  "snapshot_date": "2026-06-22",
+  "day_n": 14,
   "competitionInfo": {
     "name": "AI 美股投资竞赛",
     "season": "S1",
@@ -17,10 +17,10 @@
       "avatar": "BK",
       "color": "#fb7185",
       "style": "成长型 · 电力主线+软件",
-      "totalAssets": 10905.94,
-      "returnPct": 9.06,
-      "cash": 1833.34,
-      "cashPct": 16.8,
+      "totalAssets": 10883.7,
+      "returnPct": 8.84,
+      "cash": 701.37,
+      "cashPct": 6.4,
       "holdingsCount": 6,
       "holdings": [
         {
@@ -44,7 +44,7 @@
           "marketValue": 1541.64,
           "pnl": -164.76,
           "pnlPercent": -9.66,
-          "weight": 14.1,
+          "weight": 14.2,
           "sector": "软件"
         },
         {
@@ -68,19 +68,19 @@
           "marketValue": 2106.9,
           "pnl": 9.1,
           "pnlPercent": 0.43,
-          "weight": 19.3,
+          "weight": 19.4,
           "sector": "半导体"
         },
         {
           "symbol": "GEV",
           "name": "GE Vernova",
-          "shares": 1,
-          "avgCost": 959.36,
+          "shares": 2,
+          "avgCost": 1045.66,
           "currentPrice": 1109.73,
-          "marketValue": 1109.73,
-          "pnl": 150.37,
-          "pnlPercent": 15.67,
-          "weight": 10.2,
+          "marketValue": 2219.46,
+          "pnl": 128.14,
+          "pnlPercent": 6.13,
+          "weight": 20.4,
           "sector": "电力"
         },
         {
@@ -92,7 +92,7 @@
           "marketValue": 931.74,
           "pnl": -0.0,
           "pnlPercent": -0.0,
-          "weight": 8.5,
+          "weight": 8.6,
           "sector": "半导体"
         }
       ],
@@ -105,11 +105,11 @@
       "avatar": "CW",
       "color": "#818cf8",
       "style": "颠覆创新 · 五大平台",
-      "totalAssets": 10361.45,
-      "returnPct": 3.61,
-      "cash": 1171.43,
-      "cashPct": 11.3,
-      "holdingsCount": 10,
+      "totalAssets": 10371.64,
+      "returnPct": 3.72,
+      "cash": 770.27,
+      "cashPct": 7.4,
+      "holdingsCount": 11,
       "holdings": [
         {
           "symbol": "SHOP",
@@ -120,7 +120,7 @@
           "marketValue": 1197.35,
           "pnl": -44.99,
           "pnlPercent": -3.62,
-          "weight": 11.6,
+          "weight": 11.5,
           "sector": "电商/云"
         },
         {
@@ -180,7 +180,7 @@
           "marketValue": 979.56,
           "pnl": 18.78,
           "pnlPercent": 1.95,
-          "weight": 9.5,
+          "weight": 9.4,
           "sector": "金融"
         },
         {
@@ -230,6 +230,18 @@
           "pnlPercent": -6.89,
           "weight": 3.9,
           "sector": "金融"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "博通",
+          "shares": 1,
+          "avgCost": 401.16,
+          "currentPrice": 411.35,
+          "marketValue": 411.35,
+          "pnl": 10.19,
+          "pnlPercent": 2.54,
+          "weight": 4.0,
+          "sector": "半导体"
         }
       ],
       "rank": 2,
@@ -381,10 +393,10 @@
       "avatar": "CL",
       "color": "#a78bfa",
       "style": "均衡型 · 双重对冲",
-      "totalAssets": 9687.27,
-      "returnPct": -3.13,
-      "cash": 2959.39,
-      "cashPct": 30.5,
+      "totalAssets": 9672.59,
+      "returnPct": -3.27,
+      "cash": 1868.85,
+      "cashPct": 19.3,
       "holdingsCount": 6,
       "holdings": [
         {
@@ -402,13 +414,13 @@
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "shares": 7,
-          "avgCost": 217.0,
+          "shares": 9,
+          "avgCost": 216.06,
           "currentPrice": 210.69,
-          "marketValue": 1474.83,
-          "pnl": -44.17,
-          "pnlPercent": -2.91,
-          "weight": 15.2,
+          "marketValue": 1896.21,
+          "pnl": -48.33,
+          "pnlPercent": -2.49,
+          "weight": 19.6,
           "sector": "半导体"
         },
         {
@@ -432,19 +444,19 @@
           "marketValue": 1138.2,
           "pnl": -64.38,
           "pnlPercent": -5.35,
-          "weight": 11.7,
+          "weight": 11.8,
           "sector": "软件"
         },
         {
           "symbol": "V",
           "name": "Visa",
-          "shares": 2,
-          "avgCost": 325.05,
+          "shares": 4,
+          "avgCost": 328.77,
           "currentPrice": 327.24,
-          "marketValue": 654.48,
-          "pnl": 4.38,
-          "pnlPercent": 0.67,
-          "weight": 6.8,
+          "marketValue": 1308.96,
+          "pnl": -6.12,
+          "pnlPercent": -0.47,
+          "weight": 13.5,
           "sector": "金融"
         },
         {
@@ -557,34 +569,34 @@
       "avatar": "GE",
       "color": "#60a5fa",
       "style": "成长型 · 行业集中",
-      "totalAssets": 9508.81,
-      "returnPct": -4.91,
-      "cash": 147.75,
-      "cashPct": 1.6,
+      "totalAssets": 9490.86,
+      "returnPct": -5.09,
+      "cash": 76.45,
+      "cashPct": 0.8,
       "holdingsCount": 3,
       "holdings": [
         {
           "symbol": "NVDA",
           "name": "英伟达",
-          "shares": 25,
-          "avgCost": 212.63,
+          "shares": 27,
+          "avgCost": 212.64,
           "currentPrice": 210.69,
-          "marketValue": 5267.25,
-          "pnl": -48.5,
-          "pnlPercent": -0.91,
-          "weight": 55.4,
+          "marketValue": 5688.63,
+          "pnl": -52.65,
+          "pnlPercent": -0.92,
+          "weight": 59.9,
           "sector": "半导体"
         },
         {
           "symbol": "GOOGL",
           "name": "谷歌",
-          "shares": 7,
+          "shares": 6,
           "avgCost": 362.0,
           "currentPrice": 368.03,
-          "marketValue": 2576.21,
-          "pnl": 42.21,
+          "marketValue": 2208.18,
+          "pnl": 36.18,
           "pnlPercent": 1.67,
-          "weight": 27.1,
+          "weight": 23.3,
           "sector": "互联网"
         },
         {
@@ -661,10 +673,10 @@
       "avatar": "CG",
       "color": "#4ade80",
       "style": "成长型 · AI 主线集中",
-      "totalAssets": 9399.49,
-      "returnPct": -6.01,
-      "cash": 231.94,
-      "cashPct": 2.5,
+      "totalAssets": 9413.52,
+      "returnPct": -5.86,
+      "cash": 159.84,
+      "cashPct": 1.7,
       "holdingsCount": 7,
       "holdings": [
         {
@@ -688,7 +700,7 @@
           "marketValue": 1840.15,
           "pnl": 24.2,
           "pnlPercent": 1.33,
-          "weight": 19.6,
+          "weight": 19.5,
           "sector": "互联网"
         },
         {
@@ -728,18 +740,6 @@
           "sector": "社交媒体"
         },
         {
-          "symbol": "JPM",
-          "name": "摩根大通",
-          "shares": 1,
-          "avgCost": 304.32,
-          "currentPrice": 325.22,
-          "marketValue": 325.22,
-          "pnl": 20.9,
-          "pnlPercent": 6.87,
-          "weight": 3.5,
-          "sector": "金融"
-        },
-        {
           "symbol": "V",
           "name": "Visa",
           "shares": 1,
@@ -750,6 +750,18 @@
           "pnlPercent": 1.08,
           "weight": 3.5,
           "sector": "金融"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "博通",
+          "shares": 1,
+          "avgCost": 401.16,
+          "currentPrice": 411.35,
+          "marketValue": 411.35,
+          "pnl": 10.19,
+          "pnlPercent": 2.54,
+          "weight": 4.4,
+          "sector": "半导体"
         }
       ],
       "rank": 9,
@@ -987,6 +999,19 @@
       "gemini-std": -5.16,
       "chatgpt": -6.01,
       "qwen": -13.25
+    },
+    {
+      "date": "06-22",
+      "beth-kindig": 8.84,
+      "cathie-wood": 3.72,
+      "grok": 0.99,
+      "serenity": -0.87,
+      "claude": -3.27,
+      "doubao": -3.72,
+      "gemini-ext": -5.09,
+      "gemini-std": -5.16,
+      "chatgpt": -5.86,
+      "qwen": -13.25
     }
   ],
   "dailyReturns": [
@@ -1152,6 +1177,21 @@
         "gemini-ext": -4.91,
         "gemini-std": -5.16,
         "chatgpt": -6.01,
+        "qwen": -13.25
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "returns": {
+        "beth-kindig": 8.84,
+        "cathie-wood": 3.72,
+        "grok": 0.99,
+        "serenity": -0.87,
+        "claude": -3.27,
+        "doubao": -3.72,
+        "gemini-ext": -5.09,
+        "gemini-std": -5.16,
+        "chatgpt": -5.86,
         "qwen": -13.25
       }
     }
