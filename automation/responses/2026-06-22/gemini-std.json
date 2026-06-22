@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-06-22",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 28,
+      "price": 212.78,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 3,
+      "price": 743.46,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 378.93,
+      "rationale": ""
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9552.42,
+  "return_pct_cumulative": -4.48,
+  "summary": "半导体爆发62%NVDA敞口吞噬反弹",
+  "confidence": "medium",
+  "strongest_bear_case": "现金2.4%无法应对回调"
+}
