@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "serenity",
+  "agent_name": "Serenity",
+  "date": "2026-06-22",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "COHR",
+      "shares": 7,
+      "price": 411.95,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "LITE",
+      "shares": 3,
+      "price": 848.73,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 9,
+      "price": 304.16,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSM",
+      "shares": 2,
+      "price": 467.65,
+      "rationale": ""
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "COHR",
+      "shares": 7,
+      "avg_cost": 394.39
+    },
+    {
+      "symbol": "LITE",
+      "shares": 3,
+      "avg_cost": 900.7
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 9,
+      "avg_cost": 270.17
+    },
+    {
+      "symbol": "TSM",
+      "shares": 2,
+      "avg_cost": 462.12
+    }
+  ],
+  "cash_after": 916.49,
+  "total_assets_after": 10019.07,
+  "return_pct_cumulative": 0.19,
+  "summary": "HOLD all,each controls distinct scarce layer",
+  "confidence": "medium",
+  "strongest_bear_case": "90% sector concentration risk"
+}
