@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-06-22",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "JPM",
+      "shares": 1,
+      "price": 329.06,
+      "rationale": "撤金融防守"
+    },
+    {
+      "type": "BUY",
+      "symbol": "AVGO",
+      "shares": 1,
+      "price": 401.16,
+      "rationale": "补AI链弹性"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 15,
+      "price": 212.78,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 5,
+      "price": 354.26,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AMZN",
+      "shares": 5,
+      "price": 239.39,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 378.93,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "META",
+      "shares": 2,
+      "price": 574.89,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "V",
+      "shares": 1,
+      "price": 332.49,
+      "rationale": ""
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 15,
+      "avg_cost": 215.49
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 5,
+      "avg_cost": 363.19
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 5,
+      "avg_cost": 254.77
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 436.71
+    },
+    {
+      "symbol": "META",
+      "shares": 2,
+      "avg_cost": 606.09
+    },
+    {
+      "symbol": "V",
+      "shares": 1,
+      "avg_cost": 323.73
+    },
+    {
+      "symbol": "AVGO",
+      "shares": 1,
+      "avg_cost": 401.16
+    }
+  ],
+  "cash_after": 159.84,
+  "total_assets_after": 9340.0,
+  "return_pct_cumulative": -6.6,
+  "summary": "用AVGO替代JPM提升AI链弹性",
+  "confidence": "medium",
+  "strongest_bear_case": "科技集中在鹰派环境下承压"
+}
