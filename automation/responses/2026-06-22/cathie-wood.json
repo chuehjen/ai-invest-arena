@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "cathie-wood",
+  "agent_name": "木头姐",
+  "date": "2026-06-22",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "BUY",
+      "symbol": "AVGO",
+      "shares": 1,
+      "price": 401.16,
+      "rationale": "Custom AI XPU Wright's Law"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "SHOP",
+      "shares": 11,
+      "price": 110.37,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRSP",
+      "shares": 20,
+      "price": 55.8,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 5,
+      "price": 212.78,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TEM",
+      "shares": 20,
+      "price": 50.27,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 8,
+      "price": 127.49,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "COIN",
+      "shares": 6,
+      "price": 173.38,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "HOOD",
+      "shares": 9,
+      "price": 111.44,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSLA",
+      "shares": 2,
+      "price": 402.1,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 2,
+      "price": 348.25,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRCL",
+      "shares": 5,
+      "price": 83.35,
+      "rationale": ""
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "SHOP",
+      "shares": 11,
+      "avg_cost": 112.94
+    },
+    {
+      "symbol": "CRSP",
+      "shares": 20,
+      "avg_cost": 52.13
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 210.69
+    },
+    {
+      "symbol": "TEM",
+      "shares": 20,
+      "avg_cost": 47.8
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 8,
+      "avg_cost": 140.93
+    },
+    {
+      "symbol": "COIN",
+      "shares": 6,
+      "avg_cost": 160.13
+    },
+    {
+      "symbol": "HOOD",
+      "shares": 9,
+      "avg_cost": 82.85
+    },
+    {
+      "symbol": "TSLA",
+      "shares": 2,
+      "avg_cost": 413.17
+    },
+    {
+      "symbol": "BE",
+      "shares": 2,
+      "avg_cost": 328.91
+    },
+    {
+      "symbol": "CRCL",
+      "shares": 5,
+      "avg_cost": 86.17
+    },
+    {
+      "symbol": "AVGO",
+      "shares": 1,
+      "avg_cost": 401.16
+    }
+  ],
+  "cash_after": 770.27,
+  "total_assets_after": 10551.53,
+  "return_pct_cumulative": 5.52,
+  "summary": "Added AVGO,11 holdings across 5 innovation themes",
+  "confidence": "medium",
+  "strongest_bear_case": "High-beta multiple compression risk"
+}
