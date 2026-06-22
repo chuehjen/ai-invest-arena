@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "grok",
+  "agent_name": "Grok",
+  "date": "2026-06-22",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 16,
+      "price": 212.78,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 378.93,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AAPL",
+      "shares": 5,
+      "price": 300.76,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 4,
+      "price": 743.46,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 2,
+      "price": 354.26,
+      "rationale": ""
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 16,
+      "avg_cost": 209.41
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 398.82
+    },
+    {
+      "symbol": "AAPL",
+      "shares": 5,
+      "avg_cost": 295.16
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 4,
+      "avg_cost": 729.72
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 362.96
+    }
+  ],
+  "cash_after": 25.44,
+  "total_assets_after": 10131.81,
+  "return_pct_cumulative": 1.32,
+  "summary": "全仓坚守AI核心组合",
+  "confidence": "medium",
+  "strongest_bear_case": "零现金无防御,估值回调风险"
+}
