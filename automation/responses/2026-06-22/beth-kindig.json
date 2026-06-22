@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-06-22",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "BUY",
+      "symbol": "GEV",
+      "shares": 1,
+      "price": 1131.97,
+      "rationale": "Power bottleneck add to 20%"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 10,
+      "price": 212.78,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 6,
+      "price": 348.25,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 12,
+      "price": 127.49,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "APP",
+      "shares": 3,
+      "price": 472.99,
+      "rationale": ""
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 3,
+      "price": 304.16,
+      "rationale": ""
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "BE",
+      "shares": 6,
+      "avg_cost": 269.08
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 12,
+      "avg_cost": 142.2
+    },
+    {
+      "symbol": "APP",
+      "shares": 3,
+      "avg_cost": 554.17
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 10,
+      "avg_cost": 209.78
+    },
+    {
+      "symbol": "GEV",
+      "shares": 2,
+      "avg_cost": 1045.66
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 3,
+      "avg_cost": 310.58
+    }
+  ],
+  "cash_after": 701.37,
+  "total_assets_after": 11043.94,
+  "return_pct_cumulative": 10.44,
+  "summary": "Added GEV to 20%,power is binding constraint",
+  "confidence": "medium",
+  "strongest_bear_case": "BE+GEV at 38% concentrated drawdown"
+}
