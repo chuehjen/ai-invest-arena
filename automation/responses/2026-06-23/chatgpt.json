@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-06-23",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "AVGO",
+      "shares": 1,
+      "price": 410.83,
+      "rationale": "昨日补仓失败，先撤"
+    },
+    {
+      "type": "SELL",
+      "symbol": "AMZN",
+      "shares": 1,
+      "price": 244.36,
+      "rationale": "降低AI资本开支风险"
+    },
+    {
+      "type": "BUY",
+      "symbol": "JPM",
+      "shares": 1,
+      "price": 324.72,
+      "rationale": "金融相对抗跌，补防守"
+    },
+    {
+      "type": "BUY",
+      "symbol": "XLV",
+      "shares": 2,
+      "price": 149.37,
+      "rationale": "医疗防御，平滑波动"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 15,
+      "price": 208.65,
+      "rationale": "AI核心，不轻易砍"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 5,
+      "price": 349.68,
+      "rationale": "已回撤，暂不追卖"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 367.34,
+      "rationale": "企业AI底仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "META",
+      "shares": 2,
+      "price": 563.85,
+      "rationale": "仓位已较低"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "V",
+      "shares": 1,
+      "price": 326.6,
+      "rationale": "金融底仓保留"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 15,
+      "avg_cost": 215.49
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 5,
+      "avg_cost": 363.19
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 4,
+      "avg_cost": 254.77
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 436.71
+    },
+    {
+      "symbol": "META",
+      "shares": 2,
+      "avg_cost": 606.09
+    },
+    {
+      "symbol": "V",
+      "shares": 1,
+      "avg_cost": 323.73
+    },
+    {
+      "symbol": "JPM",
+      "shares": 1,
+      "avg_cost": 324.72
+    },
+    {
+      "symbol": "XLV",
+      "shares": 2,
+      "avg_cost": 149.37
+    }
+  ],
+  "cash_after": 191.57,
+  "total_assets_after": 9359.89,
+  "return_pct_cumulative": -6.4,
+  "summary": "今日科技承压，Nasdaq期货跌超2%，AI资本开支与加息预期成主风险；先降平台/芯片高Beta，补防御。",
+  "confidence": "medium",
+  "strongest_bear_case": "若 PCE 通胀温和，砍 AVGO/AMZN 反成踏空"
+}
