@@ -32,8 +32,9 @@ def run(cmd, **kw):
 
 
 def prev_trading_day(d_str):
+    from holidays import is_market_closed
     d = date_cls.fromisoformat(d_str) - timedelta(days=1)
-    while d.weekday() >= 5:
+    while is_market_closed(d.isoformat()):
         d -= timedelta(days=1)
     return d.isoformat()
 
