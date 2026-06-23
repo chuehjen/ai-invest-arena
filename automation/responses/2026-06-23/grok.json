@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "grok",
+  "agent_name": "Grok",
+  "date": "2026-06-23",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "HOLD", "symbol": "NVDA", "shares": 16, "price": 212.78, "rationale": "AI芯片龙头，趋势未破"},
+    {"type": "HOLD", "symbol": "MSFT", "shares": 4, "price": 378.93, "rationale": "云AI稳健底仓"},
+    {"type": "HOLD", "symbol": "AAPL", "shares": 5, "price": 300.77, "rationale": "服务+硬件双轮"},
+    {"type": "HOLD", "symbol": "QQQ", "shares": 4, "price": 743.46, "rationale": "宽基科技对冲"},
+    {"type": "HOLD", "symbol": "GOOGL", "shares": 2, "price": 354.26, "rationale": "搜索+Gemini"}
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 16, "avg_cost": 209.41},
+    {"symbol": "MSFT", "shares": 4, "avg_cost": 398.82},
+    {"symbol": "AAPL", "shares": 5, "avg_cost": 295.16},
+    {"symbol": "QQQ", "shares": 4, "avg_cost": 729.72},
+    {"symbol": "GOOGL", "shares": 2, "avg_cost": 362.96}
+  ],
+  "cash_after": 25.44,
+  "total_assets_after": 10131.81,
+  "return_pct_cumulative": 1.32,
+  "summary": "全员HOLD，仓位接近满仓，等待PCE/FOMC信号。",
+  "confidence": "medium",
+  "strongest_bear_case": "现金仅0.25%，回撤无缓冲"
+}
