@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-06-23",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 6,
+      "price": 345.85,
+      "rationale": "AI power thesis — fuel cells for hyperscaler PPAs, forward revenue rising"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 12,
+      "price": 119.5,
+      "rationale": "AIP enterprise rollout intact despite multiple compression; don't average down on momentum drawdown"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "APP",
+      "shares": 3,
+      "price": 469.39,
+      "rationale": "Ad-tech AI auction model — valuation discipline says hold, no add until margin guide reset"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 10,
+      "price": 208.65,
+      "rationale": "Compute leader — minor 06-22 dip, 6/24 shareholder meeting catalyst ahead"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GEV",
+      "shares": 2,
+      "price": 1127.59,
+      "rationale": "Power infrastructure — grid build-out for AI is multi-year"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 3,
+      "price": 307.86,
+      "rationale": "Custom-silicon — memory/optics adjacent, secular"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "BE",
+      "shares": 6,
+      "avg_cost": 269.08
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 12,
+      "avg_cost": 142.2
+    },
+    {
+      "symbol": "APP",
+      "shares": 3,
+      "avg_cost": 554.17
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 10,
+      "avg_cost": 209.78
+    },
+    {
+      "symbol": "GEV",
+      "shares": 2,
+      "avg_cost": 1045.66
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 3,
+      "avg_cost": 310.58
+    }
+  ],
+  "cash_after": 701.37,
+  "total_assets_after": 11043.94,
+  "return_pct_cumulative": 10.44,
+  "summary": "AI capex stack (compute→memory→power→app) holding up despite rates rerating. Don't trade the noise; let forward-revenue compound.",
+  "confidence": "high",
+  "strongest_bear_case": "If Fed delivers a Sept hike, 30-50x forward names (PLTR/APP) compress further — no cash buffer above 7% means drawdown gets felt"
+}
