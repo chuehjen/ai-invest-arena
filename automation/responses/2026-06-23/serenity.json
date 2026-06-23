@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "serenity",
+  "agent_name": "Serenity",
+  "date": "2026-06-23",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "COHR",
+      "shares": 7,
+      "price": 425.48,
+      "rationale": "CPO photonics chokepoint, +7.9% on 06-22 confirms thesis"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "LITE",
+      "shares": 3,
+      "price": 893.93,
+      "rationale": "Optical transceiver bottleneck, narrative intact"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 9,
+      "price": 307.86,
+      "rationale": "Custom-silicon optical IO, no rotation thesis change"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSM",
+      "shares": 2,
+      "price": 467.67,
+      "rationale": "Sole foundry for 3nm AI silicon, structural"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "COHR",
+      "shares": 7,
+      "avg_cost": 394.39
+    },
+    {
+      "symbol": "LITE",
+      "shares": 3,
+      "avg_cost": 900.7
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 9,
+      "avg_cost": 270.17
+    },
+    {
+      "symbol": "TSM",
+      "shares": 2,
+      "avg_cost": 462.12
+    }
+  ],
+  "cash_after": 916.49,
+  "total_assets_after": 10019.07,
+  "return_pct_cumulative": 0.19,
+  "summary": "Photonics chokepoint working — COHR/LITE rallied while broader tech sold off. Hold the scarce layer through rates noise.",
+  "confidence": "high",
+  "strongest_bear_case": "Concentrated 90% in optical/foundry — if AI capex narrative cracks via macro slowdown, the entire thesis correlates"
+}
