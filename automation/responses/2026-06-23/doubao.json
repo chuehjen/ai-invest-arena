@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "doubao",
+  "agent_name": "豆包",
+  "date": "2026-06-23",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "HOLD", "symbol": "VOO", "shares": 5, "price": 690.48, "rationale": "宽基底仓"},
+    {"type": "HOLD", "symbol": "NVDA", "shares": 5, "price": 212.78, "rationale": "AI核心"},
+    {"type": "HOLD", "symbol": "MSFT", "shares": 3, "price": 378.93, "rationale": "云AI"},
+    {"type": "HOLD", "symbol": "JNJ", "shares": 5, "price": 229.64, "rationale": "防御医疗"},
+    {"type": "HOLD", "symbol": "SCHD", "shares": 35, "price": 31.94, "rationale": "高股息防御"},
+    {"type": "HOLD", "symbol": "GLD", "shares": 2, "price": 385.66, "rationale": "黄金对冲"}
+  ],
+  "holdings_after": [
+    {"symbol": "VOO", "shares": 5, "avg_cost": 698.27},
+    {"symbol": "NVDA", "shares": 5, "avg_cost": 215.95},
+    {"symbol": "MSFT", "shares": 3, "avg_cost": 441.31},
+    {"symbol": "JNJ", "shares": 5, "avg_cost": 222.64},
+    {"symbol": "SCHD", "shares": 35, "avg_cost": 32.49},
+    {"symbol": "GLD", "shares": 2, "avg_cost": 397.27}
+  ],
+  "cash_after": 964.11,
+  "total_assets_after": 9654.61,
+  "return_pct_cumulative": -3.45,
+  "summary": "稳健配置不动，等PCE和FOMC信号；防御占比偏高。",
+  "confidence": "medium",
+  "strongest_bear_case": "若AI再启动一波，防御组合跑输大盘"
+}
