@@ -30,8 +30,18 @@ interface DataContextType {
 const DataContext = createContext<DataContextType | null>(null);
 
 const TWELVE_DATA_KEY = '6bc32203d6de416698c9b17a59459f93';
-const BATCH_SIZE = 8;
-const BATCH_DELAY_MS = 62_000;
+// Twelve Data free tier: 8 credits/min, 1 credit per symbol
+// Use 5 symbols/batch to leave headroom; 75s delay to ensure quota resets
+const BATCH_SIZE = 5;
+const BATCH_DELAY_MS = 75_000;
+const RATE_LIMIT_RETRY_MS = 65_000;
+
+// 自动刷新：开盘、盘中、收盘（美东时间）
+const AUTO_REFRESH_SCHEDULE_ET: { h: number; m: number; label: string }[] = [
+  { h: 9, m: 35, label: '开盘' },   // 开盘后 5 分钟
+  { h: 12, m: 30, label: '盘中' },  // 午间
+  { h: 15, m: 55, label: '收盘' },  // 收盘前 5 分钟
+];
 
 // GitHub raw：5 分钟缓存 + CORS *，比 jsdelivr（7天缓存 purge 不灵）可靠
 const CDN_URL = 'https://raw.githubusercontent.com/chuehjen/ai-invest-arena/main/public/data/latest.json';
@@ -43,7 +53,20 @@ import { fetchLatestSnapshot } from '../services/snapshotService';
 
 async function fetchBatch(symbols: string[]): Promise<PriceMap> {
   const url = `https://api.twelvedata.com/price?symbol=${symbols.join(',')}&apikey=${TWELVE_DATA_KEY}`;
-  const res = await fetch(url, { signal: AbortSignal.timeout(20000) });
+
+  const doFetch = async (): Promise<Response> => {
+    return fetch(url, { signal: AbortSignal.timeout(20000) });
+  };
+
+  let res = await doFetch();
+
+  // Rate-limited: wait and retry once
+  if (res.status === 429) {
+    console.warn('Twelve Data 429 rate limit, retrying after 65s...');
+    await sleep(RATE_LIMIT_RETRY_MS);
+    res = await doFetch();
+  }
+
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
   if (data?.code && data.status === 'error') throw new Error(data.message || 'API error');
@@ -62,6 +85,39 @@ async function fetchBatch(symbols: string[]): Promise<PriceMap> {
 }
 
 function sleep(ms: number) { return new Promise(r => setTimeout(r, ms)); }
+
+/**
+ * 计算距离下一个自动刷新时间点的毫秒数。
+ * 返回 null 表示今天没有更多刷新了（周末或所有时间点已过）。
+ */
+function getNextScheduledRefresh(): { delayMs: number; label: string } | null {
+  const now = new Date();
+  // 用 Intl 得到美东当前时间分量
+  const etParts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    hour12: false,
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+  }).formatToParts(now);
+  const get = (type: string) => parseInt(etParts.find(p => p.type === type)!.value, 10);
+  const etDay = new Date(
+    get('year'), get('month') - 1, get('day'),
+    get('hour'), get('minute'), get('second'),
+  ).getDay();
+  // 跳过周末
+  if (etDay === 0 || etDay === 6) return null;
+
+  const etMinutes = get('hour') * 60 + get('minute');
+  for (const slot of AUTO_REFRESH_SCHEDULE_ET) {
+    const slotMin = slot.h * 60 + slot.m;
+    if (etMinutes < slotMin) {
+      // 还没到这个时间点
+      const diffMin = slotMin - etMinutes;
+      return { delayMs: diffMin * 60_000, label: slot.label };
+    }
+  }
+  return null; // 今天所有时间点已过
+}
 
 export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [snapshot, setSnapshot] = useState<CompetitionSnapshot | null>(null);
@@ -118,6 +174,28 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   useEffect(() => { reloadData(); }, [reloadData]);
+
+  // 自动刷新股价：开盘 / 盘中 / 收盘
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    let cancelled = false;
+
+    const scheduleNext = () => {
+      const next = getNextScheduledRefresh();
+      if (!next || cancelled) return;
+      console.log(`⏰ 自动刷新已排程：${next.label}（${Math.round(next.delayMs / 60_000)} 分钟后）`);
+      timer = setTimeout(async () => {
+        if (cancelled) return;
+        console.log(`⏰ 触发自动刷新：${next.label}`);
+        await refreshPrices();
+        // 刷新完毕后排下一个时间点
+        scheduleNext();
+      }, next.delayMs);
+    };
+
+    scheduleNext();
+    return () => { cancelled = true; if (timer) clearTimeout(timer); };
+  }, [refreshPrices]);
 
   const refreshPrices = useCallback(async () => {
     if (!snapshot) return;
