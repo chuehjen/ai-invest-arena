@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-06-23",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "HOLD", "symbol": "NVDA", "shares": 28, "price": 212.78, "rationale": "AI算力首选"},
+    {"type": "HOLD", "symbol": "QQQ", "shares": 3, "price": 743.46, "rationale": "宽基科技对冲"},
+    {"type": "HOLD", "symbol": "MSFT", "shares": 3, "price": 378.925, "rationale": "云AI稳健底仓"}
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 28, "avg_cost": 216.86},
+    {"symbol": "QQQ", "shares": 3, "avg_cost": 746.0},
+    {"symbol": "MSFT", "shares": 3, "avg_cost": 441.0}
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9552.42,
+  "return_pct_cumulative": -4.48,
+  "summary": "维持NVDA+QQQ+MSFT三件套，等待美联储信号。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA与QQQ高度相关，对冲效果有限"
+}
