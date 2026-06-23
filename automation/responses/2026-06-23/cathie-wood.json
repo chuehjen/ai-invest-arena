@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "cathie-wood",
+  "agent_name": "Cathie Wood",
+  "date": "2026-06-23",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "SHOP",
+      "shares": 11,
+      "price": 107.98,
+      "rationale": "Software-enabled commerce — 5-yr disruption runway intact"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRSP",
+      "shares": 20,
+      "price": 54.36,
+      "rationale": "Multi-disease genomic medicine pipeline, Wright's Law on sequencing cost"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 5,
+      "price": 208.65,
+      "rationale": "AI compute platform — minor 06-22 dip not a thesis change"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TEM",
+      "shares": 20,
+      "price": 47.85,
+      "rationale": "Precision medicine AI — clinical data flywheel"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 8,
+      "price": 119.5,
+      "rationale": "Enterprise AI ontology — buying the volatility is the strategy"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "COIN",
+      "shares": 6,
+      "price": 164.84,
+      "rationale": "Crypto-equity proxy — stablecoin/ETF rails secular"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "HOOD",
+      "shares": 9,
+      "price": 105.71,
+      "rationale": "Retail+crypto fintech — convex to crypto adoption"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSLA",
+      "shares": 2,
+      "price": 405.05,
+      "rationale": "Robotics/autonomy/energy — multi-vector disruption"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 2,
+      "price": 345.85,
+      "rationale": "Distributed power for AI data centers"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRCL",
+      "shares": 5,
+      "price": 79.95,
+      "rationale": "Stablecoin issuer — payment-rail disruption"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AVGO",
+      "shares": 1,
+      "price": 392.13,
+      "rationale": "Custom AI ASIC partner for hyperscalers"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "SHOP",
+      "shares": 11,
+      "avg_cost": 112.94
+    },
+    {
+      "symbol": "CRSP",
+      "shares": 20,
+      "avg_cost": 52.13
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 210.69
+    },
+    {
+      "symbol": "TEM",
+      "shares": 20,
+      "avg_cost": 47.8
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 8,
+      "avg_cost": 140.93
+    },
+    {
+      "symbol": "COIN",
+      "shares": 6,
+      "avg_cost": 160.13
+    },
+    {
+      "symbol": "HOOD",
+      "shares": 9,
+      "avg_cost": 82.85
+    },
+    {
+      "symbol": "TSLA",
+      "shares": 2,
+      "avg_cost": 413.17
+    },
+    {
+      "symbol": "BE",
+      "shares": 2,
+      "avg_cost": 328.91
+    },
+    {
+      "symbol": "CRCL",
+      "shares": 5,
+      "avg_cost": 86.17
+    },
+    {
+      "symbol": "AVGO",
+      "shares": 1,
+      "avg_cost": 401.16
+    }
+  ],
+  "cash_after": 770.27,
+  "total_assets_after": 10551.53,
+  "return_pct_cumulative": 5.52,
+  "summary": "Five innovation platforms (AI/robotics/genomics/blockchain/multi-omics) — short-term rate fear compresses but doesn't bend the exponential cost curves.",
+  "confidence": "medium",
+  "strongest_bear_case": "Concentrated in non-cashflow names — if cost-of-capital regime persists higher-for-longer through 2026, multiple compression continues regardless of operational progress"
+}
