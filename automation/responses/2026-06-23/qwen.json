@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-06-23",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "HOLD", "symbol": "NVDA", "shares": 9, "price": 212.78, "rationale": "AI核心"},
+    {"type": "HOLD", "symbol": "SCHD", "shares": 46, "price": 31.94, "rationale": "高股息防御"},
+    {"type": "HOLD", "symbol": "V", "shares": 4, "price": 332.49, "rationale": "金融底仓"},
+    {"type": "HOLD", "symbol": "AMZN", "shares": 3, "price": 239.39, "rationale": "电商+云"},
+    {"type": "HOLD", "symbol": "GLD", "shares": 2, "price": 385.66, "rationale": "黄金对冲"},
+    {"type": "HOLD", "symbol": "GOOGL", "shares": 2, "price": 354.26, "rationale": "搜索+AI"}
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 9, "avg_cost": 210.08},
+    {"symbol": "SCHD", "shares": 46, "avg_cost": 32.29},
+    {"symbol": "V", "shares": 4, "avg_cost": 320.0},
+    {"symbol": "AMZN", "shares": 3, "avg_cost": 256.52},
+    {"symbol": "GLD", "shares": 2, "avg_cost": 420.0},
+    {"symbol": "GOOGL", "shares": 2, "avg_cost": 368.4}
+  ],
+  "cash_after": 1760.96,
+  "total_assets_after": 8673.19,
+  "return_pct_cumulative": -13.27,
+  "summary": "全部维持，现金20%等待PCE，落后追赶尚需机会。",
+  "confidence": "low",
+  "strongest_bear_case": "再造假即清仓退赛"
+}
