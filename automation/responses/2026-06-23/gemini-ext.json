@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-06-23",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {"type": "HOLD", "symbol": "NVDA", "shares": 27, "price": 212.78, "rationale": "AI算力核心仓位，趋势仍在"},
+    {"type": "HOLD", "symbol": "GOOGL", "shares": 6, "price": 354.26, "rationale": "搜索+云+Gemini三位一体，回撤后估值更合理"},
+    {"type": "HOLD", "symbol": "MSFT", "shares": 4, "price": 378.925, "rationale": "企业AI护城河，回调即机会"}
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 27, "avg_cost": 212.64},
+    {"symbol": "GOOGL", "shares": 6, "avg_cost": 362.0},
+    {"symbol": "MSFT", "shares": 4, "avg_cost": 441.0}
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 9462.77,
+  "return_pct_cumulative": -5.37,
+  "summary": "三只AI龙头全部持有，等待估值修复；NVDA集中度高但趋势未破。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA占比超60%，若AI资本开支下修将集中爆雷"
+}
