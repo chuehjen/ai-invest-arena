@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-06-24",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 6,
+      "price": 321.98,
+      "rationale": "AI数据中心电力基建"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 12,
+      "price": 116.7,
+      "rationale": "AIP平台数据飞轮"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "APP",
+      "shares": 3,
+      "price": 467.02,
+      "rationale": "AI广告变现引擎"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 10,
+      "price": 200.04,
+      "rationale": "算力垄断，不在恐慌日割肉"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GEV",
+      "shares": 2,
+      "price": 1034.98,
+      "rationale": "燃气轮机AI电力"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 3,
+      "price": 279.04,
+      "rationale": "定制芯片差异化"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "BE",
+      "shares": 6,
+      "avg_cost": 269.08
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 12,
+      "avg_cost": 142.2
+    },
+    {
+      "symbol": "APP",
+      "shares": 3,
+      "avg_cost": 554.17
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 10,
+      "avg_cost": 209.78
+    },
+    {
+      "symbol": "GEV",
+      "shares": 2,
+      "avg_cost": 1045.66
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 3,
+      "avg_cost": 310.58
+    }
+  ],
+  "cash_after": 701.37,
+  "total_assets_after": 10342.19,
+  "return_pct_cumulative": 3.42,
+  "summary": "芯片恐慌日不卖；基本面营收增速>50%逻辑完好，拥挤交易出清≠趋势破裂。",
+  "confidence": "high",
+  "strongest_bear_case": "PLTR与MRVL跌幅超8%，若宏观恶化成长股Beta回吐更深"
+}
