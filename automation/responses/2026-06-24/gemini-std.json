@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-06-24",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 28,
+      "price": 200.04,
+      "rationale": "AI算力核心护城河牢固"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 3,
+      "price": 713.65,
+      "rationale": "纳指宽基处于支撑位"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 373.94,
+      "rationale": "软件端已消化悲观预期"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9091.31,
+  "return_pct_cumulative": -9.09,
+  "summary": "严格延续激进成长风格，PCE数据前全员HOLD不换手。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA与QQQ高度相关，若宏观风暴加剧缺乏对冲"
+}
