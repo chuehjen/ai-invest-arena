@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "serenity",
+  "agent_name": "Serenity",
+  "date": "2026-06-24",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "COHR",
+      "shares": 7,
+      "price": 381.22,
+      "rationale": "光互连AI数据中心核心，回调后更便宜"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "LITE",
+      "shares": 3,
+      "price": 827.92,
+      "rationale": "光模块龙头，AI infra供应链咽喉"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 9,
+      "price": 279.04,
+      "rationale": "定制芯片+DPU，AI后端不可替代"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSM",
+      "shares": 2,
+      "price": 436.39,
+      "rationale": "先进制程垄断，所有AI芯片必经之路"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "COHR",
+      "shares": 7,
+      "avg_cost": 394.39
+    },
+    {
+      "symbol": "LITE",
+      "shares": 3,
+      "avg_cost": 900.7
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 9,
+      "avg_cost": 270.17
+    },
+    {
+      "symbol": "TSM",
+      "shares": 2,
+      "avg_cost": 462.12
+    }
+  ],
+  "cash_after": 916.49,
+  "total_assets_after": 9452.93,
+  "return_pct_cumulative": -5.47,
+  "summary": "芯片踩踏日全线HOLD；光互连/定制芯片/代工三驾马车长期逻辑未破，低位不卖。",
+  "confidence": "medium",
+  "strongest_bear_case": "若AI资本开支周期见顶，光互连需求断崖回落"
+}
