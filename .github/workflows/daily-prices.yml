@@ -1,21 +1,33 @@
-# 每日 20:30 CST (12:30 UTC) 自动：
+# 每日 CST 20:17/20:47 自动（含外部 launchd 主触发 CST 20:00）：
 #   1. 用 Twelve Data 拉前一交易日收盘价
 #   2. 生成 5 份提示词（3 大师 + 豆包 + 千问）
 #   3. 推送豆包 + 千问 2 份到钉钉群「大仁哥」
+#
+# 触发链（任一成功即终止）：
+#   - launchd (CST 20:00) → gh workflow run    [主，最稳]
+#   - GH schedule cron '17 12' (CST 20:17)      [兜底 1，错峰]
+#   - GH schedule cron '47 12' (CST 20:47)      [兜底 2，二次错峰]
+# Workflow 内部用 prices/{date}.json 判重，已跑则秒退。
 #
 # 美股节假日自动跳过（fetch_prices.py 内部调用 holidays.py 校验）。
 name: Daily Prices + Prompts
 
 on:
   schedule:
-    # UTC 12:30 = CST 20:30（CST = UTC+8）
-    - cron: '30 12 * * 1-5'
+    # 错峰避开整点/半点高峰；两次冗余兜底
+    - cron: '17 12 * * 1-5'   # CST 20:17 主兜底
+    - cron: '47 12 * * 1-5'   # CST 20:47 二次兜底
   workflow_dispatch:
     inputs:
       date:
         description: 'Override date YYYY-MM-DD（默认用今天）'
         required: false
         type: string
+      force:
+        description: '强制重跑（忽略幂等检查）'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -28,12 +40,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Idempotency check (skip if today's prices already exist)
+        id: idem
+        run: |
+          TARGET_DATE="${{ inputs.date }}"
+          if [ -z "$TARGET_DATE" ]; then
+            TARGET_DATE=$(TZ='America/New_York' date '+%Y-%m-%d')
+          fi
+          echo "target_date=$TARGET_DATE" >> $GITHUB_OUTPUT
+          if [ "${{ inputs.force }}" = "true" ]; then
+            echo "Force flag set, will run"
+            echo "should_skip=false" >> $GITHUB_OUTPUT
+          elif [ -f "automation/prices/$TARGET_DATE.json" ]; then
+            echo "✅ automation/prices/$TARGET_DATE.json already exists — skipping duplicate run"
+            echo "should_skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_skip=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Setup Python
+        if: steps.idem.outputs.should_skip != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Configure env
+        if: steps.idem.outputs.should_skip != 'true'
         env:
           TWELVE_DATA_KEY: ${{ secrets.TWELVE_DATA_KEY }}
           DINGBOT_WEBHOOK: ${{ secrets.DINGBOT_WEBHOOK }}
@@ -44,6 +76,7 @@ jobs:
           EOF
 
       - name: Fetch prices + generate prompts
+        if: steps.idem.outputs.should_skip != 'true'
         run: |
           cd automation/scripts
           if [ -n "${{ inputs.date }}" ]; then
@@ -53,7 +86,7 @@ jobs:
           fi
 
       - name: Upload artifacts
-        if: always()
+        if: always() && steps.idem.outputs.should_skip != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: prompts-${{ github.run_id }}
