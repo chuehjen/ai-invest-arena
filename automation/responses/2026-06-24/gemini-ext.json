@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-06-24",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 27,
+      "price": 200.04,
+      "rationale": "AI算力核心，回踩属良性洗盘"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 6,
+      "price": 346.13,
+      "rationale": "AI+搜索估值回归"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 373.94,
+      "rationale": "抗跌属性，持有"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 27,
+      "avg_cost": 212.64
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 6,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 9050.07,
+  "return_pct_cumulative": -9.5,
+  "summary": "宏观情绪恐慌驱动非基本面恶化，全仓HOLD坚定持有AI核心。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA占比超60%，集中度风险在加息周期中放大"
+}
