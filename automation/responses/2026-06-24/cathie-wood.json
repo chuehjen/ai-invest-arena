@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "cathie-wood",
+  "agent_name": "木头姐",
+  "date": "2026-06-24",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "SHOP",
+      "shares": 11,
+      "price": 107.68,
+      "rationale": "AI商业平台"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRSP",
+      "shares": 20,
+      "price": 53.99,
+      "rationale": "基因编辑长期逻辑"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 5,
+      "price": 200.04,
+      "rationale": "AI算力核心"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TEM",
+      "shares": 20,
+      "price": 48.61,
+      "rationale": "AI医疗数据"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 8,
+      "price": 116.7,
+      "rationale": "AI平台"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "COIN",
+      "shares": 6,
+      "price": 158.18,
+      "rationale": "加密基础设施"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "HOOD",
+      "shares": 9,
+      "price": 103.25,
+      "rationale": "零佣金+加密"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSLA",
+      "shares": 2,
+      "price": 381.61,
+      "rationale": "自动驾驶+机器人"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 2,
+      "price": 321.98,
+      "rationale": "清洁能源"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRCL",
+      "shares": 5,
+      "price": 75.68,
+      "rationale": "数字身份"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AVGO",
+      "shares": 1,
+      "price": 380.15,
+      "rationale": "网络芯片"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "SHOP",
+      "shares": 11,
+      "avg_cost": 112.94
+    },
+    {
+      "symbol": "CRSP",
+      "shares": 20,
+      "avg_cost": 52.13
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 210.69
+    },
+    {
+      "symbol": "TEM",
+      "shares": 20,
+      "avg_cost": 47.8
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 8,
+      "avg_cost": 140.93
+    },
+    {
+      "symbol": "COIN",
+      "shares": 6,
+      "avg_cost": 160.13
+    },
+    {
+      "symbol": "HOOD",
+      "shares": 9,
+      "avg_cost": 82.85
+    },
+    {
+      "symbol": "TSLA",
+      "shares": 2,
+      "avg_cost": 413.17
+    },
+    {
+      "symbol": "BE",
+      "shares": 2,
+      "avg_cost": 328.91
+    },
+    {
+      "symbol": "CRCL",
+      "shares": 5,
+      "avg_cost": 86.17
+    },
+    {
+      "symbol": "AVGO",
+      "shares": 1,
+      "avg_cost": 401.16
+    }
+  ],
+  "cash_after": 770.27,
+  "total_assets_after": 9984.61,
+  "return_pct_cumulative": -0.15,
+  "summary": "颠覆性创新不因一日恐慌改变五年叙事；全员HOLD穿越波动。",
+  "confidence": "high",
+  "strongest_bear_case": "PLTR/TSLA跌幅深，若加息周期延长成长股估值压缩更久"
+}
