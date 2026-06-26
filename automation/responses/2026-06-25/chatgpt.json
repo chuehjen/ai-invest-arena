@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-06-25",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "AMZN",
+      "shares": 1,
+      "price": 234.27,
+      "rationale": "平台股仍弱，降风险"
+    },
+    {
+      "type": "SELL",
+      "symbol": "MSFT",
+      "shares": 1,
+      "price": 365.46,
+      "rationale": "AI资本开支压力仍在"
+    },
+    {
+      "type": "BUY",
+      "symbol": "QQQ",
+      "shares": 1,
+      "price": 710.62,
+      "rationale": "用ETF参与科技修复"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 17,
+      "price": 199.0,
+      "rationale": "AI核心，不追高加仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 5,
+      "price": 345.29,
+      "rationale": "已大跌，暂不砍"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "META",
+      "shares": 2,
+      "price": 557.67,
+      "rationale": "仓位不高，继续观察"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "JPM",
+      "shares": 1,
+      "price": 333.45,
+      "rationale": "保留金融防守"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "V",
+      "shares": 1,
+      "price": 332.23,
+      "rationale": "质量防守仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "XLV",
+      "shares": 2,
+      "price": 153.35,
+      "rationale": "医疗防御仓"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 15,
+      "avg_cost": 215.49
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 5,
+      "avg_cost": 363.19
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 254.77
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 1,
+      "avg_cost": 710.62
+    },
+    {
+      "symbol": "META",
+      "shares": 2,
+      "avg_cost": 606.09
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 1,
+      "avg_cost": 436.71
+    },
+    {
+      "symbol": "V",
+      "shares": 2,
+      "avg_cost": 326.11
+    },
+    {
+      "symbol": "JPM",
+      "shares": 1,
+      "avg_cost": 324.72
+    },
+    {
+      "symbol": "XLV",
+      "shares": 2,
+      "avg_cost": 149.37
+    }
+  ],
+  "cash_after": 126.14,
+  "total_assets_after": 8924.19,
+  "return_pct_cumulative": -10.76,
+  "summary": "Micron/Qualcomm点燃芯片修复，QQQ强于SPY。减AMZN/MSFT降风险，买入QQQ参与科技反弹，保留NVDA核心仓位。",
+  "confidence": "medium",
+  "strongest_bear_case": "平台科技可能在PCE数据前继续承压，买入QQQ时机偏早。"
+}
