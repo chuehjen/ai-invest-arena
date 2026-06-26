@@ -7,7 +7,12 @@
 #   - launchd (CST 20:00) → gh workflow run    [主，最稳]
 #   - GH schedule cron '17 12' (CST 20:17)      [兜底 1，错峰]
 #   - GH schedule cron '47 12' (CST 20:47)      [兜底 2，二次错峰]
-# Workflow 内部用 prices/{date}.json 判重，已跑则秒退。
+#
+# 防重复机制（三保险）：
+#   1. concurrency.group 串行化：同一目标交易日只允许 1 个 in-flight
+#   2. Idempotency check：用 holidays.prev_trading_day 计算真实目标交易日，
+#      若 automation/prices/<prev>.json 已存在则 should_skip=true，秒退
+#   3. 跑完后把 prices/<date>.json commit 回 main，让后续 cron 能命中幂等
 #
 # 美股节假日自动跳过（fetch_prices.py 内部调用 holidays.py 校验）。
 name: Daily Prices + Prompts
@@ -30,7 +35,14 @@ on:
         default: false
 
 permissions:
-  contents: read
+  contents: write   # 跑完要把 prices/<date>.json commit 回 main
+
+# 同一交易日的多次触发会排队串行执行；前一个跑完写好 prices/<date>.json，
+# 后一个进来时幂等检查会命中 should_skip=true 秒退。
+# key 用 NY 当天日期，launchd/cron1/cron2/手动触发同日都收敛到一个 group。
+concurrency:
+  group: daily-prices-${{ github.event.inputs.date || github.workflow }}-ny-day
+  cancel-in-progress: false
 
 jobs:
   daily:
@@ -39,22 +51,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
-      - name: Idempotency check (skip if today's prices already exist)
+      - name: Idempotency check (skip if previous trading day's prices already exist)
         id: idem
         run: |
-          TARGET_DATE="${{ inputs.date }}"
-          if [ -z "$TARGET_DATE" ]; then
-            TARGET_DATE=$(TZ='America/New_York' date '+%Y-%m-%d')
+          # 计算「目标交易日」= 用户指定 / 否则 NY 今天的 prev_trading_day
+          # 复用仓库内 holidays.py，避免硬编码节假日
+          if [ -n "${{ inputs.date }}" ]; then
+            TARGET_DATE="${{ inputs.date }}"
+          else
+            NY_TODAY=$(TZ='America/New_York' date '+%Y-%m-%d')
+            TARGET_DATE=$(python3 automation/scripts/target_trading_day.py "$NY_TODAY")
           fi
           echo "target_date=$TARGET_DATE" >> $GITHUB_OUTPUT
+          echo "Target trading day: $TARGET_DATE"
+
           if [ "${{ inputs.force }}" = "true" ]; then
             echo "Force flag set, will run"
             echo "should_skip=false" >> $GITHUB_OUTPUT
           elif [ -f "automation/prices/$TARGET_DATE.json" ]; then
-            echo "✅ automation/prices/$TARGET_DATE.json already exists — skipping duplicate run"
+            echo "automation/prices/$TARGET_DATE.json already exists -- skipping duplicate run"
             echo "should_skip=true" >> $GITHUB_OUTPUT
           else
+            echo "automation/prices/$TARGET_DATE.json missing -- will fetch"
             echo "should_skip=false" >> $GITHUB_OUTPUT
           fi
 
@@ -84,6 +106,34 @@ jobs:
           else
             python daily_run.py prompts
           fi
+
+      - name: Commit prices back to main (so later cron runs hit idempotency)
+        if: steps.idem.outputs.should_skip != 'true'
+        run: |
+          TARGET="automation/prices/${{ steps.idem.outputs.target_date }}.json"
+          if [ ! -f "$TARGET" ]; then
+            echo "$TARGET not generated, skip commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$TARGET"
+          if git diff --cached --quiet; then
+            echo "No price changes to commit"
+            exit 0
+          fi
+          git commit -m "chore(prices): auto-fetched ${{ steps.idem.outputs.target_date }} [skip ci]"
+          # 最多 3 次重试，应对并发推送冲突
+          for i in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "Pushed prices to main"
+              exit 0
+            fi
+            echo "Push attempt $i failed, rebasing..."
+            git pull --rebase origin main || true
+            sleep $((i * 2))
+          done
+        continue-on-error: true
 
       - name: Upload artifacts
         if: always() && steps.idem.outputs.should_skip != 'true'
