@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "doubao",
+  "agent_name": "豆包",
+  "date": "2026-06-26",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "VOO",
+      "shares": 5,
+      "price": 675.71,
+      "rationale": "标普500宽基核心底仓，分散全行业系统性风险"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 5,
+      "price": 195.74,
+      "rationale": "AI算力龙头底仓，保留成长赛道基础敞口"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 352.83,
+      "rationale": "云与AI软件龙头，长期基本面稳固"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "JNJ",
+      "shares": 5,
+      "price": 244.88,
+      "rationale": "刚需医药防御资产"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "SCHD",
+      "shares": 35,
+      "price": 31.96,
+      "rationale": "高股息蓝筹ETF，稳定分红"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GLD",
+      "shares": 2,
+      "price": 369.46,
+      "rationale": "黄金ETF对冲通胀预期"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "VOO",
+      "shares": 5,
+      "avg_cost": 698.27
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 215.95
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.31
+    },
+    {
+      "symbol": "JNJ",
+      "shares": 5,
+      "avg_cost": 222.64
+    },
+    {
+      "symbol": "SCHD",
+      "shares": 35,
+      "avg_cost": 32.49
+    },
+    {
+      "symbol": "GLD",
+      "shares": 2,
+      "avg_cost": 397.27
+    }
+  ],
+  "cash_after": 964.11,
+  "total_assets_after": 9461.77,
+  "return_pct_cumulative": -5.38,
+  "summary": "高利率担忧持续拖累AI科技板块，医药高股息防御标的抗跌。组合现金10.1%合规，今日全部维持不动，等待关键宏观数据指引。",
+  "confidence": "medium",
+  "strongest_bear_case": "AI算力长期需求逻辑未变，NVDA/MSFT估值性价比凸显，闲置现金不加仓将错失修复红利。"
+}

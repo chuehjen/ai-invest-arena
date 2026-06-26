@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-06-26",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 28,
+      "price": 195.74,
+      "rationale": "受大盘拖累从高位回落，但美光验证需求，坚定锁仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 3,
+      "price": 716.38,
+      "rationale": "纳指宽基处于多空拉锯，保持观望"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 352.83,
+      "rationale": "估值溢价被流动性压制但割肉摩擦成本过高"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 8915.77,
+  "return_pct_cumulative": -10.84,
+  "summary": "PCE落地后多头冲高回落，NVDA微跌2.3%至$195.74。坚持极度集中的科技激进成长风格，拒绝在周五恐慌调仓。",
+  "confidence": "medium",
+  "strongest_bear_case": "融资余额触及历史高位引发恐慌，周五可能继续获利回吐。"
+}

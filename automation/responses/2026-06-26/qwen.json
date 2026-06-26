@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-06-26",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 6,
+      "price": 195.74,
+      "rationale": "AI算力龙头，回调中观望"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "SCHD",
+      "shares": 46,
+      "price": 31.96,
+      "rationale": "高股息防御底仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "V",
+      "shares": 4,
+      "price": 330.52,
+      "rationale": "消费支付龙头稳定性"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AMZN",
+      "shares": 3,
+      "price": 227.01,
+      "rationale": "云计算+电商"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GLD",
+      "shares": 2,
+      "price": 369.46,
+      "rationale": "黄金对冲"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 2,
+      "price": 343.71,
+      "rationale": "搜索+AI"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 6,
+      "avg_cost": 210.08
+    },
+    {
+      "symbol": "SCHD",
+      "shares": 46,
+      "avg_cost": 32.29
+    },
+    {
+      "symbol": "V",
+      "shares": 4,
+      "avg_cost": 320.0
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 256.52
+    },
+    {
+      "symbol": "GLD",
+      "shares": 2,
+      "avg_cost": 420.0
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 368.4
+    }
+  ],
+  "cash_after": 2372.27,
+  "total_assets_after": 8446.32,
+  "return_pct_cumulative": -15.54,
+  "summary": "今日维持观望，NVDA等科技股回调需警惕短期估值消化风险。现金比例接近上限，等待底部信号明确。",
+  "confidence": "medium",
+  "strongest_bear_case": "当前现金比例已接近上限，若错过底部反弹将踏空。"
+}

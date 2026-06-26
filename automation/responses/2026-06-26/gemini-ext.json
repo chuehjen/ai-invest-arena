@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-06-26",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 27,
+      "price": 195.74,
+      "rationale": "虽受大盘拖累回落，美光验证硬件需求无虞，坚定锁仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 6,
+      "price": 343.71,
+      "rationale": "科技估值修正中保持持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 352.83,
+      "rationale": "跌破前低但割肉摩擦成本过高，就地卧倒"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 27,
+      "avg_cost": 212.64
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 6,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 8835.01,
+  "return_pct_cumulative": -11.65,
+  "summary": "科技板块短期估值修正，PCE符合预期无系统性恶化。现金不足加仓，三大AI核心基本面稳固，全仓HOLD静待情绪出尽。",
+  "confidence": "medium",
+  "strongest_bear_case": "巨头连跌四日，若下周继续走弱可能引发强制止损和流动性恶化。"
+}

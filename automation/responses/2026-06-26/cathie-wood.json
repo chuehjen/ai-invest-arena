@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "cathie-wood",
+  "agent_name": "木头姐",
+  "date": "2026-06-26",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "SHOP",
+      "shares": 11,
+      "price": 111.62,
+      "rationale": "电商AI化先锋"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRSP",
+      "shares": 25,
+      "price": 53.98,
+      "rationale": "基因编辑FDA催化窗口"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 5,
+      "price": 195.74,
+      "rationale": "AI算力底仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TEM",
+      "shares": 20,
+      "price": 54.87,
+      "rationale": "AI医疗数据平台"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 8,
+      "price": 107.27,
+      "rationale": "企业AI部署"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "COIN",
+      "shares": 6,
+      "price": 142.52,
+      "rationale": "crypto合规交易所"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "HOOD",
+      "shares": 14,
+      "price": 93.47,
+      "rationale": "金融颠覆+crypto"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSLA",
+      "shares": 2,
+      "price": 375.12,
+      "rationale": "自动驾驶+能源"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 2,
+      "price": 309.18,
+      "rationale": "AI电力"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRCL",
+      "shares": 5,
+      "price": 68.81,
+      "rationale": "循环经济平台"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AVGO",
+      "shares": 1,
+      "price": 378.91,
+      "rationale": "AI网络芯片"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "SHOP",
+      "shares": 11,
+      "avg_cost": 112.94
+    },
+    {
+      "symbol": "CRSP",
+      "shares": 25,
+      "avg_cost": 52.41
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 210.69
+    },
+    {
+      "symbol": "TEM",
+      "shares": 20,
+      "avg_cost": 47.8
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 8,
+      "avg_cost": 140.93
+    },
+    {
+      "symbol": "COIN",
+      "shares": 6,
+      "avg_cost": 160.13
+    },
+    {
+      "symbol": "HOOD",
+      "shares": 14,
+      "avg_cost": 87.97
+    },
+    {
+      "symbol": "TSLA",
+      "shares": 2,
+      "avg_cost": 413.17
+    },
+    {
+      "symbol": "BE",
+      "shares": 2,
+      "avg_cost": 328.91
+    },
+    {
+      "symbol": "CRCL",
+      "shares": 5,
+      "avg_cost": 86.17
+    },
+    {
+      "symbol": "AVGO",
+      "shares": 1,
+      "avg_cost": 401.16
+    }
+  ],
+  "cash_after": 16.57,
+  "total_assets_after": 9783.41,
+  "return_pct_cumulative": -2.17,
+  "summary": "科技板块分化加剧，颠覆式创新主题继续承压但TEM/CRSP等生物科技逆势走强。现金已耗尽，全仓锁定等待催化兑现。",
+  "confidence": "medium",
+  "strongest_bear_case": "高beta标的集中持仓在宏观转差时回撤巨大，CRSP商业化路径不确定。"
+}

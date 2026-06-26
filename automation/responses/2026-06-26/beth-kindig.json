@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-06-26",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 6,
+      "price": 309.18,
+      "rationale": "AI数据中心电力需求持续，PCE利好长久期成长"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 12,
+      "price": 107.27,
+      "rationale": "企业AI部署龙头，估值修正中但长期逻辑不变"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "APP",
+      "shares": 3,
+      "price": 445.93,
+      "rationale": "AI广告变现引擎"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 13,
+      "price": 195.74,
+      "rationale": "AI算力核心，美光验证需求"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GEV",
+      "shares": 2,
+      "price": 1085.47,
+      "rationale": "AI电力基础设施"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 3,
+      "price": 281.26,
+      "rationale": "定制AI芯片，需求验证"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "BE",
+      "shares": 6,
+      "avg_cost": 269.08
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 12,
+      "avg_cost": 142.2
+    },
+    {
+      "symbol": "APP",
+      "shares": 3,
+      "avg_cost": 554.17
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 13,
+      "avg_cost": 207.29
+    },
+    {
+      "symbol": "GEV",
+      "shares": 2,
+      "avg_cost": 1045.66
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 3,
+      "avg_cost": 310.58
+    }
+  ],
+  "cash_after": 104.37,
+  "total_assets_after": 10143.82,
+  "return_pct_cumulative": 1.44,
+  "summary": "PCE符合预期缓解加息恐慌，Micron暴涨验证AI存储需求。BE/GEV电力链领涨，PLTR/NVDA筑底。现金耗尽但核心仓位全线受益于AI催化，全仓锁定。",
+  "confidence": "high",
+  "strongest_bear_case": "PLTR估值仍高(P/S>60)若AI支出放缓将首先承压，NVDA短期踩错巨头分化。"
+}
