@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-06-25",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 6,
+      "price": 199.0,
+      "rationale": "AI算力龙头，回调后等待企稳"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "SCHD",
+      "shares": 46,
+      "price": 31.72,
+      "rationale": "高股息防御底仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "V",
+      "shares": 4,
+      "price": 332.23,
+      "rationale": "消费支付龙头稳定性"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AMZN",
+      "shares": 3,
+      "price": 234.27,
+      "rationale": "云计算+电商双引擎"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GLD",
+      "shares": 2,
+      "price": 365.92,
+      "rationale": "黄金对冲通胀"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 2,
+      "price": 345.29,
+      "rationale": "搜索+AI基本面"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 6,
+      "avg_cost": 210.08
+    },
+    {
+      "symbol": "SCHD",
+      "shares": 46,
+      "avg_cost": 32.29
+    },
+    {
+      "symbol": "V",
+      "shares": 4,
+      "avg_cost": 320.0
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 256.52
+    },
+    {
+      "symbol": "GLD",
+      "shares": 2,
+      "avg_cost": 420.0
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 368.4
+    }
+  ],
+  "cash_after": 2372.27,
+  "total_assets_after": 8446.32,
+  "return_pct_cumulative": -15.54,
+  "summary": "NVDA与AMZN盘中大跌触发成长股防御机制。当前现金27.9%，严守纪律规避风险，全部持仓维持不动。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA盘中探底或为洗盘，此时不加仓可能错失反弹。防御资产占比过高，行情回暖时将落后重仓科技的对手。"
+}
