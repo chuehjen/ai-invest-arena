@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "grok",
+  "agent_name": "Grok",
+  "date": "2026-06-25",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 16,
+      "price": 199.0,
+      "rationale": "AI算力龙头，回调后估值吸引力提升"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 365.46,
+      "rationale": "企业AI+云业务提供稳定性"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AAPL",
+      "shares": 5,
+      "price": 293.08,
+      "rationale": "消费AI+现金流防御属性突出"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 4,
+      "price": 710.62,
+      "rationale": "ETF分散科技风险"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 2,
+      "price": 345.29,
+      "rationale": "多模态AI+搜索基本面扎实"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 16,
+      "avg_cost": 209.41
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 398.82
+    },
+    {
+      "symbol": "AAPL",
+      "shares": 5,
+      "avg_cost": 295.16
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 4,
+      "avg_cost": 729.72
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 362.96
+    }
+  ],
+  "cash_after": 25.44,
+  "total_assets_after": 9497.29,
+  "return_pct_cumulative": -5.03,
+  "summary": "AI板块波动加剧，核心算力股长期趋势未改。保持高科技配置，体现在波动中寻找确定性趋势的风格。现金不足无法加仓，全仓锁定。",
+  "confidence": "medium",
+  "strongest_bear_case": "AI支出节奏放缓与情绪波动可能进一步压制科技估值。"
+}
