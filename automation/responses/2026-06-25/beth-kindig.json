@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-06-25",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "BUY",
+      "symbol": "NVDA",
+      "shares": 3,
+      "price": 199.0,
+      "rationale": "美光验证AI算力需求，Blackwell周期启动，$199为极佳入场点"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 6,
+      "price": 326.19,
+      "rationale": "AI数据中心电力需求持续，营收加速确认"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 12,
+      "price": 113.5,
+      "rationale": "企业AI部署龙头，短期承压但长期逻辑未变"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "APP",
+      "shares": 3,
+      "price": 464.96,
+      "rationale": "AI广告变现引擎，回调后估值合理"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GEV",
+      "shares": 2,
+      "price": 1057.65,
+      "rationale": "AI电力基础设施，长期供不应求"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 3,
+      "price": 276.7,
+      "rationale": "定制AI芯片，美光验证利好"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "BE",
+      "shares": 6,
+      "avg_cost": 269.08
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 12,
+      "avg_cost": 142.2
+    },
+    {
+      "symbol": "APP",
+      "shares": 3,
+      "avg_cost": 554.17
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 13,
+      "avg_cost": 207.29
+    },
+    {
+      "symbol": "GEV",
+      "shares": 2,
+      "avg_cost": 1045.66
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 3,
+      "avg_cost": 310.58
+    }
+  ],
+  "cash_after": 104.37,
+  "total_assets_after": 10143.82,
+  "return_pct_cumulative": 1.44,
+  "summary": "美光财报打破AI泡沫论叙事，内存/算力需求曲线加速。在$199加仓NVDA 3股，Blackwell量产在即为最直接催化。保留BE/GEV电力主线+PLTR/APP软件变现双引擎。",
+  "confidence": "high",
+  "strongest_bear_case": "PLTR估值过高(P/S>60)若企业AI支出放缓将率先承压，APP依赖单一平台风险未消。"
+}
