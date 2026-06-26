@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-06-25",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 28,
+      "price": 199.0,
+      "rationale": "美光财报验证AI需求，算力龙头有望强势重拾升势"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 3,
+      "price": 710.62,
+      "rationale": "纳指宽基伴随科技硬件链修复"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 365.46,
+      "rationale": "微调虽拖累但行业整体逆转中暂不割肉"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 8915.77,
+  "return_pct_cumulative": -10.84,
+  "summary": "美光财报击碎AI泡沫论，算力芯片多头全面右侧回归。坚定延续高度集中的激进科技成长风格，全仓锁仓。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA估值仍高，若PCE数据偏热将导致利率预期再度收紧。"
+}
