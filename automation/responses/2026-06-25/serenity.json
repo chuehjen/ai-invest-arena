@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "serenity",
+  "agent_name": "Serenity",
+  "date": "2026-06-25",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "BUY",
+      "symbol": "MRVL",
+      "shares": 3,
+      "price": 276.7,
+      "rationale": "美光盘后验证AI内存/互连需求，MRVL为定制芯片+光互连核心供应商，直接受益"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "COHR",
+      "shares": 7,
+      "price": 392.5,
+      "rationale": "光通信供应链龙头，AI数据中心扩建持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "LITE",
+      "shares": 3,
+      "price": 842.53,
+      "rationale": "光器件高端玩家，长期供不应求"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSM",
+      "shares": 2,
+      "price": 440.83,
+      "rationale": "先进制程独占，所有AI芯片必经之路"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "COHR",
+      "shares": 7,
+      "avg_cost": 394.39
+    },
+    {
+      "symbol": "LITE",
+      "shares": 3,
+      "avg_cost": 900.7
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 12,
+      "avg_cost": 271.8
+    },
+    {
+      "symbol": "TSM",
+      "shares": 2,
+      "avg_cost": 462.12
+    }
+  ],
+  "cash_after": 86.39,
+  "total_assets_after": 9768.15,
+  "return_pct_cumulative": -2.32,
+  "summary": "美光财报超预期+指引上调，彻底验证AI内存/互连需求真实性。加仓MRVL捕捉定制芯片+光互连双重催化，保留现金缓冲PCE。",
+  "confidence": "high",
+  "strongest_bear_case": "半导体板块估值已高，若PCE数据偏热引发利率恐慌，高beta标的可能再度急跌。"
+}
