@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-06-25",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 27,
+      "price": 199.0,
+      "rationale": "AI算力龙头底仓，筑底阶段不动"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 6,
+      "price": 345.29,
+      "rationale": "多模态AI搜索基本面未恶化"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 365.46,
+      "rationale": "云与AI软件龙头长期逻辑稳固"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 27,
+      "avg_cost": 212.64
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 6,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 8835.01,
+  "return_pct_cumulative": -11.65,
+  "summary": "半导体板块缩量筑底，组合现金不足以买入单股，三大AI核心基本面稳固，全仓HOLD静待宏观利空出尽。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA等核心标的回调后估值具吸引力，长期不加仓可能错失修复行情。"
+}
