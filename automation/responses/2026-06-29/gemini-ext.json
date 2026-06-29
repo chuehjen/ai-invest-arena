@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-06-29",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 27,
+      "avg_cost": 212.64
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 6,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 8790.98,
+  "return_pct_cumulative": -12.09,
+  "summary": "维持现有持仓不变，等待市场企稳信号。",
+  "confidence": "medium",
+  "strongest_bear_case": "科技集中度过高，若AI板块继续回调损失会加大。"
+}

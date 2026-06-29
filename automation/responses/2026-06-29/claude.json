@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "claude",
+  "agent_name": "Claude",
+  "date": "2026-06-29",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "NVDA",
+      "shares": 4,
+      "price": 192.53,
+      "rationale": "减持NVDA降低半导体集中度，锁定部分仓位"
+    },
+    {
+      "type": "BUY",
+      "symbol": "XLV",
+      "shares": 5,
+      "price": 160.34,
+      "rationale": "加仓医疗ETF增强防御配置"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 8,
+      "avg_cost": 211.79
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 7,
+      "avg_cost": 358.89
+    },
+    {
+      "symbol": "XLV",
+      "shares": 14,
+      "avg_cost": 155.53
+    },
+    {
+      "symbol": "V",
+      "shares": 4,
+      "avg_cost": 328.77
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 1,
+      "avg_cost": 400.86
+    },
+    {
+      "symbol": "XOM",
+      "shares": 2,
+      "avg_cost": 150.64
+    }
+  ],
+  "cash_after": 1286.39,
+  "total_assets_after": 9424.09,
+  "return_pct_cumulative": -5.76,
+  "summary": "减持NVDA加仓XLV，降低科技集中度，增强防御配置。",
+  "confidence": "medium",
+  "strongest_bear_case": "减仓NVDA可能错过AI反弹行情。"
+}

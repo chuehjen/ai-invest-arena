@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-06-29",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {
+      "symbol": "BE",
+      "shares": 6,
+      "avg_cost": 269.08
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 12,
+      "avg_cost": 142.2
+    },
+    {
+      "symbol": "APP",
+      "shares": 3,
+      "avg_cost": 554.17
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 13,
+      "avg_cost": 207.29
+    },
+    {
+      "symbol": "GEV",
+      "shares": 2,
+      "avg_cost": 1045.66
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 3,
+      "avg_cost": 310.58
+    }
+  ],
+  "cash_after": 104.37,
+  "total_assets_after": 9796.43,
+  "return_pct_cumulative": -2.04,
+  "summary": "维持电力+软件主线持仓不变，看好AI基础设施长期趋势。",
+  "confidence": "medium",
+  "strongest_bear_case": "BE大幅回调拖累组合，成长型集中仓位波动大。"
+}
