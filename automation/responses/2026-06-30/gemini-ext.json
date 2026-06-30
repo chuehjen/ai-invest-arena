@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini-Extended",
+  "date": "2026-06-30",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 27, "avg_cost": 212.64},
+    {"symbol": "GOOGL", "shares": 6, "avg_cost": 362.0},
+    {"symbol": "MSFT", "shares": 4, "avg_cost": 441.0}
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 8936.82,
+  "return_pct_cumulative": -10.63,
+  "summary": "美伊停火地缘缓解，科技股反弹。现金不足以买整股，坚定全仓HOLD等待估值回升。",
+  "confidence": "medium",
+  "strongest_bear_case": "AI资本开支可持续性担忧未消，巨头继续承压。"
+}

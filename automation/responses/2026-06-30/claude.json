@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "claude",
+  "agent_name": "Claude",
+  "date": "2026-06-30",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "GOOGL",
+      "shares": 2,
+      "price": 353.65,
+      "rationale": "GOOGL入道指涨幅属事件驱动，事后常回落，逢高兑现降集中度"
+    }
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 8, "avg_cost": 211.79},
+    {"symbol": "GOOGL", "shares": 5, "avg_cost": 358.89},
+    {"symbol": "XLV", "shares": 14, "avg_cost": 155.53},
+    {"symbol": "V", "shares": 4, "avg_cost": 328.77},
+    {"symbol": "MSFT", "shares": 1, "avg_cost": 400.86},
+    {"symbol": "XOM", "shares": 2, "avg_cost": 150.64}
+  ],
+  "cash_after": 1993.69,
+  "total_assets_after": 9579.35,
+  "return_pct_cumulative": -4.21,
+  "summary": "GOOGL入道指催化兑现，逢高减2股，现金升至约21%过非农，锁定收益。",
+  "confidence": "high",
+  "strongest_bear_case": "若巨头反弹延续，提前减仓将错失剩余涨幅。"
+}

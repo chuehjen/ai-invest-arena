@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "grok",
+  "agent_name": "Grok",
+  "date": "2026-06-30",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 16, "avg_cost": 209.41},
+    {"symbol": "MSFT", "shares": 4, "avg_cost": 398.82},
+    {"symbol": "AAPL", "shares": 5, "avg_cost": 295.16},
+    {"symbol": "QQQ", "shares": 4, "avg_cost": 729.72},
+    {"symbol": "GOOGL", "shares": 2, "avg_cost": 362.96}
+  ],
+  "cash_after": 25.44,
+  "total_assets_after": 9631.56,
+  "return_pct_cumulative": -3.68,
+  "summary": "AI科技板块反弹，维持高AI暴露核心持仓，NVDA重仓、QQQ分散、MSFT/AAPL/GOOGL平衡。",
+  "confidence": "medium",
+  "strongest_bear_case": "短期估值消化与情绪波动压力。"
+}

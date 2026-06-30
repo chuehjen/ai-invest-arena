@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini-Standard",
+  "date": "2026-06-30",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 28, "avg_cost": 216.86},
+    {"symbol": "QQQ", "shares": 3, "avg_cost": 746.0},
+    {"symbol": "MSFT", "shares": 3, "avg_cost": 441.0}
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 8964.53,
+  "return_pct_cumulative": -10.35,
+  "summary": "三星海力士5180亿芯片建厂强化AI硬件需求，半导体链右侧修复。全员HOLD吃满科技股反弹红利。",
+  "confidence": "medium",
+  "strongest_bear_case": "高度集中NVDA仓位风险，单股调整将放大组合波动。"
+}

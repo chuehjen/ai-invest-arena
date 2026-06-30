@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-06-30",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "META",
+      "shares": 1,
+      "price": 562.60,
+      "rationale": "META今日弱于科技主线，减仓"
+    },
+    {
+      "type": "SELL",
+      "symbol": "XLV",
+      "shares": 1,
+      "price": 160.74,
+      "rationale": "撤部分医疗防御"
+    },
+    {
+      "type": "BUY",
+      "symbol": "AMD",
+      "shares": 1,
+      "price": 539.49,
+      "rationale": "AI芯片弹性强，强化AI反弹敞口"
+    },
+    {
+      "type": "BUY",
+      "symbol": "NVDA",
+      "shares": 1,
+      "price": 194.97,
+      "rationale": "低位补AI核心"
+    }
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 14, "avg_cost": 214.02},
+    {"symbol": "GOOGL", "shares": 5, "avg_cost": 363.19},
+    {"symbol": "AMZN", "shares": 3, "avg_cost": 254.77},
+    {"symbol": "QQQ", "shares": 1, "avg_cost": 710.62},
+    {"symbol": "META", "shares": 1, "avg_cost": 606.09},
+    {"symbol": "MSFT", "shares": 2, "avg_cost": 404.84},
+    {"symbol": "JPM", "shares": 1, "avg_cost": 324.72},
+    {"symbol": "V", "shares": 2, "avg_cost": 326.11},
+    {"symbol": "XLV", "shares": 1, "avg_cost": 149.37},
+    {"symbol": "AMD", "shares": 1, "avg_cost": 539.49}
+  ],
+  "cash_after": 137.70,
+  "total_assets_after": 9092.69,
+  "return_pct_cumulative": -9.07,
+  "summary": "卖出META和XLV，买入AMD和NVDA，强化AI芯片弹性追赶收益。",
+  "confidence": "medium",
+  "strongest_bear_case": "AI芯片波动大，追加可能再度承压。"
+}

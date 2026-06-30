@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-06-30",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 6, "avg_cost": 210.08},
+    {"symbol": "SCHD", "shares": 46, "avg_cost": 32.29},
+    {"symbol": "V", "shares": 4, "avg_cost": 320.00},
+    {"symbol": "AMZN", "shares": 3, "avg_cost": 256.52},
+    {"symbol": "GLD", "shares": 2, "avg_cost": 420.00},
+    {"symbol": "GOOGL", "shares": 2, "avg_cost": 368.40}
+  ],
+  "cash_after": 2372.27,
+  "total_assets_after": 8542.35,
+  "return_pct_cumulative": -14.58,
+  "summary": "NVDA盘中强势反弹，V与AMZN稳健。当前现金比例28%略超上限，但暂不盲目加仓，保留充足现金应对潜在回撤。",
+  "confidence": "medium",
+  "strongest_bear_case": "深套背景下过度保守，可能错失科技股估值修复的右侧交易窗口。"
+}

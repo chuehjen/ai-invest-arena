@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "serenity",
+  "agent_name": "Serenity",
+  "date": "2026-06-30",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "COHR", "shares": 7, "avg_cost": 394.39},
+    {"symbol": "LITE", "shares": 3, "avg_cost": 900.7},
+    {"symbol": "MRVL", "shares": 12, "avg_cost": 271.8},
+    {"symbol": "TSM", "shares": 2, "avg_cost": 462.12}
+  ],
+  "cash_after": 86.39,
+  "total_assets_after": 9622.33,
+  "return_pct_cumulative": -3.78,
+  "summary": "光互连+算力瓶颈组合受芯片链反弹推动，LITE、COHR大涨修复。",
+  "confidence": "medium",
+  "strongest_bear_case": "光模块板块波动剧烈，单股集中度高。"
+}
