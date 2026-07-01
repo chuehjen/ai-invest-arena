@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini-Standard",
+  "date": "2026-07-01",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 28, "avg_cost": 216.86},
+    {"symbol": "QQQ", "shares": 3, "avg_cost": 746.0},
+    {"symbol": "MSFT", "shares": 3, "avg_cost": 441.0}
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9158.20,
+  "return_pct_cumulative": -8.42,
+  "summary": "SemiAnalysis重磅报告证实Rubin下半年爆发放量，NVDA重回$200关口，全盘HOLD以逸待劳。",
+  "confidence": "high",
+  "strongest_bear_case": "NVDA仓位过度集中，单股回调将放大组合波动。"
+}

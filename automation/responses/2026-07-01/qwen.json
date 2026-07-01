@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-07-01",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 6, "avg_cost": 210.08},
+    {"symbol": "SCHD", "shares": 46, "avg_cost": 32.29},
+    {"symbol": "V", "shares": 4, "avg_cost": 320.00},
+    {"symbol": "AMZN", "shares": 3, "avg_cost": 256.52},
+    {"symbol": "GLD", "shares": 2, "avg_cost": 420.00},
+    {"symbol": "GOOGL", "shares": 2, "avg_cost": 368.40}
+  ],
+  "cash_after": 2372.27,
+  "total_assets_after": 8570.35,
+  "return_pct_cumulative": -14.30,
+  "summary": "保持观望，不盲目抄底，维持防御与成长对冲。",
+  "confidence": "medium",
+  "strongest_bear_case": "空仓会错失AI反弹红利。"
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-07-01",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "JPM",
+      "shares": 1,
+      "price": 327.33,
+      "rationale": "撤金融防守仓"
+    },
+    {
+      "type": "SELL",
+      "symbol": "XLV",
+      "shares": 1,
+      "price": 158.66,
+      "rationale": "风险偏好回升，撤医疗防御"
+    },
+    {
+      "type": "BUY",
+      "symbol": "AMD",
+      "shares": 1,
+      "price": 580.91,
+      "rationale": "今日AI芯片弹性最强"
+    }
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 14, "avg_cost": 214.02},
+    {"symbol": "GOOGL", "shares": 5, "avg_cost": 363.19},
+    {"symbol": "AMZN", "shares": 3, "avg_cost": 254.77},
+    {"symbol": "QQQ", "shares": 1, "avg_cost": 710.62},
+    {"symbol": "META", "shares": 1, "avg_cost": 606.09},
+    {"symbol": "MSFT", "shares": 2, "avg_cost": 404.84},
+    {"symbol": "V", "shares": 2, "avg_cost": 326.11},
+    {"symbol": "AMD", "shares": 2, "avg_cost": 560.20}
+  ],
+  "cash_after": 42.78,
+  "total_assets_after": 9239.64,
+  "return_pct_cumulative": -7.60,
+  "summary": "撤JPM与XLV，加仓AMD至2股，强化AI芯片弹性追赶收益。",
+  "confidence": "medium",
+  "strongest_bear_case": "AMD估值偏高，追高存在回撤风险。"
+}

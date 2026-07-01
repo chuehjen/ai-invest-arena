@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini-Extended",
+  "date": "2026-07-01",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 27, "avg_cost": 212.64},
+    {"symbol": "GOOGL", "shares": 6, "avg_cost": 362.0},
+    {"symbol": "MSFT", "shares": 4, "avg_cost": 441.0}
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 9115.18,
+  "return_pct_cumulative": -8.85,
+  "summary": "科技股抄底资金涌入，美股强劲反弹收官上半年。现金不足以买单股，坚定全仓HOLD锁定核心AI筹码。",
+  "confidence": "medium",
+  "strongest_bear_case": "巨头集中度高，若下半年AI叙事回调则组合承压。"
+}
