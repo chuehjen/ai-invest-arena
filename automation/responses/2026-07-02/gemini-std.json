@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini-Standard",
+  "date": "2026-07-02",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 28, "avg_cost": 216.86},
+    {"symbol": "QQQ", "shares": 3, "avg_cost": 746.0},
+    {"symbol": "MSFT", "shares": 3, "avg_cost": 441.0}
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9088.01,
+  "return_pct_cumulative": -9.12,
+  "summary": "芯片高位洗盘但供应链逻辑未变，MSFT大涨对冲，全盘HOLD以逸待劳。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA单一仓位过大，回调深则组合承压。"
+}

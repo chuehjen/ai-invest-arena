@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "doubao",
+  "agent_name": "豆包",
+  "date": "2026-07-02",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "VOO", "shares": 5, "avg_cost": 698.27},
+    {"symbol": "NVDA", "shares": 5, "avg_cost": 215.95},
+    {"symbol": "MSFT", "shares": 3, "avg_cost": 441.31},
+    {"symbol": "JNJ", "shares": 5, "avg_cost": 222.64},
+    {"symbol": "SCHD", "shares": 35, "avg_cost": 32.49},
+    {"symbol": "GLD", "shares": 2, "avg_cost": 397.27}
+  ],
+  "cash_after": 964.11,
+  "total_assets_after": 9658.00,
+  "return_pct_cumulative": -3.42,
+  "summary": "大盘震荡起伏，科技反弹缺乏持续性，医药高股息稳定。今日维持不动，延续均衡分散策略。",
+  "confidence": "medium",
+  "strongest_bear_case": "闲置现金不加仓将错失板块修复红利。"
+}

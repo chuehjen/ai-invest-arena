@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-07-02",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "NVDA",
+      "shares": 2,
+      "price": 197.58,
+      "rationale": "降低单一芯片仓位风险"
+    },
+    {
+      "type": "BUY",
+      "symbol": "GOOGL",
+      "shares": 1,
+      "price": 361.21,
+      "rationale": "AI应用端估值合理，增配平台型AI"
+    }
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 12, "avg_cost": 214.02},
+    {"symbol": "GOOGL", "shares": 6, "avg_cost": 362.86},
+    {"symbol": "AMZN", "shares": 3, "avg_cost": 254.77},
+    {"symbol": "QQQ", "shares": 1, "avg_cost": 710.62},
+    {"symbol": "META", "shares": 1, "avg_cost": 606.09},
+    {"symbol": "MSFT", "shares": 2, "avg_cost": 404.84},
+    {"symbol": "V", "shares": 2, "avg_cost": 326.11},
+    {"symbol": "AMD", "shares": 2, "avg_cost": 560.20}
+  ],
+  "cash_after": 76.73,
+  "total_assets_after": 9230.61,
+  "return_pct_cumulative": -7.69,
+  "summary": "减持NVDA 2股换入GOOGL 1股，从AI硬件适度转向AI平台，降低半导体集中度。",
+  "confidence": "medium",
+  "strongest_bear_case": "芯片反弹时因减仓而踏空。"
+}

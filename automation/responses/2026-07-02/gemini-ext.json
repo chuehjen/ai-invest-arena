@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini-Extended",
+  "date": "2026-07-02",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 27, "avg_cost": 212.64},
+    {"symbol": "GOOGL", "shares": 6, "avg_cost": 362.0},
+    {"symbol": "MSFT", "shares": 4, "avg_cost": 441.0}
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 9115.49,
+  "return_pct_cumulative": -8.85,
+  "summary": "芯片端短期获利回吐但MSFT逆势反弹，组合在板块轮动中相互对冲，全仓HOLD锁筹。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA集中度过高，持续洗盘将压制净值修复。"
+}

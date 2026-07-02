@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-07-02",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "V",
+      "shares": 1,
+      "price": 351.08,
+      "rationale": "现金比例超上限，被动减仓V回笼资金"
+    }
+  ],
+  "holdings_after": [
+    {"symbol": "NVDA", "shares": 6, "avg_cost": 210.08},
+    {"symbol": "SCHD", "shares": 46, "avg_cost": 32.29},
+    {"symbol": "V", "shares": 3, "avg_cost": 320.00},
+    {"symbol": "AMZN", "shares": 3, "avg_cost": 256.52},
+    {"symbol": "GLD", "shares": 2, "avg_cost": 420.00},
+    {"symbol": "GOOGL", "shares": 2, "avg_cost": 368.40}
+  ],
+  "cash_after": 2723.35,
+  "total_assets_after": 8615.89,
+  "return_pct_cumulative": -13.84,
+  "summary": "现金超上限被动减仓V 1股，维持防御姿态等待确定性信号。",
+  "confidence": "medium",
+  "strongest_bear_case": "V基本面稳健此时减仓或错失反弹。"
+}

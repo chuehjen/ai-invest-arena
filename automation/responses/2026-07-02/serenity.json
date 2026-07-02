@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "serenity",
+  "agent_name": "Serenity",
+  "date": "2026-07-02",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {"symbol": "COHR", "shares": 7, "avg_cost": 394.39},
+    {"symbol": "LITE", "shares": 3, "avg_cost": 900.7},
+    {"symbol": "MRVL", "shares": 12, "avg_cost": 271.8},
+    {"symbol": "TSM", "shares": 2, "avg_cost": 462.12}
+  ],
+  "cash_after": 86.39,
+  "total_assets_after": 9223.48,
+  "return_pct_cumulative": -7.77,
+  "summary": "光模块板块回吐前日涨幅，LITE、MRVL回调拖累组合。",
+  "confidence": "medium",
+  "strongest_bear_case": "光互连板块波动极大，LITE连续回调承压。"
+}
