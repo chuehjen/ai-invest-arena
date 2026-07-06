@@ -10,11 +10,21 @@ daily_run.py — 一键 orchestrator
   5. [群里 @我 贴 5 份外部 AI 决策 JSON → fetch_group_decisions.py 落 responses/]
   6. validate_response.py + codegen_data.py + supabase upload + 极简通知
 
+日期语义（重要）：
+  - target-date = 本次调仓要应用的「未来交易日」（例：周一早上跑 → target=周一）
+  - prev-date   = target 的上一个交易日（例：target=周一 → prev=上周五 / 长假前的最后交易日）
+                   fetch_prices 拉 prev 的 OHLC，供 generate_prompts 计算持仓市值和板块变动
+  - reference-date = daily_run 被触发的日历日；默认 NY 今天，也可 --ref-date 覆盖
+                     若 reference 本身就是交易日 → target = reference
+                     若 reference 是周末/假期 → target = 下一个交易日
+
 用法:
-  python daily_run.py prompts                # 步骤 1+2+3
-  python daily_run.py codegen --date 2026-06-11
+  python daily_run.py prompts                           # target = NY today or next
+  python daily_run.py prompts --target-date 2026-07-06
+  python daily_run.py prompts --ref-date 2026-07-05     # 周日跑 → target=周一 2026-07-06
+  python daily_run.py codegen --date 2026-06-11         # (兼容旧参数)
   python daily_run.py validate --date 2026-06-11
-  python daily_run.py full --date 2026-06-11
+  python daily_run.py full --target-date 2026-06-11
 """
 import argparse
 import subprocess
@@ -31,11 +41,33 @@ def run(cmd, **kw):
     return subprocess.run(cmd, check=True, **kw)
 
 
-def prev_trading_day(d_str):
+def _ny_today() -> str:
+    from datetime import datetime
+    try:
+        from zoneinfo import ZoneInfo
+        return datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+    except Exception:
+        return date_cls.today().isoformat()
+
+
+def prev_trading_day(d_str: str) -> str:
     from holidays import is_market_closed
     d = date_cls.fromisoformat(d_str) - timedelta(days=1)
     while is_market_closed(d.isoformat()):
         d -= timedelta(days=1)
+    return d.isoformat()
+
+
+def resolve_target(ref_date: str) -> str:
+    """把参考日历日映射到「应当被处理的交易日」。
+
+    ref 本身开盘 → target = ref
+    ref 关门（周末 / 假期）→ target = 下一个交易日
+    """
+    from holidays import is_market_closed
+    d = date_cls.fromisoformat(ref_date)
+    while is_market_closed(d.isoformat()):
+        d += timedelta(days=1)
     return d.isoformat()
 
 
@@ -114,26 +146,46 @@ def to_dingtalk_md(text: str) -> str:
     return "\n".join(out)
 
 
-def push_prompts_to_dingbot(today: str):
+def _read_current_day_n() -> int:
+    """从 public/data/latest.json 读 day_n（快照对应的已完成天数），下一日 = day_n + 1。"""
+    from config import DATA_LATEST_JSON
+    import json as _json
+    if not DATA_LATEST_JSON.exists():
+        return 0
+    try:
+        snap = _json.loads(DATA_LATEST_JSON.read_text())
+        return int(snap.get("day_n", 0))
+    except Exception:
+        return 0
+
+
+def push_prompts_to_dingbot(target: str, prev: str):
     """把豆包 + 千问两份提示词推到钉钉群（每家 1 条 markdown，共 2 条）。
 
-    注：钉钉 markdown 单条上限约 5000 字符；minimal 模板通常 2-3 KB，单条发即可。
+    首行加一行提示，说明这是「target 交易日」的调仓、执行价基准是 prev 的收盘。
+    钉钉 markdown 单条上限约 5000 字符；minimal 模板通常 2-3 KB，单条发即可。
     超长时自动截断并提示用户查本地文件。
     """
     from config import PROMPTS_DIR
     from dingbot import send_markdown
 
+    day_next = _read_current_day_n() + 1
+    banner = (
+        f"> 🗓️ **Day{day_next} · {target}** 调仓（{prev} 收盘价为执行基准）\n"
+        f"> 复制下方全文粘到对应 AI，收到 JSON 后回贴到「大仁哥」群 @我。\n\n"
+    )
+
     targets = [("doubao", "豆包"), ("qwen", "千问")]
     for agent_id, agent_name in targets:
-        path = PROMPTS_DIR / today / f"{agent_id}.md"
+        path = PROMPTS_DIR / target / f"{agent_id}.md"
         if not path.exists():
             print(f"⚠️  {path} 不存在，跳过")
             continue
-        body = path.read_text()
+        body = banner + path.read_text()
         body = to_dingtalk_md(body)  # 转钉钉兼容格式
         if len(body) > 4500:
-            body = body[:4400] + "\n\n... _(已截断，详见本地 automation/prompts/{}/{agent_id}.md)_".format(today)
-        title = f"Day {today} · {agent_name} 调仓提示词"
+            body = body[:4400] + "\n\n... _(已截断，详见本地 automation/prompts/{}/{})_".format(target, f"{agent_id}.md")
+        title = f"Day{day_next} · {agent_name} 调仓提示词（{target}）"
         try:
             send_markdown(title=title, text=body)
             print(f"✓ 已推 {agent_name} 提示词到钉钉（1 条消息）")
@@ -141,12 +193,43 @@ def push_prompts_to_dingbot(today: str):
             print(f"❌ 推 {agent_name} 失败: {e}")
 
 
-def cmd_prompts(today, prev):
-    run([sys.executable, str(HERE / "fetch_prices.py"), "--date", prev])
-    run([sys.executable, str(HERE / "generate_prompts.py"), "--date", today, "--prev", prev])
-    print(f"\n✅ 提示词已生成 → automation/prompts/{today}/")
-    push_prompts_to_dingbot(today)
-    print("\n📋 下一步: 在群「大仁哥」贴 5 份外部 AI 决策（@我 + ```json）→ python fetch_group_decisions.py {}".format(today))
+def _prompts_already_generated(target: str) -> bool:
+    """幂等检查：target 交易日的 5 份提示词是否都已生成。"""
+    from config import PROMPTS_DIR
+    dir_ = PROMPTS_DIR / target
+    if not dir_.exists():
+        return False
+    required = {"beth-kindig.md", "cathie-wood.md", "doubao.md", "qwen.md", "serenity.md"}
+    existing = {p.name for p in dir_.iterdir()}
+    return required.issubset(existing)
+
+
+def _prices_already_fetched(prev: str) -> bool:
+    from config import PRICES_DIR
+    return (PRICES_DIR / f"{prev}.json").exists()
+
+
+def cmd_prompts(target: str, prev: str, *, force: bool = False, skip_push: bool = False):
+    # 1) fetch prices（幂等）
+    if _prices_already_fetched(prev) and not force:
+        print(f"✓ prices/{prev}.json 已存在，跳过 fetch_prices")
+    else:
+        run([sys.executable, str(HERE / "fetch_prices.py"), "--date", prev])
+
+    # 2) generate prompts（幂等）
+    if _prompts_already_generated(target) and not force:
+        print(f"✓ prompts/{target}/ 已完整，跳过 generate_prompts")
+    else:
+        run([sys.executable, str(HERE / "generate_prompts.py"), "--date", target, "--prev", prev])
+        print(f"\n✅ 提示词已生成 → automation/prompts/{target}/")
+
+    # 3) push doubao + qwen to DingTalk
+    if skip_push:
+        print("ℹ 跳过钉钉推送（--skip-push）")
+    else:
+        push_prompts_to_dingbot(target, prev)
+
+    print("\n📋 下一步: 在群「大仁哥」贴 5 份外部 AI 决策（@我 + ```json）→ python fetch_group_decisions.py {}".format(target))
 
 
 def cmd_validate(today):
@@ -188,29 +271,56 @@ def push_summary_to_dingbot(today: str):
         print(f"⚠️  钉钉推送失败: {e}")
 
 
+def _resolve_dates(args):
+    """把 --target-date / --ref-date / --date 三种参数收敛到 (target, prev)。
+
+    优先级：显式 --target-date > --date (兼容) > --ref-date → target = resolve_target(ref)
+    prev 优先取 --prev；否则由 target 反推。
+    """
+    if args.target_date:
+        target = args.target_date
+    elif getattr(args, "date", None):
+        target = args.date
+    else:
+        ref = args.ref_date or _ny_today()
+        target = resolve_target(ref)
+    prev = args.prev or prev_trading_day(target)
+    return target, prev
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("step", choices=["prompts", "validate", "codegen", "notify", "full"])
-    ap.add_argument("--date", default=None)
-    ap.add_argument("--prev", default=None)
+    ap.add_argument("--target-date", default=None,
+                    help="本次调仓的目标交易日 YYYY-MM-DD（推荐显式传）")
+    ap.add_argument("--ref-date", default=None,
+                    help="参考日历日 YYYY-MM-DD（默认 NY today）；将被解析为最近的目标交易日")
+    ap.add_argument("--date", default=None,
+                    help="[兼容旧参数] 等价于 --target-date")
+    ap.add_argument("--prev", default=None,
+                    help="上一个交易日 YYYY-MM-DD（默认由 target 反推）")
+    ap.add_argument("--force", action="store_true",
+                    help="忽略幂等检查，强制重跑")
+    ap.add_argument("--skip-push", action="store_true",
+                    help="prompts 步骤跳过钉钉推送（本地调试用）")
     args = ap.parse_args()
 
-    today = args.date or date_cls.today().isoformat()
-    prev = args.prev or prev_trading_day(today)
+    target, prev = _resolve_dates(args)
+    print(f"➡ target trading day = {target} · prev trading day = {prev}")
 
     if args.step == "prompts":
-        cmd_prompts(today, prev)
+        cmd_prompts(target, prev, force=args.force, skip_push=args.skip_push)
     elif args.step == "validate":
-        cmd_validate(today)
+        cmd_validate(target)
     elif args.step == "codegen":
-        cmd_codegen(today, prev)
+        cmd_codegen(target, prev)
     elif args.step == "notify":
-        push_summary_to_dingbot(today)
+        push_summary_to_dingbot(target)
     elif args.step == "full":
-        cmd_prompts(today, prev)
-        cmd_validate(today)
-        cmd_codegen(today, prev)
-        push_summary_to_dingbot(today)
+        cmd_prompts(target, prev, force=args.force, skip_push=args.skip_push)
+        cmd_validate(target)
+        cmd_codegen(target, prev)
+        push_summary_to_dingbot(target)
 
 
 if __name__ == "__main__":

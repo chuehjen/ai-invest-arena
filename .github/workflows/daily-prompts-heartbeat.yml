@@ -1,0 +1,139 @@
+# 早晨 heartbeat：如果昨晚的 daily-prices 由于任何原因没跑（GH 停机 / API 大规模超时 /
+# 长假前收盘时刻错过），今天上班前必须补一次并推钉钉。
+#
+# 触发时机：
+#   - CST 07:30 (NY 前一日 19:30，收盘后 3.5h) — 第一次兜底
+#   - CST 08:00 (NY 前一日 20:00) — 第二次兜底
+#   周一到周五都跑；如果 target 是节假日，daily_run 内部会解析到下一交易日，
+#   idempotency 命中 → 秒退。
+#
+# 与 daily-prices.yml 的关系：
+#   同一 target 交易日 → concurrency.group 相同（都用 daily-prompts-<target>），
+#   任一 workflow 已经跑完并生成 prompts/<target>/ → 后跑的秒退。
+name: Daily Prompts Heartbeat
+
+on:
+  schedule:
+    - cron: '30 23 * * 0-4'  # CST 07:30（NY 前日 19:30 EDT / 18:30 EST）
+    - cron: '0 0 * * 1-5'    # CST 08:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-prompts-heartbeat
+  cancel-in-progress: false
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Resolve target trading day (CST today → NY equivalent)
+        id: dates
+        run: |
+          # CST 早上 07:30 对应 NY 前一天晚上 19:30。target 应该是 NY 今天（若开盘）或下一交易日。
+          # 直接用 CST 今天作为 ref，target_trading_day.py 会 forward 到最近开盘日。
+          CST_TODAY=$(TZ='Asia/Shanghai' date '+%Y-%m-%d')
+          TARGET=$(python3 automation/scripts/target_trading_day.py --mode today "$CST_TODAY")
+          PREV=$(python3 automation/scripts/target_trading_day.py --mode prev "$TARGET")
+          echo "target=$TARGET" >> $GITHUB_OUTPUT
+          echo "prev=$PREV" >> $GITHUB_OUTPUT
+          echo "Heartbeat target=$TARGET prev=$PREV"
+
+      - name: Check if prompts already generated
+        id: idem
+        run: |
+          TARGET="${{ steps.dates.outputs.target }}"
+          DIR="automation/prompts/$TARGET"
+          NEEDED="beth-kindig.md cathie-wood.md doubao.md qwen.md serenity.md"
+          MISSING=""
+          for f in $NEEDED; do
+            [ -f "$DIR/$f" ] || MISSING="$MISSING $f"
+          done
+          if [ -z "$MISSING" ]; then
+            echo "prompts complete → heartbeat OK"
+            echo "should_run=false" >> $GITHUB_OUTPUT
+          else
+            echo "prompts missing:$MISSING → heartbeat will run"
+            echo "should_run=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Configure env
+        if: steps.idem.outputs.should_run == 'true'
+        env:
+          TWELVE_DATA_KEY: ${{ secrets.TWELVE_DATA_KEY }}
+          DINGBOT_WEBHOOK: ${{ secrets.DINGBOT_WEBHOOK }}
+        run: |
+          cat > .env <<EOF
+          TWELVE_DATA_KEY=${TWELVE_DATA_KEY}
+          DINGBOT_WEBHOOK=${DINGBOT_WEBHOOK}
+          EOF
+
+      - name: Alert about missed schedule (before recovering)
+        if: steps.idem.outputs.should_run == 'true' && env.DINGBOT_WEBHOOK
+        env:
+          DINGBOT_WEBHOOK: ${{ secrets.DINGBOT_WEBHOOK }}
+        run: |
+          curl -s -X POST "$DINGBOT_WEBHOOK" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"msgtype\": \"text\",
+              \"text\": {\"content\": \"[情报采集] ⚠️ heartbeat 发现 ${{ steps.dates.outputs.target }} 提示词缺失，正在补跑…\"}
+            }" || true
+
+      - name: Recover — fetch prices + generate prompts + push DingTalk
+        if: steps.idem.outputs.should_run == 'true'
+        run: |
+          cd automation/scripts
+          python daily_run.py prompts \
+            --target-date "${{ steps.dates.outputs.target }}" \
+            --prev "${{ steps.dates.outputs.prev }}"
+
+      - name: Commit recovered files back to main
+        if: steps.idem.outputs.should_run == 'true'
+        run: |
+          TARGET="${{ steps.dates.outputs.target }}"
+          PREV="${{ steps.dates.outputs.prev }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          [ -f "automation/prices/$PREV.json" ] && git add "automation/prices/$PREV.json" || true
+          [ -d "automation/prompts/$TARGET" ] && git add "automation/prompts/$TARGET" || true
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+            exit 0
+          fi
+          git commit -m "chore(heartbeat): recover prices $PREV + prompts $TARGET [skip ci]"
+          for i in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "Pushed"
+              exit 0
+            fi
+            git pull --rebase origin main || true
+            sleep $((i * 2))
+          done
+        continue-on-error: true
+
+      - name: Notify heartbeat failure
+        if: failure() && env.DINGBOT_WEBHOOK
+        env:
+          DINGBOT_WEBHOOK: ${{ secrets.DINGBOT_WEBHOOK }}
+        run: |
+          curl -s -X POST "$DINGBOT_WEBHOOK" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"msgtype\": \"text\",
+              \"text\": {\"content\": \"[情报采集] ❌ heartbeat 兜底失败 (target=${{ steps.dates.outputs.target }})：https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}，请人工介入\"}
+            }"

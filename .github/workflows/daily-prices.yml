@@ -1,31 +1,36 @@
-# 每日 CST 20:17/20:47 自动（含外部 launchd 主触发 CST 20:00）：
-#   1. 用 Twelve Data 拉前一交易日收盘价
-#   2. 生成 5 份提示词（3 大师 + 豆包 + 千问）
-#   3. 推送豆包 + 千问 2 份到钉钉群「大仁哥」
+# 每交易日美东收盘后自动生成「明日调仓提示词」并推送钉钉。
 #
-# 触发链（任一成功即终止）：
-#   - launchd (CST 20:00) → gh workflow run    [主，最稳]
-#   - GH schedule cron '17 12' (CST 20:17)      [兜底 1，错峰]
-#   - GH schedule cron '47 12' (CST 20:47)      [兜底 2，二次错峰]
+# 触发时机（NY 时区）：
+#   - 每周一至周五 16:30 ET（收盘后 30 分钟，等 EOD 数据入库）
+#   - 每周日 20:00 CST（= NY 07:00 Mon）额外兜底一次，防止周一开盘前长假爆胎
 #
-# 防重复机制（三保险）：
-#   1. concurrency.group 串行化：同一目标交易日只允许 1 个 in-flight
-#   2. Idempotency check：用 holidays.prev_trading_day 计算真实目标交易日，
-#      若 automation/prices/<prev>.json 已存在则 should_skip=true，秒退
-#   3. 跑完后把 prices/<date>.json commit 回 main，让后续 cron 能命中幂等
+# 触发链（任一成功即结束当日）：
+#   1. GH schedule cron '30 20 * * 1-5'   NY 16:30 收盘后主推
+#   2. GH schedule cron '30 21 * * 1-5'   NY 17:30 一小时后二次兜底
+#   3. daily-prompts-heartbeat.yml         CST 07:30 / 08:00 三次兜底
 #
-# 美股节假日自动跳过（fetch_prices.py 内部调用 holidays.py 校验）。
-name: Daily Prices + Prompts
+# 幂等：
+#   1. concurrency.group 串行化，同一 target 交易日不并发
+#   2. prompts/<target>/ 已 5 份齐全 → daily_run.py 内部跳过 fetch + generate
+#   3. 跑完把 prices/<prev>.json commit 回 main，让后续 cron 命中幂等
+#
+# 语义换代：
+#   - 旧版：target = prev_trading_day(NY today)  → 拉「刚过去这天」的价格并按当天推
+#   - 新版：target = today_or_next(NY today)     → 拉「target 上一日」价格，为「target 调仓」做准备
+#           收盘后跑时 NY today == target，与旧版行为一致；
+#           但在长假前跑（比如周五收盘后 target=下周一）时，价格与 target 天然错位，正是我们想要的。
+name: Daily Prompts
 
 on:
   schedule:
-    # 错峰避开整点/半点高峰；两次冗余兜底
-    - cron: '17 12 * * 1-5'   # CST 20:17 主兜底
-    - cron: '47 12 * * 1-5'   # CST 20:47 二次兜底
+    # NY 16:30 主推 (夏令时 CST 04:30 / 冬令时 CST 05:30)
+    - cron: '30 20 * * 1-5'
+    # NY 17:30 二次兜底
+    - cron: '30 21 * * 1-5'
   workflow_dispatch:
     inputs:
-      date:
-        description: 'Override date YYYY-MM-DD（默认用今天）'
+      target_date:
+        description: '强制指定 target 交易日 YYYY-MM-DD（默认 NY today or next）'
         required: false
         type: string
       force:
@@ -35,13 +40,11 @@ on:
         default: false
 
 permissions:
-  contents: write   # 跑完要把 prices/<date>.json commit 回 main
+  contents: write
 
-# 同一交易日的多次触发会排队串行执行；前一个跑完写好 prices/<date>.json，
-# 后一个进来时幂等检查会命中 should_skip=true 秒退。
-# key 用 NY 当天日期，launchd/cron1/cron2/手动触发同日都收敛到一个 group。
 concurrency:
-  group: daily-prices-${{ github.event.inputs.date || github.workflow }}-ny-day
+  # 同一 target 交易日的多次触发（cron/兜底/手动）都收敛到同一 group，前一个跑完幂等秒退后续
+  group: daily-prompts-${{ github.event.inputs.target_date || github.workflow }}
   cancel-in-progress: false
 
 jobs:
@@ -55,36 +58,47 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Idempotency check (skip if previous trading day's prices already exist)
-        id: idem
-        run: |
-          # 计算「目标交易日」= 用户指定 / 否则 NY 今天的 prev_trading_day
-          # 复用仓库内 holidays.py，避免硬编码节假日
-          if [ -n "${{ inputs.date }}" ]; then
-            TARGET_DATE="${{ inputs.date }}"
-          else
-            NY_TODAY=$(TZ='America/New_York' date '+%Y-%m-%d')
-            TARGET_DATE=$(python3 automation/scripts/target_trading_day.py "$NY_TODAY")
-          fi
-          echo "target_date=$TARGET_DATE" >> $GITHUB_OUTPUT
-          echo "Target trading day: $TARGET_DATE"
-
-          if [ "${{ inputs.force }}" = "true" ]; then
-            echo "Force flag set, will run"
-            echo "should_skip=false" >> $GITHUB_OUTPUT
-          elif [ -f "automation/prices/$TARGET_DATE.json" ]; then
-            echo "automation/prices/$TARGET_DATE.json already exists -- skipping duplicate run"
-            echo "should_skip=true" >> $GITHUB_OUTPUT
-          else
-            echo "automation/prices/$TARGET_DATE.json missing -- will fetch"
-            echo "should_skip=false" >> $GITHUB_OUTPUT
-          fi
-
       - name: Setup Python
-        if: steps.idem.outputs.should_skip != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Resolve target / prev trading day
+        id: dates
+        run: |
+          if [ -n "${{ inputs.target_date }}" ]; then
+            TARGET="${{ inputs.target_date }}"
+          else
+            NY_TODAY=$(TZ='America/New_York' date '+%Y-%m-%d')
+            TARGET=$(python3 automation/scripts/target_trading_day.py --mode today "$NY_TODAY")
+          fi
+          PREV=$(python3 automation/scripts/target_trading_day.py --mode prev "$TARGET")
+          echo "target=$TARGET" >> $GITHUB_OUTPUT
+          echo "prev=$PREV" >> $GITHUB_OUTPUT
+          echo "Target trading day: $TARGET (prev: $PREV)"
+
+      - name: Idempotency check (skip if prompts complete)
+        id: idem
+        run: |
+          TARGET="${{ steps.dates.outputs.target }}"
+          if [ "${{ inputs.force }}" = "true" ]; then
+            echo "Force flag set, will run"
+            echo "should_skip=false" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+          DIR="automation/prompts/$TARGET"
+          NEEDED="beth-kindig.md cathie-wood.md doubao.md qwen.md serenity.md"
+          MISSING=""
+          for f in $NEEDED; do
+            [ -f "$DIR/$f" ] || MISSING="$MISSING $f"
+          done
+          if [ -z "$MISSING" ]; then
+            echo "All 5 prompt files exist for $TARGET, skipping"
+            echo "should_skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "Missing prompt files:$MISSING"
+            echo "should_skip=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Configure env
         if: steps.idem.outputs.should_skip != 'true'
@@ -97,36 +111,33 @@ jobs:
           DINGBOT_WEBHOOK=${DINGBOT_WEBHOOK}
           EOF
 
-      - name: Fetch prices + generate prompts
+      - name: Fetch prices + generate prompts + push DingTalk
         if: steps.idem.outputs.should_skip != 'true'
         run: |
           cd automation/scripts
-          if [ -n "${{ inputs.date }}" ]; then
-            python daily_run.py prompts --date "${{ inputs.date }}"
-          else
-            python daily_run.py prompts
-          fi
+          python daily_run.py prompts \
+            --target-date "${{ steps.dates.outputs.target }}" \
+            --prev "${{ steps.dates.outputs.prev }}" \
+            ${{ inputs.force == true && '--force' || '' }}
 
-      - name: Commit prices back to main (so later cron runs hit idempotency)
+      - name: Commit prices + prompts back to main
         if: steps.idem.outputs.should_skip != 'true'
         run: |
-          TARGET="automation/prices/${{ steps.idem.outputs.target_date }}.json"
-          if [ ! -f "$TARGET" ]; then
-            echo "$TARGET not generated, skip commit"
-            exit 0
-          fi
+          TARGET="${{ steps.dates.outputs.target }}"
+          PREV="${{ steps.dates.outputs.prev }}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$TARGET"
+          [ -f "automation/prices/$PREV.json" ] && git add "automation/prices/$PREV.json" || true
+          [ -d "automation/prompts/$TARGET" ] && git add "automation/prompts/$TARGET" || true
           if git diff --cached --quiet; then
-            echo "No price changes to commit"
+            echo "Nothing to commit"
             exit 0
           fi
-          git commit -m "chore(prices): auto-fetched ${{ steps.idem.outputs.target_date }} [skip ci]"
-          # 最多 3 次重试，应对并发推送冲突
+          git commit -m "chore(auto): prices $PREV + prompts $TARGET [skip ci]"
+          # 最多 3 次重试
           for i in 1 2 3; do
             if git push origin HEAD:main; then
-              echo "Pushed prices to main"
+              echo "Pushed"
               exit 0
             fi
             echo "Push attempt $i failed, rebasing..."
@@ -152,7 +163,7 @@ jobs:
         run: |
           curl -s -X POST "$DINGBOT_WEBHOOK" \
             -H "Content-Type: application/json" \
-            -d '{
-              "msgtype": "text",
-              "text": {"content": "[情报采集] ❌ AI 投资竞赛 Daily workflow 失败，请查看 GitHub Actions 日志：https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"}
-            }'
+            -d "{
+              \"msgtype\": \"text\",
+              \"text\": {\"content\": \"[情报采集] ❌ Daily Prompts workflow 失败 (target=${{ steps.dates.outputs.target }})：https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}
+            }"

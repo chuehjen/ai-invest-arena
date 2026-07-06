@@ -18,6 +18,7 @@ fetch_prices.py — Twelve Data 拉取 30 symbols OHLC 价格
 """
 import argparse
 import json
+import socket
 import sys
 import time
 from datetime import datetime, timezone, timedelta
@@ -30,15 +31,26 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from config import TWELVE_DATA_KEY, TWELVE_DATA_BASE, SYMBOLS, PRICES_DIR
 
 
+# Twelve Data free tier 偶发慢响应，实测 45-55s 才能读完 8 symbols 的 outputsize=5
+DEFAULT_HTTP_TIMEOUT = 60
+DEFAULT_RETRIES = 4  # 30s → 60s → 90s 累计等待 3 分钟，覆盖大部分抖动
+
+
 def chunked(lst, size):
     for i in range(0, len(lst), size):
         yield lst[i:i + size]
 
 
-def fetch_time_series_batch(symbols, date=None, retries=3):
+def fetch_time_series_batch(symbols, date=None, retries=DEFAULT_RETRIES,
+                            timeout=DEFAULT_HTTP_TIMEOUT):
     """time_series 端点拉最近 5 个交易日（outputsize=5），本地按日期筛选。
+
     注：start_date/end_date 参数已失效（Twelve Data 返回 400），故不使用。
-    批 ≤ 8 受 free tier 8 credits/min 限制。"""
+    批 ≤ 8 受 free tier 8 credits/min 限制。
+
+    重试策略：指数退避 15/30/60/90 秒，涵盖 socket.timeout / ConnectionReset /
+    HTTPError。失败时把每次原因和等待时间打到 stderr，方便 CI 日志复盘。
+    """
     qs = urlencode({
         "symbol": ",".join(symbols),
         "interval": "1day",
@@ -47,14 +59,23 @@ def fetch_time_series_batch(symbols, date=None, retries=3):
     })
     url = f"{TWELVE_DATA_BASE}/time_series?{qs}"
     last_err = None
+    backoff = [15, 30, 60, 90]
     for attempt in range(retries):
         try:
-            with urlopen(Request(url), timeout=30) as resp:
+            with urlopen(Request(url), timeout=timeout) as resp:
                 data = json.loads(resp.read())
+            if attempt > 0:
+                print(f"    ✓ batch recovered on attempt {attempt+1}", file=sys.stderr)
             return data
-        except (HTTPError, URLError) as e:
+        except (HTTPError, URLError, socket.timeout, TimeoutError,
+                ConnectionResetError, json.JSONDecodeError) as e:
             last_err = e
-            time.sleep(5 * (attempt + 1))
+            if attempt == retries - 1:
+                break
+            wait = backoff[min(attempt, len(backoff) - 1)]
+            print(f"    ⚠ batch attempt {attempt+1}/{retries} failed ({type(e).__name__}: {e}); "
+                  f"sleeping {wait}s", file=sys.stderr)
+            time.sleep(wait)
     raise RuntimeError(f"Twelve Data fetch failed after {retries} retries: {last_err}")
 
 
