@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini-Standard",
+  "date": "2026-07-06",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 8991.93,
+  "return_pct_cumulative": -10.08,
+  "summary": "假期后首个交易日全盘HOLD，科技集中持仓以逸待劳，等待科技股共振。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA单一仓位过大，深度回调组合承压。"
+}

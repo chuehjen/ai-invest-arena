@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-07-06",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "AMD",
+      "shares": 1,
+      "price": 517.82,
+      "rationale": "高Beta，兑现风险"
+    },
+    {
+      "type": "BUY",
+      "symbol": "GOOGL",
+      "shares": 1,
+      "price": 359.91,
+      "rationale": "AI应用端估值更稳"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 12,
+      "avg_cost": 214.02
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 7,
+      "avg_cost": 362.44
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 254.77
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 1,
+      "avg_cost": 710.62
+    },
+    {
+      "symbol": "META",
+      "shares": 1,
+      "avg_cost": 606.09
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 2,
+      "avg_cost": 404.84
+    },
+    {
+      "symbol": "V",
+      "shares": 2,
+      "avg_cost": 326.11
+    },
+    {
+      "symbol": "AMD",
+      "shares": 1,
+      "avg_cost": 560.2
+    }
+  ],
+  "cash_after": 234.64,
+  "total_assets_after": 9138.54,
+  "return_pct_cumulative": -8.61,
+  "summary": "减持AMD 1股换入GOOGL 1股，降低高Beta芯片集中度，向AI平台型龙头倾斜。",
+  "confidence": "medium",
+  "strongest_bear_case": "AMD若因AI芯片反弹而大涨，减仓将踏空。"
+}

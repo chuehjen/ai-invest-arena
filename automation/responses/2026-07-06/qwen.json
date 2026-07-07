@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-07-06",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 6,
+      "avg_cost": 210.08
+    },
+    {
+      "symbol": "SCHD",
+      "shares": 46,
+      "avg_cost": 32.29
+    },
+    {
+      "symbol": "V",
+      "shares": 3,
+      "avg_cost": 320.0
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 256.52
+    },
+    {
+      "symbol": "GLD",
+      "shares": 2,
+      "avg_cost": 420.0
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 368.4
+    }
+  ],
+  "cash_after": 2723.35,
+  "total_assets_after": 8672.75,
+  "return_pct_cumulative": -13.27,
+  "summary": "维持观望，AI算力投资与终端销售增速出现背离，保留防御缓冲。",
+  "confidence": "medium",
+  "strongest_bear_case": "若AI应用端需求超预期回暖，过度保守将踏空反弹行情。"
+}
