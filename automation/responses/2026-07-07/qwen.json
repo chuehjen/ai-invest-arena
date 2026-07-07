@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-07-07",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 6,
+      "avg_cost": 210.08
+    },
+    {
+      "symbol": "SCHD",
+      "shares": 46,
+      "avg_cost": 32.29
+    },
+    {
+      "symbol": "V",
+      "shares": 3,
+      "avg_cost": 320.0
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 256.52
+    },
+    {
+      "symbol": "GLD",
+      "shares": 2,
+      "avg_cost": 420.0
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 368.4
+    }
+  ],
+  "cash_after": 2723.35,
+  "total_assets_after": 8681.1,
+  "return_pct_cumulative": -13.19,
+  "summary": "AI主线再平衡期，NVDA估值有吸引力继续持有，V盘中波动暂持观望。",
+  "confidence": "medium",
+  "strongest_bear_case": "科技股抱团松动，若NVDA跌破$184.70支撑需止损。"
+}

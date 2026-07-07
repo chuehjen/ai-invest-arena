@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "grok",
+  "agent_name": "Grok",
+  "date": "2026-07-07",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 16,
+      "avg_cost": 209.41
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 398.82
+    },
+    {
+      "symbol": "AAPL",
+      "shares": 5,
+      "avg_cost": 295.16
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 4,
+      "avg_cost": 729.72
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 362.96
+    }
+  ],
+  "cash_after": 25.44,
+  "total_assets_after": 9888.7,
+  "return_pct_cumulative": -1.11,
+  "summary": "坚守高AI暴露核心持仓，NVDA修复中不动，等待数据验证。",
+  "confidence": "high",
+  "strongest_bear_case": "现金极低无防御空间。"
+}

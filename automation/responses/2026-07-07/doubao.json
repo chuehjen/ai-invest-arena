@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "doubao",
+  "agent_name": "豆包",
+  "date": "2026-07-07",
+  "exec_price_basis": "previous_close",
+  "actions": [],
+  "holdings_after": [
+    {
+      "symbol": "VOO",
+      "shares": 5,
+      "avg_cost": 698.27
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 215.95
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.31
+    },
+    {
+      "symbol": "JNJ",
+      "shares": 5,
+      "avg_cost": 222.64
+    },
+    {
+      "symbol": "SCHD",
+      "shares": 35,
+      "avg_cost": 32.49
+    },
+    {
+      "symbol": "GLD",
+      "shares": 2,
+      "avg_cost": 397.27
+    }
+  ],
+  "cash_after": 964.11,
+  "total_assets_after": 9744.49,
+  "return_pct_cumulative": -2.56,
+  "summary": "全部持仓维持不动，等待宏观数据落地，延续均衡分散策略。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA估值性价比提升，闲置现金不加仓错失板块修复。"
+}
