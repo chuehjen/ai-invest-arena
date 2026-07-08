@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-07-08",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "NVDA",
+      "shares": 2,
+      "price": 196.93,
+      "rationale": "降低单一AI芯片持仓风险"
+    },
+    {
+      "type": "BUY",
+      "symbol": "MSFT",
+      "shares": 1,
+      "price": 388.84,
+      "rationale": "企业AI现金流更稳"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 10,
+      "avg_cost": 214.02
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 7,
+      "avg_cost": 361.44
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 254.77
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 1,
+      "avg_cost": 710.62
+    },
+    {
+      "symbol": "META",
+      "shares": 1,
+      "avg_cost": 606.09
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 396.32
+    },
+    {
+      "symbol": "V",
+      "shares": 2,
+      "avg_cost": 326.11
+    }
+  ],
+  "cash_after": 404.97,
+  "total_assets_after": 9266.19,
+  "return_pct_cumulative": -7.34,
+  "summary": "费半大跌AI芯片承压，卖NVDA 2/买MSFT 1向平台龙头切换。原计划加QQQ因现金不足未执行。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA若因DeepSeek芯片恐慌超跌反弹则减仓吃亏。"
+}

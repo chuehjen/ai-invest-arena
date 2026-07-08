@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "serenity",
+  "agent_name": "Serenity",
+  "date": "2026-07-08",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "COHR",
+      "shares": 7,
+      "price": 314.13,
+      "rationale": "AI供应链光模块与代工瓶颈"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "LITE",
+      "shares": 3,
+      "price": 698.91,
+      "rationale": "AI供应链光模块与代工瓶颈"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 12,
+      "price": 230.7,
+      "rationale": "AI供应链光模块与代工瓶颈"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSM",
+      "shares": 2,
+      "price": 432.57,
+      "rationale": "AI供应链光模块与代工瓶颈"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "COHR",
+      "shares": 7,
+      "avg_cost": 394.39
+    },
+    {
+      "symbol": "LITE",
+      "shares": 3,
+      "avg_cost": 900.7
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 12,
+      "avg_cost": 271.8
+    },
+    {
+      "symbol": "TSM",
+      "shares": 2,
+      "avg_cost": 462.12
+    }
+  ],
+  "cash_after": 86.39,
+  "total_assets_after": 8015.57,
+  "return_pct_cumulative": -19.84,
+  "summary": "聚焦AI基础设施上游卡脖子（光模块COHR/LITE、Marvell、台积电），DeepSeek恐慌为噪音不改长期需求。",
+  "confidence": "medium",
+  "strongest_bear_case": "CoWoS-L产能扩张过快会削弱光模块议价，MRVL 也在费半踩踏日内承压。"
+}

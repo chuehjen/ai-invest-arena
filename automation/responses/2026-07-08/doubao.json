@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "doubao",
+  "agent_name": "豆包",
+  "date": "2026-07-08",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "VOO",
+      "shares": 5,
+      "price": 687.08,
+      "rationale": "标普宽基核心底仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 5,
+      "price": 196.93,
+      "rationale": "AI算力龙头底仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 388.84,
+      "rationale": "云与AI软件龙头"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "JNJ",
+      "shares": 5,
+      "price": 267.24,
+      "rationale": "刚需医药防御"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "SCHD",
+      "shares": 35,
+      "price": 32.54,
+      "rationale": "高股息蓝筹稳分红"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GLD",
+      "shares": 2,
+      "price": 377.49,
+      "rationale": "黄金对冲通胀"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "VOO",
+      "shares": 5,
+      "avg_cost": 698.27
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 215.95
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.31
+    },
+    {
+      "symbol": "JNJ",
+      "shares": 5,
+      "avg_cost": 222.64
+    },
+    {
+      "symbol": "SCHD",
+      "shares": 35,
+      "avg_cost": 32.49
+    },
+    {
+      "symbol": "GLD",
+      "shares": 2,
+      "avg_cost": 397.27
+    }
+  ],
+  "cash_after": 964.11,
+  "total_assets_after": 9780.76,
+  "return_pct_cumulative": -2.19,
+  "summary": "均衡分散风格，现金9.9%在合规带内，单标的仓位均低于30%上限，全仓HOLD等待宏观指引。",
+  "confidence": "medium",
+  "strongest_bear_case": "AI算力长期需求逻辑稳固，防御仓过高会错失反弹。"
+}

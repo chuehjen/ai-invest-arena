@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-07-08",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 6,
+      "price": 269.57,
+      "rationale": "前瞻收入模型持续验证"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 12,
+      "price": 134.37,
+      "rationale": "前瞻收入模型持续验证"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "APP",
+      "shares": 3,
+      "price": 527.98,
+      "rationale": "前瞻收入模型持续验证"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 13,
+      "price": 196.93,
+      "rationale": "前瞻收入模型持续验证"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GEV",
+      "shares": 2,
+      "price": 1077.08,
+      "rationale": "前瞻收入模型持续验证"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 3,
+      "price": 230.7,
+      "rationale": "前瞻收入模型持续验证"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "BE",
+      "shares": 6,
+      "avg_cost": 269.08
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 12,
+      "avg_cost": 142.2
+    },
+    {
+      "symbol": "APP",
+      "shares": 3,
+      "avg_cost": 554.17
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 13,
+      "avg_cost": 207.29
+    },
+    {
+      "symbol": "GEV",
+      "shares": 2,
+      "avg_cost": 1045.66
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 3,
+      "avg_cost": 310.58
+    }
+  ],
+  "cash_after": 104.37,
+  "total_assets_after": 10324.52,
+  "return_pct_cumulative": 3.25,
+  "summary": "AI核心资本开支超共识，NVDA/PLTR/APP/GEV 组合持续验证 3-5 年前瞻收入模型。",
+  "confidence": "high",
+  "strongest_bear_case": "MRVL、BE 在AI芯片踩踏日内额外承压。"
+}

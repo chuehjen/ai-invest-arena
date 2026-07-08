@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-07-08",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 28,
+      "price": 196.93,
+      "rationale": "算力护城河与中报期高增长预期稳固"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 3,
+      "price": 709.43,
+      "rationale": "半导体链回踩至低位支撑带，静待方向"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 388.84,
+      "rationale": "云业务韧性在震荡中防御"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9036.27,
+  "return_pct_cumulative": -9.64,
+  "summary": "现金仅$227.42不具备频繁调仓条件，中报季前保持核心科技配比卧倒不动。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA 61%集中敞口在DeepSeek芯片恐慌+地缘油价扰动下双重承压。"
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-07-08",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 27,
+      "price": 196.93,
+      "rationale": "逆势收红显算力韧性"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 388.84,
+      "rationale": "AI商业化中枢稳定"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 6,
+      "price": 367.03,
+      "rationale": "云与广告AI双驱动"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 27,
+      "avg_cost": 212.64
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 6,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 9151.1,
+  "return_pct_cumulative": -8.49,
+  "summary": "纳指-1.16%但NVDA/MSFT逆势收红，目标+2pp NVDA/-2pp GOOGL/+3pp现金但可用现金$76.45不足执行，全仓HOLD。",
+  "confidence": "medium",
+  "strongest_bear_case": "DeepSeek 自研 AI 芯片消息若发酵，NVDA 集中敞口回撤会放大组合损失。"
+}

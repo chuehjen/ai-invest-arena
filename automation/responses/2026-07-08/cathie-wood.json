@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "cathie-wood",
+  "agent_name": "木头姐",
+  "date": "2026-07-08",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "SHOP",
+      "shares": 11,
+      "price": 121.88,
+      "rationale": "颠覆创新五大平台持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRSP",
+      "shares": 25,
+      "price": 60.77,
+      "rationale": "颠覆创新五大平台持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 5,
+      "price": 196.93,
+      "rationale": "颠覆创新五大平台持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TEM",
+      "shares": 20,
+      "price": 60.09,
+      "rationale": "颠覆创新五大平台持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 8,
+      "price": 134.37,
+      "rationale": "颠覆创新五大平台持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "COIN",
+      "shares": 6,
+      "price": 163.51,
+      "rationale": "颠覆创新五大平台持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "HOOD",
+      "shares": 14,
+      "price": 112.9,
+      "rationale": "颠覆创新五大平台持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSLA",
+      "shares": 2,
+      "price": 402.9,
+      "rationale": "颠覆创新五大平台持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 2,
+      "price": 269.57,
+      "rationale": "颠覆创新五大平台持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRCL",
+      "shares": 5,
+      "price": 65.15,
+      "rationale": "颠覆创新五大平台持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AVGO",
+      "shares": 1,
+      "price": 370.78,
+      "rationale": "颠覆创新五大平台持续"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "SHOP",
+      "shares": 11,
+      "avg_cost": 112.94
+    },
+    {
+      "symbol": "CRSP",
+      "shares": 25,
+      "avg_cost": 52.41
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 210.69
+    },
+    {
+      "symbol": "TEM",
+      "shares": 20,
+      "avg_cost": 47.8
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 8,
+      "avg_cost": 140.93
+    },
+    {
+      "symbol": "COIN",
+      "shares": 6,
+      "avg_cost": 160.13
+    },
+    {
+      "symbol": "HOOD",
+      "shares": 14,
+      "avg_cost": 87.97
+    },
+    {
+      "symbol": "TSLA",
+      "shares": 2,
+      "avg_cost": 413.17
+    },
+    {
+      "symbol": "BE",
+      "shares": 2,
+      "avg_cost": 328.91
+    },
+    {
+      "symbol": "CRCL",
+      "shares": 5,
+      "avg_cost": 86.17
+    },
+    {
+      "symbol": "AVGO",
+      "shares": 1,
+      "avg_cost": 401.16
+    }
+  ],
+  "cash_after": 16.57,
+  "total_assets_after": 10741.04,
+  "return_pct_cumulative": 7.41,
+  "summary": "颠覆创新五大平台（AI/机器人/基因/加密/储能）分散押注，短期噪声不改长期指数级曲线。",
+  "confidence": "high",
+  "strongest_bear_case": "高估值+高波动，若利率上行超预期，估值端会剧烈重估。"
+}
