@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-07-09",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 10,
+      "price": 204.12,
+      "rationale": "维持平台+ETF+龙头组合"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 7,
+      "price": 361.92,
+      "rationale": "维持平台+ETF+龙头组合"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AMZN",
+      "shares": 3,
+      "price": 243.62,
+      "rationale": "维持平台+ETF+龙头组合"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 1,
+      "price": 711.44,
+      "rationale": "维持平台+ETF+龙头组合"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "META",
+      "shares": 1,
+      "price": 603.12,
+      "rationale": "维持平台+ETF+龙头组合"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 383.34,
+      "rationale": "维持平台+ETF+龙头组合"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "V",
+      "shares": 2,
+      "price": 347.53,
+      "rationale": "维持平台+ETF+龙头组合"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 10,
+      "avg_cost": 214.02
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 7,
+      "avg_cost": 361.44
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 254.77
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 1,
+      "avg_cost": 710.62
+    },
+    {
+      "symbol": "META",
+      "shares": 1,
+      "avg_cost": 606.09
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 396.32
+    },
+    {
+      "symbol": "V",
+      "shares": 2,
+      "avg_cost": 326.11
+    }
+  ],
+  "cash_after": 404.97,
+  "total_assets_after": 9253.45,
+  "return_pct_cumulative": -7.47,
+  "summary": "本轮语雀未提供新调仓，延续上日平台+ETF+龙头组合，全仓HOLD。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA +4.4%反弹，前日减仓NVDA略踏空。"
+}

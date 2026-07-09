@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-07-09",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 28,
+      "price": 204.12,
+      "rationale": "200美元支撑强劲，AI算力抗通胀避险"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 3,
+      "price": 711.44,
+      "rationale": "纳指抗跌韧性，科技资金抱团"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 383.34,
+      "rationale": "回踩380附近安全边际高，财报前防御性进攻"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9227.12,
+  "return_pct_cumulative": -7.73,
+  "summary": "地缘黑天鹅+鹰派纪要下维持科技核心。原文所述SOXL/MU降杠杆调仓不在实际持仓内，现金$227.42不足调仓，实际全仓HOLD。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA 60%+集中敞口，加息预期升温对高估值成长股不利。"
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-07-09",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 27,
+      "price": 204.12,
+      "rationale": "算力龙头逆势+4.44%收复200关"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 6,
+      "price": 361.92,
+      "rationale": "广告与AI云长线逻辑未变"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 383.34,
+      "rationale": "超卖区间拒绝割肉"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 27,
+      "avg_cost": 212.64
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 6,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 9292.57,
+  "return_pct_cumulative": -7.07,
+  "summary": "美伊停火破裂+联储鹰派纪要致大盘承压，但NVDA逆势+4.44%。可用现金$76.45不足整股买入，全仓HOLD锁定核心筹码。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA 55%集中敞口，若算力叙事逆转回撤放大。"
+}

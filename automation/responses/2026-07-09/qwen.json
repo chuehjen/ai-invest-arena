@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-07-09",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 6,
+      "price": 204.12,
+      "rationale": "强势反弹但整体仍亏损，维持底仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "SCHD",
+      "shares": 46,
+      "price": 32.34,
+      "rationale": "防御底仓股息缓冲"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "V",
+      "shares": 3,
+      "price": 347.53,
+      "rationale": "金融蓝筹"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AMZN",
+      "shares": 3,
+      "price": 243.62,
+      "rationale": "AWS长期逻辑"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GLD",
+      "shares": 2,
+      "price": 374.45,
+      "rationale": "避险"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 2,
+      "price": 361.92,
+      "rationale": "多模态AI"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 6,
+      "avg_cost": 210.08
+    },
+    {
+      "symbol": "SCHD",
+      "shares": 46,
+      "avg_cost": 32.29
+    },
+    {
+      "symbol": "V",
+      "shares": 3,
+      "avg_cost": 320.0
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 256.52
+    },
+    {
+      "symbol": "GLD",
+      "shares": 2,
+      "avg_cost": 420.0
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 368.4
+    }
+  ],
+  "cash_after": 2723.35,
+  "total_assets_after": 8681.9,
+  "return_pct_cumulative": -13.18,
+  "summary": "NVDA强势反弹但组合仍亏损，维持防御基调，保留子弹应对极端波动，暂不追高。",
+  "confidence": "low",
+  "strongest_bear_case": "现金比例偏高拖累进攻性，可能错失底部反弹红利。"
+}
