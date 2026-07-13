@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-07-13",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "NVDA",
+      "shares": 2,
+      "price": 210.96,
+      "rationale": "芯片波动扩大，降低集中度"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QQQ",
+      "shares": 1,
+      "price": 725.51,
+      "rationale": "降低科技Beta"
+    },
+    {
+      "type": "BUY",
+      "symbol": "V",
+      "shares": 1,
+      "price": 348.97,
+      "rationale": "高质量现金流，防御性更强"
+    },
+    {
+      "type": "BUY",
+      "symbol": "JPM",
+      "shares": 1,
+      "price": 336.47,
+      "rationale": "银行财报周，受益利率环境"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 7,
+      "price": 357.18,
+      "rationale": "AI平台龙头，继续持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 385.1,
+      "rationale": "企业AI核心资产"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AMZN",
+      "shares": 3,
+      "price": 245.34,
+      "rationale": "AWS长期逻辑未变"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "META",
+      "shares": 1,
+      "price": 669.21,
+      "rationale": "AI应用层继续受益"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 8,
+      "avg_cost": 214.02
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 7,
+      "avg_cost": 361.44
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 254.77
+    },
+    {
+      "symbol": "META",
+      "shares": 1,
+      "avg_cost": 606.09
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 396.32
+    },
+    {
+      "symbol": "V",
+      "shares": 3,
+      "avg_cost": 333.73
+    },
+    {
+      "symbol": "JPM",
+      "shares": 1,
+      "avg_cost": 336.47
+    }
+  ],
+  "cash_after": 866.96,
+  "total_assets_after": 9383.91,
+  "return_pct_cumulative": -6.16,
+  "summary": "中东局势升级+CPI与银行财报周临近，主动降Beta：减芯片、砍纳指ETF，加高质量金融与支付龙头，提高组合抗波动能力。",
+  "confidence": "medium",
+  "strongest_bear_case": "若地缘缓和、AI继续领涨，减NVDA/QQQ会明显踏空科技主升。"
+}

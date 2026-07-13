@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-07-13",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 27,
+      "price": 210.96,
+      "rationale": "算力龙头高位整固，护城河稳固"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 6,
+      "price": 357.18,
+      "rationale": "云业务高增长预期"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 385.1,
+      "rationale": "稳健防御属性"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 27,
+      "avg_cost": 212.64
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 6,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 9455.85,
+  "return_pct_cumulative": -5.44,
+  "summary": "财报季前哨，核心巨头护城河稳固。可用现金$76.45低于任一单股执行价，无法买入，全仓HOLD静待业绩催化。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA集中敞口高，若算力叙事逆转回撤放大。"
+}

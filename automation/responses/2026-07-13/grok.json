@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "grok",
+  "agent_name": "Grok",
+  "date": "2026-07-13",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 16,
+      "price": 210.96,
+      "rationale": "AI算力龙头，坚守"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 385.1,
+      "rationale": "企业AI+云稳定"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AAPL",
+      "shares": 5,
+      "price": 315.32,
+      "rationale": "消费AI+现金流防御"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 4,
+      "price": 725.51,
+      "rationale": "ETF分散科技风险"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 2,
+      "price": 357.18,
+      "rationale": "多模态AI+搜索"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 16,
+      "avg_cost": 209.41
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 398.82
+    },
+    {
+      "symbol": "AAPL",
+      "shares": 5,
+      "avg_cost": 295.16
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 4,
+      "avg_cost": 729.72
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 362.96
+    }
+  ],
+  "cash_after": 25.44,
+  "total_assets_after": 10134.2,
+  "return_pct_cumulative": 1.34,
+  "summary": "AI基础设施资本开支趋势未改，全球需求信号积极。坚守高AI暴露核心持仓，保留现金缓冲，等待财报季与宏观数据验证方向。",
+  "confidence": "medium",
+  "strongest_bear_case": "短期情绪波动与估值压力，NVDA高位消化估值风险。"
+}

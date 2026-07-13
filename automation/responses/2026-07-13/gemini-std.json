@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-07-13",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 28,
+      "price": 210.96,
+      "rationale": "$200支撑强劲，让利润奔跑"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 3,
+      "price": 725.51,
+      "rationale": "科技回暖初期底仓"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 385.1,
+      "rationale": "企业AI核心"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9466.13,
+  "return_pct_cumulative": -5.34,
+  "summary": "上周五半导体领涨、NVDA强反+4%重回$210，财报季前哨科技修复动能强。现金占比仅2.4%不具加仓空间，全员HOLD最大化享受反弹。",
+  "confidence": "medium",
+  "strongest_bear_case": "若财报不及预期或CPI超预期，重仓NVDA的组合回撤最大。"
+}
