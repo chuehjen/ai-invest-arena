@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-07-14",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 28,
+      "price": 203.53,
+      "rationale": "Rubin基本面未变，不盲目杀跌"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 3,
+      "price": 711.74,
+      "rationale": "纳指回踩支撑带"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 390.99,
+      "rationale": "逆势拉升验证防御属性"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9234.45,
+  "return_pct_cumulative": -7.66,
+  "summary": "中东地缘黑天鹅引发硬科技回吐，NVDA-3.5%跌破短期均线，但Rubin基本面未变；MSFT逆势+1.5%验证防御属性。现金$227不具加仓空间，全员HOLD锁仓。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA 62%集中度在地缘+通胀逆风下回撤放大风险。"
+}

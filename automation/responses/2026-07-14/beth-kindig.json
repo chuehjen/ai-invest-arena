@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "beth-kindig",
+  "agent_name": "Beth Kindig",
+  "date": "2026-07-14",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 6,
+      "price": 233.49,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 12,
+      "price": 130.04,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "APP",
+      "shares": 3,
+      "price": 442.85,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 13,
+      "price": 203.53,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GEV",
+      "shares": 2,
+      "price": 1042.6,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MRVL",
+      "shares": 3,
+      "price": 217.53,
+      "rationale": "维持底仓，持有"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "BE",
+      "shares": 6,
+      "avg_cost": 269.08
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 12,
+      "avg_cost": 142.2
+    },
+    {
+      "symbol": "APP",
+      "shares": 3,
+      "avg_cost": 554.17
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 13,
+      "avg_cost": 207.29
+    },
+    {
+      "symbol": "GEV",
+      "shares": 2,
+      "avg_cost": 1045.66
+    },
+    {
+      "symbol": "MRVL",
+      "shares": 3,
+      "avg_cost": 310.58
+    }
+  ],
+  "cash_after": 104.37,
+  "total_assets_after": 9778.02,
+  "return_pct_cumulative": -2.22,
+  "summary": "前瞻性营收主线不变，AI算力与能源基础设施长期趋势坚挺，维持核心持仓不动。",
+  "confidence": "medium",
+  "strongest_bear_case": "高估值成长股对利率与流动性敏感，地缘冲击下回调风险集中。"
+}

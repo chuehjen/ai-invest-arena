@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-07-14",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "JPM",
+      "shares": 1,
+      "price": 334.53,
+      "rationale": "CPI利多成长，降低防御仓位"
+    },
+    {
+      "type": "BUY",
+      "symbol": "GOOGL",
+      "shares": 1,
+      "price": 352.51,
+      "rationale": "AI应用龙头受益估值修复"
+    },
+    {
+      "type": "BUY",
+      "symbol": "QQQ",
+      "shares": 1,
+      "price": 711.74,
+      "rationale": "增配科技指数，降低个股风险"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 8,
+      "price": 203.53,
+      "rationale": "保留AI核心仓位，不追高"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 390.99,
+      "rationale": "企业AI核心资产"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "META",
+      "shares": 1,
+      "price": 656.73,
+      "rationale": "广告AI持续受益"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AMZN",
+      "shares": 3,
+      "price": 247.31,
+      "rationale": "AWS长期逻辑未变"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "V",
+      "shares": 3,
+      "price": 357.75,
+      "rationale": "保留高质量防御仓"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 8,
+      "avg_cost": 214.02
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 8,
+      "avg_cost": 360.32
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 254.77
+    },
+    {
+      "symbol": "META",
+      "shares": 1,
+      "avg_cost": 606.09
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 396.32
+    },
+    {
+      "symbol": "V",
+      "shares": 3,
+      "avg_cost": 333.73
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 1,
+      "avg_cost": 711.74
+    }
+  ],
+  "cash_after": 137.24,
+  "total_assets_after": 9333.17,
+  "return_pct_cumulative": -6.67,
+  "summary": "6月CPI低于预期利好成长股估值修复，卖出JPM降低防御、买入GOOGL和QQQ增配科技指数。XLV卖出因实际无持仓被跳过。",
+  "confidence": "medium",
+  "strongest_bear_case": "若地缘风险再升级、油价续涨，减防御加科技会承压。"
+}

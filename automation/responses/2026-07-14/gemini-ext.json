@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-07-14",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 27,
+      "price": 203.53,
+      "rationale": "算力龙头技术回踩整固"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 6,
+      "price": 352.51,
+      "rationale": "资金防御性回流"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 390.99,
+      "rationale": "逆势防御属性强"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 27,
+      "avg_cost": 212.64
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 6,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 9250.78,
+  "return_pct_cumulative": -7.49,
+  "summary": "财报季全面爆发前夕维持缩量震荡。可用现金$76.45低于任一单股执行价，无法买入，全仓HOLD静待业绩催化。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA高位回踩，单一芯片集中敞口回撤风险大。"
+}

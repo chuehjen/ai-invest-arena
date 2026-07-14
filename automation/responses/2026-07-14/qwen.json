@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "qwen",
+  "agent_name": "千问",
+  "date": "2026-07-14",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 6,
+      "price": 203.53,
+      "rationale": "基本面强劲"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "SCHD",
+      "shares": 46,
+      "price": 32.56,
+      "rationale": "高股息防御"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "V",
+      "shares": 3,
+      "price": 357.75,
+      "rationale": "金融价值"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AMZN",
+      "shares": 3,
+      "price": 247.31,
+      "rationale": "AI支出观望"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GLD",
+      "shares": 2,
+      "price": 367.13,
+      "rationale": "黄金对冲"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 2,
+      "price": 352.51,
+      "rationale": "AI搜索观望"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 6,
+      "avg_cost": 210.08
+    },
+    {
+      "symbol": "SCHD",
+      "shares": 46,
+      "avg_cost": 32.29
+    },
+    {
+      "symbol": "V",
+      "shares": 3,
+      "avg_cost": 320.0
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 256.52
+    },
+    {
+      "symbol": "GLD",
+      "shares": 2,
+      "avg_cost": 420.0
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 2,
+      "avg_cost": 368.4
+    }
+  ],
+  "cash_after": 2723.35,
+  "total_assets_after": 8696.75,
+  "return_pct_cumulative": -13.03,
+  "summary": "维持现有持仓不动。现金比例31.2%略高于软上限，但组合回撤-12.69%，高现金是核心防御手段。",
+  "confidence": "medium",
+  "strongest_bear_case": "现金偏高，应趁回调加仓NVDA或AMZN摊薄成本提升进攻弹性。"
+}
