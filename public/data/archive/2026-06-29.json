@@ -1,0 +1,1363 @@
+{
+  "schema_version": "1.0",
+  "snapshot_date": "2026-06-29",
+  "day_n": 19,
+  "competitionInfo": {
+    "name": "AI 美股投资竞赛",
+    "season": "S1",
+    "startDate": "2026-06-03",
+    "endDate": "2026-07-03",
+    "totalParticipants": 10,
+    "initialCapital": 10000
+  },
+  "participants": [
+    {
+      "id": "cathie-wood",
+      "name": "木头姐",
+      "avatar": "CW",
+      "color": "#818cf8",
+      "style": "颠覆创新 · 五大平台",
+      "totalAssets": 9936.27,
+      "returnPct": -0.64,
+      "cash": 16.57,
+      "cashPct": 0.2,
+      "holdingsCount": 11,
+      "holdings": [
+        {
+          "symbol": "SHOP",
+          "name": "Shopify",
+          "shares": 11,
+          "avgCost": 112.94,
+          "currentPrice": 116.86,
+          "marketValue": 1285.46,
+          "pnl": 43.12,
+          "pnlPercent": 3.47,
+          "weight": 12.9,
+          "sector": "电商/云"
+        },
+        {
+          "symbol": "CRSP",
+          "name": "CRISPR",
+          "shares": 25,
+          "avgCost": 52.41,
+          "currentPrice": 54.92,
+          "marketValue": 1373.0,
+          "pnl": 62.75,
+          "pnlPercent": 4.79,
+          "weight": 13.8,
+          "sector": "生物科技"
+        },
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 5,
+          "avgCost": 210.69,
+          "currentPrice": 192.53,
+          "marketValue": 962.65,
+          "pnl": -90.8,
+          "pnlPercent": -8.62,
+          "weight": 9.7,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "TEM",
+          "name": "Tempus AI",
+          "shares": 20,
+          "avgCost": 47.8,
+          "currentPrice": 56.14,
+          "marketValue": 1122.8,
+          "pnl": 166.8,
+          "pnlPercent": 17.45,
+          "weight": 11.3,
+          "sector": "医药"
+        },
+        {
+          "symbol": "PLTR",
+          "name": "Palantir",
+          "shares": 8,
+          "avgCost": 140.93,
+          "currentPrice": 112.93,
+          "marketValue": 903.44,
+          "pnl": -224.0,
+          "pnlPercent": -19.87,
+          "weight": 9.1,
+          "sector": "软件"
+        },
+        {
+          "symbol": "COIN",
+          "name": "Coinbase",
+          "shares": 6,
+          "avgCost": 160.13,
+          "currentPrice": 149.06,
+          "marketValue": 894.36,
+          "pnl": -66.42,
+          "pnlPercent": -6.91,
+          "weight": 9.0,
+          "sector": "金融"
+        },
+        {
+          "symbol": "HOOD",
+          "name": "Robinhood",
+          "shares": 14,
+          "avgCost": 87.97,
+          "currentPrice": 98.69,
+          "marketValue": 1381.66,
+          "pnl": 150.08,
+          "pnlPercent": 12.19,
+          "weight": 13.9,
+          "sector": "金融"
+        },
+        {
+          "symbol": "TSLA",
+          "name": "特斯拉",
+          "shares": 2,
+          "avgCost": 413.17,
+          "currentPrice": 379.71,
+          "marketValue": 759.42,
+          "pnl": -66.92,
+          "pnlPercent": -8.1,
+          "weight": 7.6,
+          "sector": "汽车"
+        },
+        {
+          "symbol": "BE",
+          "name": "Bloom Energy",
+          "shares": 2,
+          "avgCost": 328.91,
+          "currentPrice": 252.02,
+          "marketValue": 504.04,
+          "pnl": -153.78,
+          "pnlPercent": -23.38,
+          "weight": 5.1,
+          "sector": "电力"
+        },
+        {
+          "symbol": "CRCL",
+          "name": "Circle",
+          "shares": 5,
+          "avgCost": 86.17,
+          "currentPrice": 73.57,
+          "marketValue": 367.85,
+          "pnl": -63.0,
+          "pnlPercent": -14.62,
+          "weight": 3.7,
+          "sector": "金融"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "博通",
+          "shares": 1,
+          "avgCost": 401.16,
+          "currentPrice": 365.02,
+          "marketValue": 365.02,
+          "pnl": -36.14,
+          "pnlPercent": -9.01,
+          "weight": 3.7,
+          "sector": "半导体"
+        }
+      ],
+      "rank": 1,
+      "badge": "gold"
+    },
+    {
+      "id": "beth-kindig",
+      "name": "Beth Kindig",
+      "avatar": "BK",
+      "color": "#fb7185",
+      "style": "成长型 · 电力主线+软件",
+      "totalAssets": 9796.43,
+      "returnPct": -2.04,
+      "cash": 104.37,
+      "cashPct": 1.1,
+      "holdingsCount": 6,
+      "holdings": [
+        {
+          "symbol": "BE",
+          "name": "Bloom Energy",
+          "shares": 6,
+          "avgCost": 269.08,
+          "currentPrice": 252.02,
+          "marketValue": 1512.12,
+          "pnl": -102.36,
+          "pnlPercent": -6.34,
+          "weight": 15.4,
+          "sector": "电力"
+        },
+        {
+          "symbol": "PLTR",
+          "name": "Palantir",
+          "shares": 12,
+          "avgCost": 142.2,
+          "currentPrice": 112.93,
+          "marketValue": 1355.16,
+          "pnl": -351.24,
+          "pnlPercent": -20.58,
+          "weight": 13.8,
+          "sector": "软件"
+        },
+        {
+          "symbol": "APP",
+          "name": "AppLovin",
+          "shares": 3,
+          "avgCost": 554.17,
+          "currentPrice": 477.08,
+          "marketValue": 1431.24,
+          "pnl": -231.27,
+          "pnlPercent": -13.91,
+          "weight": 14.6,
+          "sector": "软件"
+        },
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 13,
+          "avgCost": 207.29,
+          "currentPrice": 192.53,
+          "marketValue": 2502.89,
+          "pnl": -191.88,
+          "pnlPercent": -7.12,
+          "weight": 25.5,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "GEV",
+          "name": "GE Vernova",
+          "shares": 2,
+          "avgCost": 1045.66,
+          "currentPrice": 1045.17,
+          "marketValue": 2090.34,
+          "pnl": -0.98,
+          "pnlPercent": -0.05,
+          "weight": 21.3,
+          "sector": "电力"
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell",
+          "shares": 3,
+          "avgCost": 310.58,
+          "currentPrice": 266.77,
+          "marketValue": 800.31,
+          "pnl": -131.43,
+          "pnlPercent": -14.11,
+          "weight": 8.2,
+          "sector": "半导体"
+        }
+      ],
+      "rank": 2,
+      "badge": "silver"
+    },
+    {
+      "id": "doubao",
+      "name": "豆包",
+      "avatar": "DB",
+      "color": "#f472b6",
+      "style": "均衡分散 · 宽基+防御",
+      "totalAssets": 9540.68,
+      "returnPct": -4.59,
+      "cash": 964.11,
+      "cashPct": 10.1,
+      "holdingsCount": 6,
+      "holdings": [
+        {
+          "symbol": "VOO",
+          "name": "标普500ETF",
+          "shares": 5,
+          "avgCost": 698.27,
+          "currentPrice": 670.26,
+          "marketValue": 3351.3,
+          "pnl": -140.05,
+          "pnlPercent": -4.01,
+          "weight": 35.1,
+          "sector": "宽基ETF"
+        },
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 5,
+          "avgCost": 215.95,
+          "currentPrice": 192.53,
+          "marketValue": 962.65,
+          "pnl": -117.1,
+          "pnlPercent": -10.85,
+          "weight": 10.1,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微软",
+          "shares": 3,
+          "avgCost": 441.31,
+          "currentPrice": 372.97,
+          "marketValue": 1118.91,
+          "pnl": -205.02,
+          "pnlPercent": -15.49,
+          "weight": 11.7,
+          "sector": "软件"
+        },
+        {
+          "symbol": "JNJ",
+          "name": "强生",
+          "shares": 5,
+          "avgCost": 222.64,
+          "currentPrice": 254.66,
+          "marketValue": 1273.3,
+          "pnl": 160.1,
+          "pnlPercent": 14.38,
+          "weight": 13.3,
+          "sector": "医药"
+        },
+        {
+          "symbol": "SCHD",
+          "name": "红利ETF",
+          "shares": 35,
+          "avgCost": 32.49,
+          "currentPrice": 32.09,
+          "marketValue": 1123.15,
+          "pnl": -14.0,
+          "pnlPercent": -1.23,
+          "weight": 11.8,
+          "sector": "红利ETF"
+        },
+        {
+          "symbol": "GLD",
+          "name": "黄金ETF",
+          "shares": 2,
+          "avgCost": 397.27,
+          "currentPrice": 373.63,
+          "marketValue": 747.26,
+          "pnl": -47.28,
+          "pnlPercent": -5.95,
+          "weight": 7.8,
+          "sector": "黄金"
+        }
+      ],
+      "rank": 3,
+      "badge": "bronze"
+    },
+    {
+      "id": "grok",
+      "name": "Grok",
+      "avatar": "GK",
+      "color": "#fb923c",
+      "style": "成长型 · AI 主题集中",
+      "totalAssets": 9517.56,
+      "returnPct": -4.82,
+      "cash": 25.44,
+      "cashPct": 0.3,
+      "holdingsCount": 5,
+      "holdings": [
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 16,
+          "avgCost": 209.41,
+          "currentPrice": 192.53,
+          "marketValue": 3080.48,
+          "pnl": -270.08,
+          "pnlPercent": -8.06,
+          "weight": 32.4,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微软",
+          "shares": 4,
+          "avgCost": 398.82,
+          "currentPrice": 372.97,
+          "marketValue": 1491.88,
+          "pnl": -103.4,
+          "pnlPercent": -6.48,
+          "weight": 15.7,
+          "sector": "软件"
+        },
+        {
+          "symbol": "AAPL",
+          "name": "苹果",
+          "shares": 5,
+          "avgCost": 295.16,
+          "currentPrice": 283.78,
+          "marketValue": 1418.9,
+          "pnl": -56.9,
+          "pnlPercent": -3.86,
+          "weight": 14.9,
+          "sector": "消费电子"
+        },
+        {
+          "symbol": "QQQ",
+          "name": "纳指ETF",
+          "shares": 4,
+          "avgCost": 729.72,
+          "currentPrice": 706.52,
+          "marketValue": 2826.08,
+          "pnl": -92.8,
+          "pnlPercent": -3.18,
+          "weight": 29.7,
+          "sector": "科技ETF"
+        },
+        {
+          "symbol": "GOOGL",
+          "name": "谷歌",
+          "shares": 2,
+          "avgCost": 362.96,
+          "currentPrice": 337.39,
+          "marketValue": 674.78,
+          "pnl": -51.14,
+          "pnlPercent": -7.04,
+          "weight": 7.1,
+          "sector": "互联网"
+        }
+      ],
+      "rank": 4,
+      "badge": null
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "avatar": "CL",
+      "color": "#a78bfa",
+      "style": "均衡型 · 双重对冲",
+      "totalAssets": 9424.09,
+      "returnPct": -5.76,
+      "cash": 1286.39,
+      "cashPct": 13.7,
+      "holdingsCount": 6,
+      "holdings": [
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 8,
+          "avgCost": 211.79,
+          "currentPrice": 192.53,
+          "marketValue": 1540.24,
+          "pnl": -154.08,
+          "pnlPercent": -9.09,
+          "weight": 16.3,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "GOOGL",
+          "name": "谷歌",
+          "shares": 7,
+          "avgCost": 358.89,
+          "currentPrice": 337.39,
+          "marketValue": 2361.73,
+          "pnl": -150.5,
+          "pnlPercent": -5.99,
+          "weight": 25.1,
+          "sector": "互联网"
+        },
+        {
+          "symbol": "XLV",
+          "name": "医疗ETF",
+          "shares": 14,
+          "avgCost": 155.53,
+          "currentPrice": 160.34,
+          "marketValue": 2244.76,
+          "pnl": 67.34,
+          "pnlPercent": 3.09,
+          "weight": 23.8,
+          "sector": "医药"
+        },
+        {
+          "symbol": "V",
+          "name": "Visa",
+          "shares": 4,
+          "avgCost": 328.77,
+          "currentPrice": 336.23,
+          "marketValue": 1344.92,
+          "pnl": 29.84,
+          "pnlPercent": 2.27,
+          "weight": 14.3,
+          "sector": "金融"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微软",
+          "shares": 1,
+          "avgCost": 400.86,
+          "currentPrice": 372.97,
+          "marketValue": 372.97,
+          "pnl": -27.89,
+          "pnlPercent": -6.96,
+          "weight": 4.0,
+          "sector": "软件"
+        },
+        {
+          "symbol": "XOM",
+          "name": "埃克森美孚",
+          "shares": 2,
+          "avgCost": 150.64,
+          "currentPrice": 136.54,
+          "marketValue": 273.08,
+          "pnl": -28.2,
+          "pnlPercent": -9.36,
+          "weight": 2.9,
+          "sector": "能源"
+        }
+      ],
+      "rank": 5,
+      "badge": null
+    },
+    {
+      "id": "serenity",
+      "name": "Serenity",
+      "avatar": "SE",
+      "color": "#2dd4bf",
+      "style": "光互连 · 算力瓶颈集中",
+      "totalAssets": 9267.19,
+      "returnPct": -7.33,
+      "cash": 86.39,
+      "cashPct": 0.9,
+      "holdingsCount": 4,
+      "holdings": [
+        {
+          "symbol": "COHR",
+          "name": "Coherent",
+          "shares": 7,
+          "avgCost": 394.39,
+          "currentPrice": 380.56,
+          "marketValue": 2663.92,
+          "pnl": -96.81,
+          "pnlPercent": -3.51,
+          "weight": 28.7,
+          "sector": "光模块"
+        },
+        {
+          "symbol": "LITE",
+          "name": "Lumentum",
+          "shares": 3,
+          "avgCost": 900.7,
+          "currentPrice": 816.98,
+          "marketValue": 2450.94,
+          "pnl": -251.16,
+          "pnlPercent": -9.29,
+          "weight": 26.4,
+          "sector": "光模块"
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell",
+          "shares": 12,
+          "avgCost": 271.8,
+          "currentPrice": 266.77,
+          "marketValue": 3201.24,
+          "pnl": -60.36,
+          "pnlPercent": -1.85,
+          "weight": 34.5,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "TSM",
+          "name": "台积电",
+          "shares": 2,
+          "avgCost": 462.12,
+          "currentPrice": 432.35,
+          "marketValue": 864.7,
+          "pnl": -59.54,
+          "pnlPercent": -6.44,
+          "weight": 9.3,
+          "sector": "半导体"
+        }
+      ],
+      "rank": 6,
+      "badge": null
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "avatar": "CG",
+      "color": "#4ade80",
+      "style": "成长型 · AI 主线集中",
+      "totalAssets": 8911.88,
+      "returnPct": -10.88,
+      "cash": 148.82,
+      "cashPct": 1.7,
+      "holdingsCount": 9,
+      "holdings": [
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 13,
+          "avgCost": 215.49,
+          "currentPrice": 192.53,
+          "marketValue": 2502.89,
+          "pnl": -298.48,
+          "pnlPercent": -10.65,
+          "weight": 28.1,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "GOOGL",
+          "name": "谷歌",
+          "shares": 5,
+          "avgCost": 363.19,
+          "currentPrice": 337.39,
+          "marketValue": 1686.95,
+          "pnl": -129.0,
+          "pnlPercent": -7.1,
+          "weight": 18.9,
+          "sector": "互联网"
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亚马逊",
+          "shares": 3,
+          "avgCost": 254.77,
+          "currentPrice": 232.69,
+          "marketValue": 698.07,
+          "pnl": -66.24,
+          "pnlPercent": -8.67,
+          "weight": 7.8,
+          "sector": "电商/云"
+        },
+        {
+          "symbol": "QQQ",
+          "name": "纳指ETF",
+          "shares": 1,
+          "avgCost": 710.62,
+          "currentPrice": 706.52,
+          "marketValue": 706.52,
+          "pnl": -4.1,
+          "pnlPercent": -0.58,
+          "weight": 7.9,
+          "sector": "科技ETF"
+        },
+        {
+          "symbol": "META",
+          "name": "Meta",
+          "shares": 2,
+          "avgCost": 606.09,
+          "currentPrice": 550.25,
+          "marketValue": 1100.5,
+          "pnl": -111.68,
+          "pnlPercent": -9.21,
+          "weight": 12.3,
+          "sector": "社交媒体"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微软",
+          "shares": 2,
+          "avgCost": 404.84,
+          "currentPrice": 372.97,
+          "marketValue": 745.94,
+          "pnl": -63.74,
+          "pnlPercent": -7.87,
+          "weight": 8.4,
+          "sector": "软件"
+        },
+        {
+          "symbol": "JPM",
+          "name": "摩根大通",
+          "shares": 1,
+          "avgCost": 324.72,
+          "currentPrice": 329.05,
+          "marketValue": 329.05,
+          "pnl": 4.33,
+          "pnlPercent": 1.33,
+          "weight": 3.7,
+          "sector": "金融"
+        },
+        {
+          "symbol": "V",
+          "name": "Visa",
+          "shares": 2,
+          "avgCost": 326.11,
+          "currentPrice": 336.23,
+          "marketValue": 672.46,
+          "pnl": 20.24,
+          "pnlPercent": 3.1,
+          "weight": 7.5,
+          "sector": "金融"
+        },
+        {
+          "symbol": "XLV",
+          "name": "医疗ETF",
+          "shares": 2,
+          "avgCost": 149.37,
+          "currentPrice": 160.34,
+          "marketValue": 320.68,
+          "pnl": 21.94,
+          "pnlPercent": 7.34,
+          "weight": 3.6,
+          "sector": "医药"
+        }
+      ],
+      "rank": 7,
+      "badge": null
+    },
+    {
+      "id": "gemini-std",
+      "name": "Gemini(标准)",
+      "avatar": "GS",
+      "color": "#38bdf8",
+      "style": "成长型 · 三票极简",
+      "totalAssets": 8856.73,
+      "returnPct": -11.43,
+      "cash": 227.42,
+      "cashPct": 2.6,
+      "holdingsCount": 3,
+      "holdings": [
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 28,
+          "avgCost": 216.86,
+          "currentPrice": 192.53,
+          "marketValue": 5390.84,
+          "pnl": -681.24,
+          "pnlPercent": -11.22,
+          "weight": 60.9,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "QQQ",
+          "name": "纳指ETF",
+          "shares": 3,
+          "avgCost": 746.0,
+          "currentPrice": 706.52,
+          "marketValue": 2119.56,
+          "pnl": -118.44,
+          "pnlPercent": -5.29,
+          "weight": 23.9,
+          "sector": "科技ETF"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微软",
+          "shares": 3,
+          "avgCost": 441.0,
+          "currentPrice": 372.97,
+          "marketValue": 1118.91,
+          "pnl": -204.09,
+          "pnlPercent": -15.43,
+          "weight": 12.6,
+          "sector": "软件"
+        }
+      ],
+      "rank": 8,
+      "badge": null
+    },
+    {
+      "id": "gemini-ext",
+      "name": "Gemini(深度)",
+      "avatar": "GE",
+      "color": "#60a5fa",
+      "style": "成长型 · 行业集中",
+      "totalAssets": 8790.98,
+      "returnPct": -12.09,
+      "cash": 76.45,
+      "cashPct": 0.9,
+      "holdingsCount": 3,
+      "holdings": [
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 27,
+          "avgCost": 212.64,
+          "currentPrice": 192.53,
+          "marketValue": 5198.31,
+          "pnl": -542.97,
+          "pnlPercent": -9.46,
+          "weight": 59.1,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "GOOGL",
+          "name": "谷歌",
+          "shares": 6,
+          "avgCost": 362.0,
+          "currentPrice": 337.39,
+          "marketValue": 2024.34,
+          "pnl": -147.66,
+          "pnlPercent": -6.8,
+          "weight": 23.0,
+          "sector": "互联网"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微软",
+          "shares": 4,
+          "avgCost": 441.0,
+          "currentPrice": 372.97,
+          "marketValue": 1491.88,
+          "pnl": -272.12,
+          "pnlPercent": -15.43,
+          "weight": 17.0,
+          "sector": "软件"
+        }
+      ],
+      "rank": 9,
+      "badge": null
+    },
+    {
+      "id": "qwen",
+      "name": "千问",
+      "avatar": "QW",
+      "color": "#fbbf24",
+      "style": "成长型 · 进攻+防御对冲",
+      "totalAssets": 8468.62,
+      "returnPct": -15.31,
+      "cash": 2372.27,
+      "cashPct": 28.0,
+      "holdingsCount": 6,
+      "holdings": [
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "shares": 6,
+          "avgCost": 210.08,
+          "currentPrice": 192.53,
+          "marketValue": 1155.18,
+          "pnl": -105.3,
+          "pnlPercent": -8.35,
+          "weight": 13.6,
+          "sector": "半导体"
+        },
+        {
+          "symbol": "SCHD",
+          "name": "红利ETF",
+          "shares": 46,
+          "avgCost": 32.29,
+          "currentPrice": 32.09,
+          "marketValue": 1476.14,
+          "pnl": -9.2,
+          "pnlPercent": -0.62,
+          "weight": 17.4,
+          "sector": "红利ETF"
+        },
+        {
+          "symbol": "V",
+          "name": "Visa",
+          "shares": 4,
+          "avgCost": 320.0,
+          "currentPrice": 336.23,
+          "marketValue": 1344.92,
+          "pnl": 64.92,
+          "pnlPercent": 5.07,
+          "weight": 15.9,
+          "sector": "金融"
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亚马逊",
+          "shares": 3,
+          "avgCost": 256.52,
+          "currentPrice": 232.69,
+          "marketValue": 698.07,
+          "pnl": -71.49,
+          "pnlPercent": -9.29,
+          "weight": 8.2,
+          "sector": "电商/云"
+        },
+        {
+          "symbol": "GLD",
+          "name": "黄金ETF",
+          "shares": 2,
+          "avgCost": 420.0,
+          "currentPrice": 373.63,
+          "marketValue": 747.26,
+          "pnl": -92.74,
+          "pnlPercent": -11.04,
+          "weight": 8.8,
+          "sector": "黄金"
+        },
+        {
+          "symbol": "GOOGL",
+          "name": "谷歌",
+          "shares": 2,
+          "avgCost": 368.4,
+          "currentPrice": 337.39,
+          "marketValue": 674.78,
+          "pnl": -62.02,
+          "pnlPercent": -8.42,
+          "weight": 8.0,
+          "sector": "互联网"
+        }
+      ],
+      "rank": 10,
+      "badge": null
+    }
+  ],
+  "performanceHistory": [
+    {
+      "date": "06-03",
+      "chatgpt": 0.0,
+      "gemini-ext": 0.0,
+      "gemini-std": 0.0,
+      "claude": 0.0,
+      "grok": 0.0,
+      "doubao": 0.0,
+      "qwen": 0.0,
+      "serenity": 0.0,
+      "beth-kindig": 0.0,
+      "cathie-wood": 0.0
+    },
+    {
+      "date": "06-04",
+      "chatgpt": -3.39,
+      "gemini-ext": -0.31,
+      "gemini-std": -1.82,
+      "claude": -0.03,
+      "grok": -1.48,
+      "doubao": -1.48,
+      "qwen": 0.06,
+      "serenity": -0.2,
+      "beth-kindig": -1.44,
+      "cathie-wood": -0.16
+    },
+    {
+      "date": "06-05",
+      "chatgpt": -3.31,
+      "gemini-ext": -1.98,
+      "gemini-std": -3.56,
+      "claude": -0.5,
+      "grok": -2.75,
+      "doubao": -1.53,
+      "qwen": -9.97,
+      "serenity": -2.04,
+      "beth-kindig": -3.25,
+      "cathie-wood": -0.7
+    },
+    {
+      "date": "06-08",
+      "chatgpt": -5.46,
+      "gemini-ext": -4.61,
+      "gemini-std": -6.16,
+      "claude": -1.59,
+      "grok": -5.17,
+      "doubao": -2.89,
+      "qwen": -11.76,
+      "serenity": -6.38,
+      "beth-kindig": -6.13,
+      "cathie-wood": -4.27
+    },
+    {
+      "date": "06-09",
+      "chatgpt": -5.83,
+      "gemini-ext": -3.76,
+      "gemini-std": -5.23,
+      "claude": -1.86,
+      "grok": -4.79,
+      "doubao": -2.56,
+      "qwen": -12.71,
+      "serenity": -2.05,
+      "beth-kindig": -6.22,
+      "cathie-wood": -1.78
+    },
+    {
+      "date": "06-10",
+      "chatgpt": -6.14,
+      "gemini-ext": -5.27,
+      "gemini-std": -6.07,
+      "claude": -2.44,
+      "grok": -6.05,
+      "doubao": -2.8,
+      "qwen": -12.88,
+      "serenity": -9.96,
+      "beth-kindig": -7.13,
+      "cathie-wood": -3.0
+    },
+    {
+      "date": "06-11",
+      "claude": -3.78,
+      "doubao": -3.47,
+      "cathie-wood": -1.47,
+      "gemini-ext": -7.32,
+      "grok": -6.45,
+      "gemini-std": -7.14,
+      "chatgpt": -7.75,
+      "beth-kindig": -9.3,
+      "serenity": -5.35,
+      "qwen": -13.77
+    },
+    {
+      "date": "06-12",
+      "cathie-wood": -2.87,
+      "doubao": -3.02,
+      "claude": -3.57,
+      "serenity": -2.35,
+      "grok": -6.41,
+      "gemini-std": -6.91,
+      "gemini-ext": -7.08,
+      "chatgpt": -7.58,
+      "beth-kindig": -8.0,
+      "qwen": -13.56
+    },
+    {
+      "date": "06-15",
+      "serenity": -2.35,
+      "cathie-wood": -2.87,
+      "doubao": -3.02,
+      "claude": -3.57,
+      "grok": -6.41,
+      "gemini-std": -6.91,
+      "gemini-ext": -7.08,
+      "chatgpt": -7.62,
+      "beth-kindig": -8.0,
+      "qwen": -13.56
+    },
+    {
+      "date": "06-17",
+      "beth-kindig": 3.32,
+      "cathie-wood": 3.09,
+      "grok": 0.81,
+      "claude": -1.86,
+      "doubao": -2.59,
+      "serenity": -4.06,
+      "chatgpt": -5.05,
+      "gemini-ext": -5.36,
+      "gemini-std": -5.94,
+      "qwen": -12.64
+    },
+    {
+      "date": "06-19",
+      "beth-kindig": 9.06,
+      "cathie-wood": 3.61,
+      "grok": 0.99,
+      "serenity": -0.87,
+      "claude": -3.13,
+      "doubao": -3.72,
+      "gemini-ext": -4.91,
+      "gemini-std": -5.16,
+      "chatgpt": -6.01,
+      "qwen": -13.25
+    },
+    {
+      "date": "06-22",
+      "beth-kindig": 8.84,
+      "cathie-wood": 3.72,
+      "grok": 0.99,
+      "serenity": -0.87,
+      "claude": -3.27,
+      "doubao": -3.72,
+      "gemini-ext": -5.09,
+      "gemini-std": -5.16,
+      "chatgpt": -5.86,
+      "qwen": -13.25
+    },
+    {
+      "date": "06-23",
+      "beth-kindig": 10.44,
+      "cathie-wood": 5.52,
+      "grok": 1.32,
+      "serenity": 0.19,
+      "doubao": -3.45,
+      "claude": -3.76,
+      "gemini-std": -4.48,
+      "gemini-ext": -5.37,
+      "chatgpt": -6.4,
+      "qwen": -13.27
+    },
+    {
+      "date": "06-24",
+      "beth-kindig": 3.42,
+      "cathie-wood": -0.15,
+      "grok": -2.6,
+      "doubao": -4.61,
+      "claude": -5.26,
+      "serenity": -5.47,
+      "gemini-std": -9.09,
+      "chatgpt": -9.28,
+      "gemini-ext": -9.5,
+      "qwen": -14.91
+    },
+    {
+      "date": "06-25",
+      "beth-kindig": 3.51,
+      "cathie-wood": -0.45,
+      "grok": -3.3,
+      "serenity": -4.36,
+      "doubao": -5.19,
+      "claude": -5.29,
+      "chatgpt": -9.64,
+      "gemini-std": -9.72,
+      "gemini-ext": -10.17,
+      "qwen": -15.2
+    },
+    {
+      "date": "06-26",
+      "beth-kindig": 1.44,
+      "cathie-wood": -2.17,
+      "serenity": -2.32,
+      "grok": -5.03,
+      "doubao": -5.38,
+      "claude": -5.76,
+      "chatgpt": -10.76,
+      "gemini-std": -10.84,
+      "gemini-ext": -11.65,
+      "qwen": -15.54
+    },
+    {
+      "date": "06-29",
+      "cathie-wood": -0.64,
+      "beth-kindig": -2.04,
+      "doubao": -4.59,
+      "grok": -4.82,
+      "claude": -5.76,
+      "serenity": -7.33,
+      "chatgpt": -10.88,
+      "gemini-std": -11.43,
+      "gemini-ext": -12.09,
+      "qwen": -15.31
+    }
+  ],
+  "dailyReturns": [
+    {
+      "date": "2026-06-03",
+      "returns": {
+        "chatgpt": 0.0,
+        "gemini-ext": 0.0,
+        "gemini-std": 0.0,
+        "claude": 0.0,
+        "grok": 0.0,
+        "doubao": 0.0,
+        "qwen": 0.0,
+        "serenity": 0.0,
+        "beth-kindig": 0.0,
+        "cathie-wood": 0.0
+      }
+    },
+    {
+      "date": "2026-06-04",
+      "returns": {
+        "chatgpt": -3.39,
+        "gemini-ext": -0.31,
+        "gemini-std": -1.82,
+        "claude": -0.03,
+        "grok": -1.48,
+        "doubao": -1.48,
+        "qwen": 0.06,
+        "serenity": -0.2,
+        "beth-kindig": -1.44,
+        "cathie-wood": -0.16
+      }
+    },
+    {
+      "date": "2026-06-05",
+      "returns": {
+        "chatgpt": -3.31,
+        "gemini-ext": -1.98,
+        "gemini-std": -3.56,
+        "claude": -0.5,
+        "grok": -2.75,
+        "doubao": -1.53,
+        "qwen": -9.97,
+        "serenity": -2.04,
+        "beth-kindig": -3.25,
+        "cathie-wood": -0.7
+      }
+    },
+    {
+      "date": "2026-06-08",
+      "returns": {
+        "chatgpt": -5.46,
+        "gemini-ext": -4.61,
+        "gemini-std": -6.16,
+        "claude": -1.59,
+        "grok": -5.17,
+        "doubao": -2.89,
+        "qwen": -11.76,
+        "serenity": -6.38,
+        "beth-kindig": -6.13,
+        "cathie-wood": -4.27
+      }
+    },
+    {
+      "date": "2026-06-09",
+      "returns": {
+        "chatgpt": -5.83,
+        "gemini-ext": -3.76,
+        "gemini-std": -5.23,
+        "claude": -1.86,
+        "grok": -4.79,
+        "doubao": -2.56,
+        "qwen": -12.71,
+        "serenity": -2.05,
+        "beth-kindig": -6.22,
+        "cathie-wood": -1.78
+      }
+    },
+    {
+      "date": "2026-06-10",
+      "returns": {
+        "chatgpt": -6.14,
+        "gemini-ext": -5.27,
+        "gemini-std": -6.07,
+        "claude": -2.44,
+        "grok": -6.05,
+        "doubao": -2.8,
+        "qwen": -12.88,
+        "serenity": -9.96,
+        "beth-kindig": -7.13,
+        "cathie-wood": -3.0
+      }
+    },
+    {
+      "date": "2026-06-11",
+      "returns": {
+        "claude": -3.78,
+        "doubao": -3.47,
+        "cathie-wood": -1.47,
+        "gemini-ext": -7.32,
+        "grok": -6.45,
+        "gemini-std": -7.14,
+        "chatgpt": -7.75,
+        "beth-kindig": -9.3,
+        "serenity": -5.35,
+        "qwen": -1.02
+      }
+    },
+    {
+      "date": "2026-06-12",
+      "returns": {
+        "cathie-wood": -1.4,
+        "doubao": 0.45,
+        "claude": 0.21,
+        "serenity": 3.0,
+        "grok": 0.04,
+        "gemini-std": 0.23,
+        "gemini-ext": 0.24,
+        "chatgpt": 0.17,
+        "beth-kindig": 1.3,
+        "qwen": 0.21
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "returns": {
+        "serenity": 0.0,
+        "cathie-wood": 0.0,
+        "doubao": 0.0,
+        "claude": 0.0,
+        "grok": 0.0,
+        "gemini-std": 0.0,
+        "gemini-ext": 0.0,
+        "chatgpt": -0.04,
+        "beth-kindig": 0.0,
+        "qwen": 0.0
+      }
+    },
+    {
+      "date": "2026-06-17",
+      "returns": {
+        "beth-kindig": 3.32,
+        "cathie-wood": 3.09,
+        "grok": 0.81,
+        "claude": -1.86,
+        "doubao": -2.59,
+        "serenity": -4.06,
+        "chatgpt": -5.05,
+        "gemini-ext": -5.36,
+        "gemini-std": -5.94,
+        "qwen": -12.64
+      }
+    },
+    {
+      "date": "2026-06-19",
+      "returns": {
+        "beth-kindig": 9.06,
+        "cathie-wood": 3.61,
+        "grok": 0.99,
+        "serenity": -0.87,
+        "claude": -3.13,
+        "doubao": -3.72,
+        "gemini-ext": -4.91,
+        "gemini-std": -5.16,
+        "chatgpt": -6.01,
+        "qwen": -13.25
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "returns": {
+        "beth-kindig": 8.84,
+        "cathie-wood": 3.72,
+        "grok": 0.99,
+        "serenity": -0.87,
+        "claude": -3.27,
+        "doubao": -3.72,
+        "gemini-ext": -5.09,
+        "gemini-std": -5.16,
+        "chatgpt": -5.86,
+        "qwen": -13.25
+      }
+    },
+    {
+      "date": "2026-06-23",
+      "returns": {
+        "beth-kindig": 10.44,
+        "cathie-wood": 5.52,
+        "grok": 1.32,
+        "serenity": 0.19,
+        "doubao": -3.45,
+        "claude": -3.76,
+        "gemini-std": -4.48,
+        "gemini-ext": -5.37,
+        "chatgpt": -6.4,
+        "qwen": -13.27
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "returns": {
+        "beth-kindig": 3.42,
+        "cathie-wood": -0.15,
+        "grok": -2.6,
+        "doubao": -4.61,
+        "claude": -5.26,
+        "serenity": -5.47,
+        "gemini-std": -9.09,
+        "chatgpt": -9.28,
+        "gemini-ext": -9.5,
+        "qwen": -14.91
+      }
+    },
+    {
+      "date": "2026-06-25",
+      "returns": {
+        "beth-kindig": 3.51,
+        "cathie-wood": -0.45,
+        "grok": -3.3,
+        "serenity": -4.36,
+        "doubao": -5.19,
+        "claude": -5.29,
+        "chatgpt": -9.64,
+        "gemini-std": -9.72,
+        "gemini-ext": -10.17,
+        "qwen": -15.2
+      }
+    },
+    {
+      "date": "2026-06-26",
+      "returns": {
+        "beth-kindig": 1.44,
+        "cathie-wood": -2.17,
+        "serenity": -2.32,
+        "grok": -5.03,
+        "doubao": -5.38,
+        "claude": -5.76,
+        "chatgpt": -10.76,
+        "gemini-std": -10.84,
+        "gemini-ext": -11.65,
+        "qwen": -15.54
+      }
+    },
+    {
+      "date": "2026-06-29",
+      "returns": {
+        "cathie-wood": -0.64,
+        "beth-kindig": -2.04,
+        "doubao": -4.59,
+        "grok": -4.82,
+        "claude": -5.76,
+        "serenity": -7.33,
+        "chatgpt": -10.88,
+        "gemini-std": -11.43,
+        "gemini-ext": -12.09,
+        "qwen": -15.31
+      }
+    }
+  ]
+}
