@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "chatgpt",
+  "agent_name": "ChatGPT",
+  "date": "2026-07-16",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "SELL",
+      "symbol": "NVDA",
+      "shares": 1,
+      "price": 212.5,
+      "rationale": "降低单一芯片持仓风险，资金轮动至大型科技"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 8,
+      "price": 370.92,
+      "rationale": "AI应用端继续受益"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 1,
+      "price": 717.74,
+      "rationale": "保留科技指数配置"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "META",
+      "shares": 1,
+      "price": 681.31,
+      "rationale": "AI广告变现持续"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AMZN",
+      "shares": 3,
+      "price": 254.96,
+      "rationale": "AWS仍受益AI投入"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "V",
+      "shares": 3,
+      "price": 355.14,
+      "rationale": "高质量现金流"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 395.63,
+      "rationale": "企业AI核心资产"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 7,
+      "avg_cost": 214.02
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 8,
+      "avg_cost": 360.32
+    },
+    {
+      "symbol": "AMZN",
+      "shares": 3,
+      "avg_cost": 254.77
+    },
+    {
+      "symbol": "META",
+      "shares": 1,
+      "avg_cost": 606.09
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 396.32
+    },
+    {
+      "symbol": "V",
+      "shares": 3,
+      "avg_cost": 333.73
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 1,
+      "avg_cost": 711.74
+    }
+  ],
+  "cash_after": 349.74,
+  "total_assets_after": 9616.47,
+  "return_pct_cumulative": -3.84,
+  "summary": "AI主线未结束但风格从半导体轮动至大型科技+银行。TSMC财报超预期未带动芯片，市场担忧AI CapEx回报，继续降芯片集中度，减NVDA 1股。原拟买入MSFT因现金不足未执行。",
+  "confidence": "medium",
+  "strongest_bear_case": "若AI硬件重回强势，持续减NVDA会踏空芯片行情。"
+}

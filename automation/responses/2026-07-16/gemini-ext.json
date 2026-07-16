@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-ext",
+  "agent_name": "Gemini(深度)",
+  "date": "2026-07-16",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 27,
+      "price": 212.5,
+      "rationale": "算力龙头小幅整固"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "GOOGL",
+      "shares": 6,
+      "price": 370.92,
+      "rationale": "AI应用长线逻辑"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 4,
+      "price": 395.63,
+      "rationale": "软件云生态"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 27,
+      "avg_cost": 212.64
+    },
+    {
+      "symbol": "GOOGL",
+      "shares": 6,
+      "avg_cost": 362.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 4,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 76.45,
+  "total_assets_after": 9621.99,
+  "return_pct_cumulative": -3.78,
+  "summary": "财报季前夕科技股缩量回调，核心AI标的基本面无实质利空。可用现金$76.45不足整股买入，继续全仓HOLD锁定筹码。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA集中敞口高，若财报季AI变现审查趋严回撤放大。"
+}

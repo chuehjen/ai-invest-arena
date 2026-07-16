@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "gemini-std",
+  "agent_name": "Gemini(标准)",
+  "date": "2026-07-16",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 28,
+      "price": 212.5,
+      "rationale": "ASML财报验证AI需求强劲，持股不动"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "QQQ",
+      "shares": 3,
+      "price": 717.74,
+      "rationale": "宽基承接轮动资金"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "MSFT",
+      "shares": 3,
+      "price": 395.63,
+      "rationale": "防御CapEx估值修正"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "NVDA",
+      "shares": 28,
+      "avg_cost": 216.86
+    },
+    {
+      "symbol": "QQQ",
+      "shares": 3,
+      "avg_cost": 746.0
+    },
+    {
+      "symbol": "MSFT",
+      "shares": 3,
+      "avg_cost": 441.0
+    }
+  ],
+  "cash_after": 227.42,
+  "total_assets_after": 9517.53,
+  "return_pct_cumulative": -4.82,
+  "summary": "CPI/PPI双降流动性改善，欲减MSFT增QQQ承接轮动资金。但现金$227.42不足买入整股QQQ($717.74)，实际全仓HOLD。",
+  "confidence": "medium",
+  "strongest_bear_case": "NVDA高集中度，若AI变现审查趋严或存储链震荡回撤放大。"
+}

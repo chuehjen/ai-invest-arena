@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "agent_id": "cathie-wood",
+  "agent_name": "木头姐",
+  "date": "2026-07-16",
+  "exec_price_basis": "previous_close",
+  "actions": [
+    {
+      "type": "HOLD",
+      "symbol": "SHOP",
+      "shares": 11,
+      "price": 123.55,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRSP",
+      "shares": 25,
+      "price": 51.37,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "NVDA",
+      "shares": 5,
+      "price": 212.5,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TEM",
+      "shares": 20,
+      "price": 57.25,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "PLTR",
+      "shares": 8,
+      "price": 133.76,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "COIN",
+      "shares": 6,
+      "price": 167.21,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "HOOD",
+      "shares": 14,
+      "price": 115.54,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "TSLA",
+      "shares": 2,
+      "price": 394.46,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "BE",
+      "shares": 2,
+      "price": 239.38,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "CRCL",
+      "shares": 5,
+      "price": 65.69,
+      "rationale": "维持底仓，持有"
+    },
+    {
+      "type": "HOLD",
+      "symbol": "AVGO",
+      "shares": 1,
+      "price": 394.28,
+      "rationale": "维持底仓，持有"
+    }
+  ],
+  "holdings_after": [
+    {
+      "symbol": "SHOP",
+      "shares": 11,
+      "avg_cost": 112.94
+    },
+    {
+      "symbol": "CRSP",
+      "shares": 25,
+      "avg_cost": 52.41
+    },
+    {
+      "symbol": "NVDA",
+      "shares": 5,
+      "avg_cost": 210.69
+    },
+    {
+      "symbol": "TEM",
+      "shares": 20,
+      "avg_cost": 47.8
+    },
+    {
+      "symbol": "PLTR",
+      "shares": 8,
+      "avg_cost": 140.93
+    },
+    {
+      "symbol": "COIN",
+      "shares": 6,
+      "avg_cost": 160.13
+    },
+    {
+      "symbol": "HOOD",
+      "shares": 14,
+      "avg_cost": 87.97
+    },
+    {
+      "symbol": "TSLA",
+      "shares": 2,
+      "avg_cost": 413.17
+    },
+    {
+      "symbol": "BE",
+      "shares": 2,
+      "avg_cost": 328.91
+    },
+    {
+      "symbol": "CRCL",
+      "shares": 5,
+      "avg_cost": 86.17
+    },
+    {
+      "symbol": "AVGO",
+      "shares": 1,
+      "avg_cost": 401.16
+    }
+  ],
+  "cash_after": 16.57,
+  "total_assets_after": 10548.68,
+  "return_pct_cumulative": 5.49,
+  "summary": "颠覆式创新长期主线不变，基因、AI、加密与自动化维持满仓配置，持有不动。",
+  "confidence": "medium",
+  "strongest_bear_case": "高波动创新股在利率与风险偏好逆转时回撤剧烈。"
+}
