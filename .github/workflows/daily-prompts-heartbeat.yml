@@ -13,9 +13,11 @@
 name: Daily Prompts Heartbeat
 
 on:
-  schedule:
-    - cron: '30 23 * * 0-4'  # CST 07:30（NY 前日 19:30 EDT / 18:30 EST）
-    - cron: '0 0 * * 1-5'    # CST 08:00
+  # 项目已收官（Day30, 2026-07-16 收尾），停用定时兜底触发。
+  # 如需复活，取消下面 schedule 的注释即可。
+  # schedule:
+  #   - cron: '30 23 * * 0-4'  # CST 07:30（NY 前日 19:30 EDT / 18:30 EST）
+  #   - cron: '0 0 * * 1-5'    # CST 08:00
   workflow_dispatch:
 
 permissions:
